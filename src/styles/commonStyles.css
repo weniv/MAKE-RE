@@ -148,3 +148,8 @@ input[type='radio'] {
     --s: 0.5;
   }
 }
+
+/* 플레이스홀더 색상 */
+*::placeholder {
+  color: var(--placeholder-color);
+}
