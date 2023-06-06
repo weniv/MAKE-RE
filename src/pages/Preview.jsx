@@ -1,5 +1,11 @@
+import Profile from '../components/Profile/ProfileOutput'
+
 function Preview() {
-  return <main>미리보기 페이지입니다.</main>
+  return (
+    <main>
+      <Profile />
+    </main>
+  )
 }
 
 export default Preview
