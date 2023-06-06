@@ -1,6 +1,4 @@
 .introInput {
-  /* resetcss 넣으면 지우기 */
-  box-sizing: border-box;
   width: 810px;
   height: 170px;
   background: #ffffff;
