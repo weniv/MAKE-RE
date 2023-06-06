@@ -1,0 +1,30 @@
+.skillsSection {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.skillsTitle {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--main-color);
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skillList li {
+  height: 32px;
+  padding: 0 14px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  color: var(--main-color);
+  border-radius: 100px;
+  border: 2px solid rgba(47, 128, 237, 0.3);
+}
