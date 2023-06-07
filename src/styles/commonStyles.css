@@ -3,6 +3,7 @@
   /* 타이틀, hover, line */
   --main-color: #2f80ed;
   --background-color: #ffffff;
+  --input-fill-color: #f2f2f2;
   /* 요소 추가 버튼 */
   --addButton-color: #f96167;
   --text-color: #000000;
@@ -18,7 +19,7 @@ h2 {
   font-size: 18px;
   line-height: 26px;
   color: var(--main-color);
-  border-bottom: 1px solid var(--main-color);
+  border-bottom: 1.4px solid var(--main-color);
 }
 
 /* prev 페이지와 write페이지 규격 */
@@ -36,6 +37,7 @@ main {
   text-underline-position: under;
   text-decoration-skip-ink: none;
   color: var(--addButton-color);
+  margin-top: 10px;
 }
 
 /* radio, checkbox 버튼 */
@@ -151,7 +153,31 @@ input[type='radio'] {
   }
 }
 
+/* 기본 스타일 적용 */
+input {
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+}
+
 /* 플레이스홀더 색상 */
 *::placeholder {
   color: var(--placeholder-color);
+}
+
+/* 클래스 */
+.inputDescription {
+  font-size: 14px;
+  font-weight: 700;
 }
