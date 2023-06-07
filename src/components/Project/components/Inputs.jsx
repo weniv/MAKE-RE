@@ -12,7 +12,7 @@ export default function Inputs() {
       <ProjectAlign />
       <div className={styles.cont}>
         <ProjectHeader />
-        <form>
+        <form className={styles.inputWrap}>
           <ProjectTitle />
           <ProjectOutline />
           <ProjectDetail />
@@ -49,7 +49,7 @@ const ProjectHeader = () => {
 const ProjectTitle = () => {
   return (
     <div className={styles.projectTitle}>
-      <h4>프로젝트명 입력</h4>
+      <h4 className="inputDescription">프로젝트명 입력</h4>
       <input type="text" placeholder="프로젝트명 입력" />
     </div>
   )
@@ -58,8 +58,8 @@ const ProjectTitle = () => {
 const ProjectOutline = () => {
   return (
     <>
-      <h3>프로젝트 개요</h3>
-      <textarea placeholder="본문 내용 입력"></textarea>
+      <h3 className={styles.subTitle}>프로젝트 개요</h3>
+      <textarea className="oulineText" placeholder="본문 내용 입력"></textarea>
     </>
   )
 }
@@ -67,7 +67,7 @@ const ProjectOutline = () => {
 const People = () => {
   return (
     <div className={styles.peple}>
-      <h4>인원</h4>
+      <h4 className="inputDescription">인원</h4>
       <input type="text" placeholder="예) Front-End 4명, Back-End 2명" />
     </div>
   )
@@ -76,7 +76,7 @@ const People = () => {
 const Period = () => {
   return (
     <div className={styles.period}>
-      <h4>기간</h4>
+      <h4 className="inputDescription">기간</h4>
       <div>
         <input type="text" placeholder="YYYY" className={styles.year} />
         <input type="text" placeholder="MM" className={styles.month} />
@@ -91,7 +91,7 @@ const Period = () => {
 const ProjectDetail = () => {
   return (
     <>
-      <h3>개발 인원 및 기간</h3>
+      <h3 className={styles.subTitle}>개발 인원 및 기간</h3>
       <People />
       <Period />
     </>
@@ -101,7 +101,7 @@ const ProjectDetail = () => {
 const ProjectContribution = () => {
   return (
     <>
-      <h3>기여 부분</h3>
+      <h3 className={styles.subTitle}>기여 부분</h3>
       <div className={styles.contribution}>
         <input
           type="text"
@@ -118,7 +118,7 @@ const ProjectContribution = () => {
 const ProjectSkill = () => {
   return (
     <>
-      <h3>적용 기술</h3>
+      <h3 className={styles.subTitle}>적용 기술</h3>
       <div className={styles.skill}>
         <input type="text" placeholder="예) Java" />
         <button type="button" className="skillBtn ">
@@ -132,7 +132,7 @@ const ProjectSkill = () => {
 const GithubLink = () => {
   return (
     <>
-      <h3>깃허브 링크</h3>
+      <h3 className={styles.subTitle}>깃허브 링크</h3>
       <div className={styles.github}>
         <img src="" alt="" />
         <input type="url" />
@@ -144,7 +144,7 @@ const GithubLink = () => {
 const DeployLink = () => {
   return (
     <>
-      <h3>프로젝트 링크</h3>
+      <h3 className={styles.subTitle}>프로젝트 링크</h3>
       <div className={styles.deploy}>
         <img src="" alt="" />
         <input type="url" />

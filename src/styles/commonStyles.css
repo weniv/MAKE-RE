@@ -150,3 +150,31 @@ input[type='radio'] {
     --s: 0.5;
   }
 }
+
+/* 기본 스타일 적용 */
+input {
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--placeholder-color);
+}
+
+.inputDescription {
+  font-size: 14px;
+  font-weight: 700;
+}

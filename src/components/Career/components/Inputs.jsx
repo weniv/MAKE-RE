@@ -20,7 +20,7 @@ export default function Inputs() {
 const Period = () => {
   return (
     <div className={styles.deploy}>
-      <h4>기간</h4>
+      <h4 className="inputDescription">기간</h4>
       <input type="text" placeholder="예) 2019. 01. 01 ~ 2019. 01. 03" />
     </div>
   )
@@ -29,7 +29,7 @@ const Period = () => {
 const Company = () => {
   return (
     <div className={styles.company}>
-      <h4>회사명</h4>
+      <h4 className="inputDescription">회사명</h4>
       <input type="text" placeholder="예) 네이버 (NAVER) " />
     </div>
   )
