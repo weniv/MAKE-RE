@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './experienceResult.module.css'
+import styles from './experience.module.css'
 
-export default function ExperienceResult() {
+export default function ExperienceOutput() {
   return (
     <section className={styles.exp}>
       <h3 className={styles.title}>Experience</h3>

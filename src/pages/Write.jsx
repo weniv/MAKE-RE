@@ -1,8 +1,7 @@
 // import Profile from '../components/Profile/Profile'
 // import Intro from '../components/Intro/Intro'
 // import Skills from '../components/Skills/Skills'
-
-import Experience from '../components/Experience/Experience'
+import ExperienceInput from '../components/Experience/ExperienceInput'
 
 function Write() {
   return (
@@ -10,7 +9,7 @@ function Write() {
       {/* <Profile />
       <Intro />
       <Skills /> */}
-      <Experience />
+      <ExperienceInput />
     </main>
   )
 }
