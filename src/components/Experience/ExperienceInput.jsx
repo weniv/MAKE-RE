@@ -32,7 +32,7 @@ export default function ExperienceInput() {
 
   return (
     <section className={styles.exp}>
-      <h3 className={styles.title}>Experience</h3>
+      <h2>Experience</h2>
       {experience &&
         experience.map((exp, i) => (
           <ExpContent
@@ -42,7 +42,7 @@ export default function ExperienceInput() {
             handleUpdate={handleUpdate}
           />
         ))}
-      <button className={styles.btn_add} onClick={handleAdd}>
+      <button className={`skillBtn ${styles.btnAdd}`} onClick={handleAdd}>
         +) 추가 입력하기
       </button>
     </section>
@@ -76,9 +76,9 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
   }
 
   return (
-    <div className={styles.cont_contents} ref={dropdownRef}>
-      <div className={styles.cont_year}>
-        <button className={styles.btn_year} onClick={handleOpen}>
+    <div className={styles.contContents} ref={dropdownRef}>
+      <div className={styles.contYear}>
+        <button className={styles.btnYear} onClick={handleOpen}>
           {exp.year ? exp.year : '연도'}
           {isOpen ? (
             <img src="/images/polygon-up-icon.svg" alt="" />
@@ -87,7 +87,7 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
           )}
         </button>
         {isOpen && (
-          <ul className={styles.list_year}>
+          <ul className={styles.listYear}>
             {YearList().map((v, i) => {
               return (
                 <li key={i} onClick={() => handleItemClick(v)}>
@@ -99,12 +99,12 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
         )}
       </div>
       <input
-        className={styles.inp_item}
+        className={styles.inpItem}
         type="text"
         placeholder="예) ICT 해외봉사"
         onChange={(e) => handleUpdate(exp.id, 'contents', e.target.value)}
       />
-      <button className={styles.btn_del}>
+      <button className={styles.btnDel}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
