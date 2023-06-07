@@ -19,12 +19,28 @@ export default function ExperienceInput() {
     setExperience(experience.filter((exp) => exp.id !== id))
   }
 
+  function handleUpdate(id, name, value) {
+    // const { name, value } = event.target
+    setExperience(
+      experience.map((exp) => (exp.id === id ? { ...exp, [name]: value } : exp))
+    )
+  }
+
+  useEffect(() => {
+    console.log(JSON.stringify(experience))
+  }, [experience])
+
   return (
     <section className={styles.exp}>
       <h3 className={styles.title}>Experience</h3>
       {experience &&
         experience.map((exp, i) => (
-          <ExpContent key={exp.id} exp={exp} handleDelete={handleDelete} />
+          <ExpContent
+            key={exp.id}
+            exp={exp}
+            handleDelete={handleDelete}
+            handleUpdate={handleUpdate}
+          />
         ))}
       <button className={styles.btn_add} onClick={handleAdd}>
         +) 추가 입력하기
@@ -33,10 +49,9 @@ export default function ExperienceInput() {
   )
 }
 
-function ExpContent({ exp, handleDelete }) {
+function ExpContent({ exp, handleDelete, handleUpdate }) {
   const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState(exp.year)
-
+  const inpRef = useRef(null)
   const dropdownRef = useRef(null)
 
   useEffect(() => {
@@ -52,7 +67,7 @@ function ExpContent({ exp, handleDelete }) {
   }, [])
 
   const handleItemClick = (item) => {
-    setSelected(item)
+    handleUpdate(exp.id, 'year', item)
     setIsOpen(false)
   }
 
@@ -64,7 +79,7 @@ function ExpContent({ exp, handleDelete }) {
     <div className={styles.cont_contents} ref={dropdownRef}>
       <div className={styles.cont_year}>
         <button className={styles.btn_year} onClick={handleOpen}>
-          {selected ? selected : '연도'}
+          {exp.year ? exp.year : '연도'}
           {isOpen ? (
             <img src="/images/polygon-up-icon.svg" alt="" />
           ) : (
@@ -87,6 +102,7 @@ function ExpContent({ exp, handleDelete }) {
         className={styles.inp_item}
         type="text"
         placeholder="예) ICT 해외봉사"
+        onChange={(e) => handleUpdate(exp.id, 'contents', e.target.value)}
       />
       <button className={styles.btn_del}>
         <img
