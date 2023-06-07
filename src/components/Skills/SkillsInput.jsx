@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import styles from './SkillsInput.module.css'
 
 function SkillsInput() {
+  const [skillCount, setSkillCount] = useState([''])
+
+  const addBtnHandler = () => {
+    setSkillCount([...skillCount, ''])
+  }
+
   return (
     <section>
       <h2>Skills</h2>
@@ -10,9 +17,13 @@ function SkillsInput() {
           type="text"
           placeholder="예) JavaScript"
         />
-        <input className={styles.skillInput} type="text" />
+        {skillCount.map((item, idx) => {
+          return <input className={styles.skillInput} type="text" key={idx} />
+        })}
       </div>
-      <button className={styles.skillBtn}>+) 추가 입력하기</button>
+      <button className={styles.skillBtn} onClick={addBtnHandler}>
+        +) 추가 입력하기
+      </button>
     </section>
   )
 }
