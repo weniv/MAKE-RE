@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.contentCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  margin: 10px 0 10px 10px;
+}
+
+.yearCont {
+  position: relative;
+  border-right: 1px solid var(--border-color);
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.yearBtn {
+  padding: 9px 11px;
+  width: 108px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.yearBtn img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+}
+
+.contentInput {
+  border: none;
+  font-size: 14px;
+  flex-grow: 1;
+  padding: 10px 12px;
+}
+
+.addBtn {
+  margin-left: 10px;
+}
+
+.deleteBtn {
+  padding: 10px;
+}
+
+.deleteBtn img {
+  display: block;
+  width: 16px;
+  height: 20px;
+}
