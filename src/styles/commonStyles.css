@@ -10,7 +10,7 @@
   --placeholder-color: #bdbdbd;
 }
 
-/* 각 섹션 타이틀 */
+/* 각 섹션 타이틀(작성페이지) */
 h2 {
   margin: 40px 0 26px;
   padding-bottom: 10px;
@@ -149,4 +149,9 @@ input[type='radio'] {
   &:checked {
     --s: 0.5;
   }
+}
+
+/* 플레이스홀더 색상 */
+*::placeholder {
+  color: var(--placeholder-color);
 }

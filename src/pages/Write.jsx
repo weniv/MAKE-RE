@@ -1,15 +1,15 @@
-// import Profile from '../components/Profile/Profile'
-// import Intro from '../components/Intro/Intro'
-// import Skills from '../components/Skills/Skills'
-import ExperienceInput from '../components/Experience/ExperienceInput'
+import Profile from '../components/Profile/ProfileInput'
+import Intro from '../components/Intro/IntroInput'
+import Skills from '../components/Skills/SkillsInput'
+import Experience from '../components/Experience/ExperienceInput'
 
 function Write() {
   return (
     <main>
-      {/* <Profile />
+      <Profile />
       <Intro />
-      <Skills /> */}
-      <ExperienceInput />
+      <Skills />
+      <Experience />
     </main>
   )
 }

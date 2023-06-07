@@ -1,10 +1,15 @@
-import ExperienceOutput from '../components/Experience/ExperienceOutput'
+import Profile from '../components/Profile/ProfileOutput'
+import Intro from '../components/Intro/IntroOutput'
+import Skills from '../components/Skills/SkillsOutput'
+import Experience from '../components/Experience/ExperienceOutput'
 
 function Preview() {
   return (
-    <main className="wrap">
-      미리보기 페이지입니다.
-      <ExperienceOutput />
+    <main>
+      <Profile />
+      <Intro />
+      <Skills />
+      <Experience />
     </main>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './experience.module.css'
 
-export default function ExperienceInput() {
+export default function Experience() {
   const [experience, setExperience] = useState([
     { id: 1, year: '', contents: '' },
   ])
@@ -26,10 +26,6 @@ export default function ExperienceInput() {
     )
   }
 
-  useEffect(() => {
-    console.log(JSON.stringify(experience))
-  }, [experience])
-
   return (
     <section className={styles.exp}>
       <h2>Experience</h2>
@@ -50,8 +46,8 @@ export default function ExperienceInput() {
 }
 
 function ExpContent({ exp, handleDelete, handleUpdate }) {
+  const [value, setValue] = useState(exp.contents)
   const [isOpen, setIsOpen] = useState(false)
-  const inpRef = useRef(null)
   const dropdownRef = useRef(null)
 
   useEffect(() => {

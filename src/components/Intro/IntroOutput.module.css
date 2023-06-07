@@ -1,0 +1,11 @@
+.introSection {
+  margin-bottom: 40px;
+}
+
+.intro {
+  margin: -6px 0 0 10px;
+  word-wrap: break-word;
+  width: 800px;
+  font-size: 14px;
+  line-height: 20px;
+}
