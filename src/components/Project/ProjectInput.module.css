@@ -1,28 +1,51 @@
 /* common */
+div h3 {
+  margin: 26px 0 26px;
+  padding-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--main-color);
+  border-bottom: 1.4px solid var(--main-color);
+}
+
 div h4 {
   font-size: 14px;
   font-weight: 700;
 }
 
 div input {
-  height: 100%;
+  height: 40px;
   font-size: 14px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
-  padding: 10px 12px;
 }
 
-form {
+.cont form {
   width: 92%;
-  height: 500px;
-  /* height: auto; */
-  background-color: pink;
+  height: auto;
+  /* background-color: pink; */
   margin: 0 auto;
   margin-top: 36px;
 }
 
+textarea {
+  width: 100%;
+  height: 140px;
+  resize: none;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--placeholder-color);
+}
+
 /* main */
 main .cont {
+  position: relative;
   background-color: var(--input-fill-color);
   border: 1px solid var(--border-color);
   border-radius: 5px;
@@ -58,7 +81,7 @@ main .cont {
   left: 10px;
 }
 
-.projectHeader h3 {
+.projectHeader p {
   position: absolute;
   font-size: 14px;
   left: 48px;
@@ -99,90 +122,101 @@ main .cont {
   border-left: 1px solid var(--border-color);
 }
 
-/*
-.inputWrap {
-  width: 92%;
-  height: auto;
-  background-color: pink;
-  margin: 0 auto;
-  margin-top: 36px;
+/* ProjectDetail */
+.peple {
+  margin-bottom: 16px;
+}
+.peple,
+.period {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* background-color: aqua; */
+  gap: 18px;
 }
 
-.projectTitle {
+.peple h4,
+.period h4 {
+  width: 39px;
+  text-align: center;
+  margin-left: 12px;
+}
+
+.peple input,
+.period div {
+  width: 100%;
+}
+
+.period div {
   display: flex;
+  align-items: center;
+}
+
+.period input {
+  font-size: 14px;
+}
+
+.period .year {
+  width: 55px;
+}
+
+.period .month {
+  width: 44px;
+}
+
+.period input[type='checkbox']::before {
+  content: '진행 중';
+  width: 50px;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 26px;
+}
+
+/* ProjectContribution */
+.contribution {
   position: relative;
-  align-items: center;
-  background-color: var(--background-color);
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-  padding: 0 0 0 12px;
-  gap: 42px;
-}
-
-form h3 {
-  margin: 26px 0 26px;
-  padding-bottom: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--main-color);
-  border-bottom: 1.4px solid var(--main-color);
-}
-
-form h4 {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-form input {
-  font-size: 14px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 10px 12px;
-}
-
-form input::placeholder,
-form textarea::placeholder {
-  color: var(--placeholder-color);
-}
-
-textarea {
   width: 100%;
-  height: 140px;
-  resize: none;
-  font-size: 14px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 12px;
-}
-
-.projectTitle input {
-  height: 100%;
-  border: none;
-  border-left: 1px solid var(--border-color);
-  padding-left: 12px;
-  border-radius: 0;
-}
-
-form div {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: start;
 }
 
-form div.people,
-form div.period {
-  margin-left: 10px;
-}
-
-form div.people h4 {
-  width: 48px;
-  word-wrap: break-word;
-}
-form div.people input {
+.contribution input {
   width: 100%;
 }
 
-form div.period {
-  margin-left: 10px;
-} */
+/* ProjectSkill */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.skill input {
+  width: 350px;
+}
+
+/* GithubLink */
+/* DeployLink */
+.github,
+.deploy {
+  display: flex;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.github img,
+.deploy img {
+  width: 40px;
+  height: 40px;
+  background-color: aqua;
+}
+
+.github input,
+.deploy input {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
+}
