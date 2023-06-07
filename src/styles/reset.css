@@ -3,6 +3,10 @@
   License: none (public domain)
 */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -84,7 +88,6 @@ time,
 mark,
 audio,
 video {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;

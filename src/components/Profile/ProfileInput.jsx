@@ -11,12 +11,12 @@ function ProfileInput() {
 
   // 외부 클릭했을 시
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const clickOutsideHandler = (e) => {
       if (dropBoxRef.current && !dropBoxRef.current.contains(e.target)) {
         setIsOpen(false)
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', clickOutsideHandler)
   }, [dropBoxRef])
 
   // 이메일 선택했을 때 input 내용 변경
