@@ -11,7 +11,7 @@
   --placeholder-color: #bdbdbd;
 }
 
-/* 각 섹션 타이틀 */
+/* 각 섹션 타이틀(작성페이지) */
 h2 {
   margin: 40px 0 26px;
   padding-bottom: 10px;
@@ -34,6 +34,8 @@ main {
   font-size: 14px;
   line-height: 20px;
   text-decoration-line: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
   color: var(--addButton-color);
   margin-top: 10px;
 }
@@ -169,11 +171,12 @@ textarea {
   padding: 12px;
 }
 
-input::placeholder,
-textarea::placeholder {
+/* 플레이스홀더 색상 */
+*::placeholder {
   color: var(--placeholder-color);
 }
 
+/* 클래스 */
 .inputDescription {
   font-size: 14px;
   font-weight: 700;
