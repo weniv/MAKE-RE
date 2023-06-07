@@ -83,7 +83,8 @@ summary,
 time,
 mark,
 audio,
-video {
+video,
+::before {
   margin: 0;
   padding: 0;
   border: 0;
@@ -165,4 +166,9 @@ img {
 
 a {
   display: inline-block;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
 }

@@ -3,6 +3,7 @@
   /* 타이틀, hover, line */
   --main-color: #2f80ed;
   --background-color: #ffffff;
+  --input-fill-color: #f2f2f2;
   /* 요소 추가 버튼 */
   --addButton-color: #f96167;
   --text-color: #000000;
@@ -18,7 +19,7 @@ h2 {
   font-size: 18px;
   line-height: 26px;
   color: var(--main-color);
-  border-bottom: 1px solid var(--main-color);
+  border-bottom: 1.4px solid var(--main-color);
 }
 
 /* prev 페이지와 write페이지 규격 */
@@ -34,6 +35,7 @@ main {
   line-height: 20px;
   text-decoration-line: underline;
   color: var(--addButton-color);
+  margin-top: 10px;
 }
 
 /* radio, checkbox 버튼 */
