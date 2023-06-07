@@ -1,19 +1,19 @@
 /* common */
-div h3 {
+/* div h3 {
   margin: 26px 0 26px;
   padding-bottom: 8px;
   font-weight: 700;
   font-size: 16px;
   color: var(--main-color);
   border-bottom: 1.4px solid var(--main-color);
-}
+} */
 
-div h4 {
+/* div h4 {
   font-size: 14px;
   font-weight: 700;
-}
+} */
 
-div input {
+/* div input {
   height: 40px;
   font-size: 14px;
   border: 1px solid var(--border-color);
@@ -23,7 +23,6 @@ div input {
 .cont form {
   width: 92%;
   height: auto;
-  /* background-color: pink; */
   margin: 0 auto;
   margin-top: 36px;
 }
@@ -41,7 +40,7 @@ textarea {
 form input::placeholder,
 form textarea::placeholder {
   color: var(--placeholder-color);
-}
+} */
 
 /* main */
 main .cont {

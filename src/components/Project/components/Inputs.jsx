@@ -8,6 +8,7 @@ export default function Inputs() {
 
   return (
     <main>
+      <h2>Project</h2>
       <ProjectAlign />
       <div className={styles.cont}>
         <ProjectHeader />
@@ -27,13 +28,10 @@ export default function Inputs() {
 
 const ProjectAlign = () => {
   return (
-    <>
-      <h2>Project</h2>
-      <div className={styles.isAlign}>
-        <p>시간 순서로 정렬</p>
-        <input type="checkbox" name="alignBtn" id={styles.alignBtn} />
-      </div>
-    </>
+    <div className={styles.isAlign}>
+      <p>시간 순서로 정렬</p>
+      <input type="checkbox" name="alignBtn" id={styles.alignBtn} />
+    </div>
   )
 }
 

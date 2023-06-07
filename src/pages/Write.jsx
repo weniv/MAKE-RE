@@ -2,6 +2,7 @@
 // import Intro from '../components/Intro/Intro'
 // import Skills from '../components/Skills/Skills'
 import ProjectInput from '../components/Project/ProjectInput'
+import CareerInput from '../components/Career/CareerInput'
 
 function Write() {
   return (
@@ -10,6 +11,7 @@ function Write() {
       <Intro />
       <Skills /> */}
       <ProjectInput />
+      <CareerInput />
     </main>
   )
 }
