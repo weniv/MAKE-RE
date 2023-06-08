@@ -12,7 +12,7 @@ function Preview(props) {
       <Profile />
       <Intro />
       <Skills />
-      <Experience resumeData={props.resumeData} />
+      <Experience experience={props.resumeData.experience} />
       <Certificate />
       <Education />
       <Url />
