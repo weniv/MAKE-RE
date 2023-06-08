@@ -1,0 +1,37 @@
+.cont {
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deploy,
+.company {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.deploy label,
+.company label {
+  width: 108px;
+  padding-left: 12px;
+  box-sizing: content-box;
+}
+
+.deploy input,
+.company input {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
+}
+
+.cont textarea {
+  border-radius: 0;
+  border: none;
+}

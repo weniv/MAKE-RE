@@ -16,6 +16,8 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
+  // console.log(resumeData)
+
   return (
     <div className={`${App} ${styles.pageWrap}`}>
       {isWrite ? (
