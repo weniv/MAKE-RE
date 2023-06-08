@@ -54,3 +54,34 @@
   width: 16px;
   height: 20px;
 }
+
+.yearList {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 160px;
+  top: 42px;
+  border-radius: 5px;
+  overflow: hidden auto;
+  outline: 1px solid var(--border-color);
+  color: var(--placeholder-color);
+  background-color: var(--background-color);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.yearList li button {
+  width: 100%;
+  height: 33px;
+  text-align: left;
+  padding: 8px 11px;
+  color: var(--placeholder-color);
+}
+
+.yearList li + li {
+  border-top: 1px solid var(--border-color);
+}
+
+.yearList button:hover {
+  color: var(--background-color);
+  background-color: var(--main-color);
+}
