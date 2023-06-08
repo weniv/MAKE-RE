@@ -7,7 +7,8 @@ import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
 
-function Preview() {
+
+function Preview({ resumeData }) {
   const data = JSON.parse(localStorage.getItem('data'))
 
   return (
@@ -17,7 +18,7 @@ function Preview() {
       <Skills />
       <Career data={data.career} />
       <Experience />
-      <Certificate />
+      <Certificate resumeData={resumeData} />
       <Education />
       <Url />
     </main>

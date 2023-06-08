@@ -1,11 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './CertificateInput.module.css'
 
-export default function CertificateInput() {
+export default function CertificateInput(props) {
+  // const certificates = props.resumeData.certificate
   const [certificate, setCertificate] = useState([
     { id: 1, year: '', contents: '' },
   ])
   const nextId = useRef(2)
+
+  useEffect(() => {
+    let temp = { ...props.resumeData, certificate }
+
+    props.setResumeData(temp)
+  }, [certificate])
 
   function handleAdd() {
     setCertificate([
@@ -29,9 +36,9 @@ export default function CertificateInput() {
 
   return (
     <section>
-      <h2>Certificate</h2>
+      <h2 className={styles.title}>Certificate</h2>
       {certificate &&
-        certificate.map((cert, i) => (
+        certificate.map((cert) => (
           <CertContent
             key={cert.id}
             cert={cert}
