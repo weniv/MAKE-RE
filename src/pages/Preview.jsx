@@ -4,6 +4,7 @@ import Skills from '../components/Skills/SkillsOutput'
 import Experience from '../components/Experience/ExperienceOutput'
 import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
+import Url from '../components/Url/UrlOutput'
 
 function Preview() {
   return (
@@ -14,6 +15,7 @@ function Preview() {
       <Experience />
       <Certificate />
       <Education />
+      <Url />
     </main>
   )
 }
