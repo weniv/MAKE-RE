@@ -30,7 +30,7 @@ export default function Url() {
             handleUpdate={handleUpdate}
           />
         ))}
-      <button className={`skillBtn ${styles.btnAdd}`} onClick={handleAdd}>
+      <button className={`addBtn ${styles.btnAdd}`} onClick={handleAdd}>
         +) 추가 입력하기
       </button>
     </section>

@@ -34,7 +34,7 @@ export default function EducationInput() {
             handleUpdate={handleUpdate}
           />
         ))}
-      <button className={`skillBtn ${styles.addBtn}`} onClick={handleAdd}>
+      <button className={`addBtn ${styles.addBtn}`} onClick={handleAdd}>
         +) 추가 입력하기
       </button>
     </section>
