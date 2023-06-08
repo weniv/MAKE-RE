@@ -181,3 +181,13 @@ textarea {
   font-size: 14px;
   font-weight: 700;
 }
+
+/* 스크린 리더용  */
+.ir {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
