@@ -1,40 +1,35 @@
 import { useState, useEffect, useRef } from 'react'
-import styles from './CertificateInput.module.css'
+import styles from './EducationInput.module.css'
 
-export default function CertificateInput() {
-  const [certificate, setCertificate] = useState([
+export default function EducationInput() {
+  const [education, setEducation] = useState([
     { id: 1, year: '', contents: '' },
   ])
   const nextId = useRef(2)
 
   function handleAdd() {
-    setCertificate([
-      ...certificate,
-      { id: nextId.current, year: '', contents: '' },
-    ])
+    setEducation([...education, { id: nextId.current, year: '', contents: '' }])
     nextId.current += 1
   }
 
   function handleDelete(id) {
-    setCertificate(certificate.filter((cert) => cert.id !== id))
+    setEducation(education.filter((edu) => edu.id !== id))
   }
 
   function handleUpdate(id, name, value) {
-    setCertificate(
-      certificate.map((cert) =>
-        cert.id === id ? { ...cert, [name]: value } : cert
-      )
+    setEducation(
+      education.map((edu) => (edu.id === id ? { ...edu, [name]: value } : edu))
     )
   }
 
   return (
     <section>
-      <h2>Certificate</h2>
-      {certificate &&
-        certificate.map((cert, i) => (
-          <CertContent
-            key={cert.id}
-            cert={cert}
+      <h2>Education</h2>
+      {education &&
+        education.map((edu, i) => (
+          <EduContent
+            key={edu.id}
+            edu={edu}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
@@ -46,7 +41,7 @@ export default function CertificateInput() {
   )
 }
 
-function CertContent({ cert, handleDelete, handleUpdate }) {
+function EduContent({ edu, handleDelete, handleUpdate }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -63,7 +58,7 @@ function CertContent({ cert, handleDelete, handleUpdate }) {
   }, [])
 
   const handleItemClick = (year) => {
-    handleUpdate(cert.id, 'year', year)
+    handleUpdate(edu.id, 'year', year)
     setIsOpen(false)
   }
 
@@ -75,7 +70,7 @@ function CertContent({ cert, handleDelete, handleUpdate }) {
     <div className={styles.contentCont} ref={dropdownRef}>
       <div className={styles.yearCont}>
         <button className={styles.yearBtn} onClick={handleOpen}>
-          {cert.year || '연도'}
+          {edu.year || '연도'}
           {isOpen ? (
             <img src="/images/polygon-up-icon.svg" alt="연도 메뉴 닫기" />
           ) : (
@@ -97,14 +92,14 @@ function CertContent({ cert, handleDelete, handleUpdate }) {
       <input
         className={styles.contentInput}
         type="text"
-        placeholder="예) 정보처리기사"
-        onChange={(e) => handleUpdate(cert.id, 'contents', e.target.value)}
+        placeholder="예) 프론트엔드 스쿨 과정 3기 수료 (4개월)"
+        onChange={(e) => handleUpdate(edu.id, 'contents', e.target.value)}
       />
       <button className={styles.deleteBtn}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
-          onClick={() => handleDelete(cert.id)}
+          onClick={() => handleDelete(edu.id)}
         />
       </button>
     </div>
