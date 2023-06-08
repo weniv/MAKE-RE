@@ -10,18 +10,19 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.deploy h4,
-.company h4 {
+.deploy label,
+.company label {
   width: 108px;
   padding-left: 12px;
+  box-sizing: content-box;
 }
 
 .deploy input,
 .company input {
+  width: 100%;
   border: none;
   border-radius: 0;
   border-left: 1px solid var(--border-color);
-  padding-left: 12px;
 }
 
 .cont textarea {
