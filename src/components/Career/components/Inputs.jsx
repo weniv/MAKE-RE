@@ -5,7 +5,7 @@ export default function Inputs(props) {
   const [career, setCareer] = useState([])
   const [period, setperiod] = useState('')
   const [companyName, setCompanyName] = useState('')
-  const [work, setWork] = useState()
+  const [works, setWorks] = useState()
 
   useEffect(() => {
     props.setResumeData({ career })
@@ -15,7 +15,7 @@ export default function Inputs(props) {
     id: 1,
     period,
     companyName,
-    work,
+    works,
   }
 
   const nextId = useRef(1)
@@ -29,18 +29,19 @@ export default function Inputs(props) {
   }
 
   const handleWork = (e) => {
-    setWork(e.target.value.split('\n'))
+    setWorks(e.target.value.split('\n'))
   }
 
   const handleAdd = (e) => {
     e.preventDefault()
     val.id = nextId.current
-    val.period = period
     nextId.current += 1
     setCareer([...career, val])
   }
 
-  // console.log(props)
+  // 임시저장 버튼이랑 연결방법 생각하기
+
+  // console.log(career)
 
   return (
     <main>

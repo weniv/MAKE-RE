@@ -5,7 +5,7 @@ const Work = (props) => {
   const works = props.work
   return (
     <ul className={styles.list}>
-      {works && works.map((work) => <li className={styles.work}>{work}</li>)}
+      {works && works.map((work) => <li className={styles.list}>{work}</li>)}
     </ul>
   )
 }
