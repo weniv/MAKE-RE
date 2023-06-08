@@ -3,12 +3,21 @@ import Intro from '../components/Intro/IntroInput'
 import Skills from '../components/Skills/SkillsInput'
 import Experience from '../components/Experience/ExperienceInput'
 
-function Write() {
+function Write(props) {
   return (
     <main>
-      <Profile />
-      <Intro />
-      <Skills />
+      <Profile
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Intro
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Skills
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
       <Experience />
     </main>
   )
