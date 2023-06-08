@@ -5,7 +5,16 @@ import { useState } from 'react'
 import styles from './style.module.css'
 
 function App() {
+  const dummyData = {
+    name: '전유진',
+    enName: 'YouJin Jeon',
+  }
   const [isWrite, setIsWrite] = useState(true)
+  const [resumeData, setResumeData] = useState(dummyData)
+
+  const dataUpdateHandler = () => {
+    localStorage.setItem('data', JSON.stringify(resumeData))
+  }
 
   return (
     <div className={`${App} ${styles.pageWrap}`}>
@@ -16,7 +25,10 @@ function App() {
               메이커리
               <span> Make A Career</span>
             </h1>
-            <button className={`${styles.header} ${styles.saveBtn}`}>
+            <button
+              className={`${styles.header} ${styles.saveBtn}`}
+              onClick={dataUpdateHandler}
+            >
               임시저장
             </button>
             <button
@@ -30,7 +42,7 @@ function App() {
             <button className={styles.exportBtn}>PDF로 내보내기</button>
             <div className={styles.line}></div>
           </header>
-          <Write />
+          <Write setResumeData={setResumeData} resumeData={resumeData} />
         </>
       ) : (
         <>
