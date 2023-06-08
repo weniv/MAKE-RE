@@ -5,7 +5,6 @@ export default function Url({ setResumeData, resumeData }) {
   const [url, setUrl] = useState(resumeData.url)
 
   useEffect(() => {
-    console.log(JSON.stringify(url))
     setResumeData({ ...resumeData, url: url })
   }, [url])
 

@@ -24,6 +24,8 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
+  // console.log(resumeData)
+
   return (
     <div className={`${App} ${styles.pageWrap}`}>
       {isWrite ? (
@@ -66,7 +68,7 @@ function App() {
             <button className={styles.exportBtn}>PDF로 내보내기</button>
             <div className={styles.line}></div>
           </header>
-          <Preview resumeData={resumeData} />
+          <Preview />
         </>
       )}
     </div>
