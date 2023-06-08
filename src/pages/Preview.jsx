@@ -5,6 +5,7 @@ import Career from '../components/Career/CareerOutput'
 import Experience from '../components/Experience/ExperienceOutput'
 import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
+import Url from '../components/Url/UrlOutput'
 
 function Preview() {
   const data = JSON.parse(localStorage.getItem('data'))
@@ -18,6 +19,7 @@ function Preview() {
       <Experience />
       <Certificate />
       <Education />
+      <Url />
     </main>
   )
 }

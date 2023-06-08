@@ -29,7 +29,7 @@ main {
 }
 
 /* 항목 추가 버튼 */
-.skillBtn {
+.addBtn {
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
@@ -45,6 +45,7 @@ main {
 
 input[type='checkbox'],
 input[type='radio'] {
+  padding: 0 !important;
   --active: #2f80ed;
   --active-inner: #ffffff;
   --focus: 2px rgba(39, 94, 254, 0.3);
@@ -180,4 +181,14 @@ textarea {
 .inputDescription {
   font-size: 14px;
   font-weight: 700;
+}
+
+/* 스크린 리더용  */
+.ir {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

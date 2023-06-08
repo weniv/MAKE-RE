@@ -46,20 +46,22 @@ export default function Inputs(props) {
   return (
     <main>
       <h2>Career</h2>
-      <Input
-        period={handlePeriod}
-        companyName={handleCompanyName}
-        work={handleWork}
-      />
-      {career &&
-        career.map(() => (
-          <div className={styles.cont}>
-            <Period fuc={handlePeriod} />
-            <CompanyName fuc={handleCompanyName} />
-            <textarea placeholder="담당 업무" onChange={handleWork}></textarea>
-          </div>
-        ))}
-      <button type="button" className="skillBtn" onClick={handleAdd}>
+      <div className={styles.inputWrap}>
+        <Input
+          period={handlePeriod}
+          companyName={handleCompanyName}
+          work={handleWork}
+        />
+        {career &&
+          career.map(() => (
+            <Input
+              period={handlePeriod}
+              companyName={handleCompanyName}
+              work={handleWork}
+            />
+          ))}
+      </div>
+      <button type="button" className="addBtn" onClick={handleAdd}>
         +) 추가 입력하기
       </button>
     </main>
