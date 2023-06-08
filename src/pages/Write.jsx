@@ -30,7 +30,10 @@ function Write(props) {
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
-      <Certificate />
+      <Certificate
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
       <Education />
       <Url setResumeData={props.setResumeData} resumeData={props.resumeData} />
     </main>
