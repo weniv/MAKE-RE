@@ -45,6 +45,7 @@ main {
 
 input[type='checkbox'],
 input[type='radio'] {
+  padding: 0 !important;
   --active: #2f80ed;
   --active-inner: #ffffff;
   --focus: 2px rgba(39, 94, 254, 0.3);
