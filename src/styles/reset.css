@@ -61,6 +61,7 @@ form,
 label,
 legend,
 table,
+textarea,
 caption,
 tbody,
 tfoot,
@@ -170,4 +171,9 @@ img {
 
 a {
   display: inline-block;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
 }
