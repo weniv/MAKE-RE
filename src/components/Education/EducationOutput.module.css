@@ -1,0 +1,26 @@
+.eduTitle {
+  margin: 40px 0 20px;
+}
+
+.eduList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eduList li {
+  display: flex;
+  gap: 20px;
+}
+
+.eduList li .year {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--placeholder-color);
+  line-height: 20px;
+}
+
+.eduItem {
+  font-size: 14px;
+  line-height: 20px;
+}
