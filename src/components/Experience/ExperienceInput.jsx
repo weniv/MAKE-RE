@@ -5,7 +5,6 @@ export default function Experience({ setResumeData, resumeData }) {
   const [experience, setExperience] = useState(resumeData.experience)
 
   useEffect(() => {
-    console.log(JSON.stringify(experience))
     setResumeData({ ...resumeData, experience: experience })
   }, [experience])
 

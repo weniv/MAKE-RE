@@ -15,7 +15,7 @@ function Preview(props) {
       <Experience experience={props.resumeData.experience} />
       <Certificate />
       <Education />
-      <Url />
+      <Url url={props.resumeData.url} />
     </main>
   )
 }

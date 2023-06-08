@@ -27,7 +27,7 @@ function Write(props) {
       />
       <Certificate />
       <Education />
-      <Url />
+      <Url setResumeData={props.setResumeData} resumeData={props.resumeData} />
     </main>
   )
 }
