@@ -26,13 +26,16 @@ function Write(props) {
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
-      <Experience />
+      <Experience
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
       <Certificate
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
       <Education />
-      <Url />
+      <Url setResumeData={props.setResumeData} resumeData={props.resumeData} />
     </main>
   )
 }

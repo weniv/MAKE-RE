@@ -1,28 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './experience.module.css'
 
-export default function Experience() {
-  const [experience, setExperience] = useState([
-    { id: 1, year: '', contents: '' },
-  ])
-  const nextId = useRef(2)
+export default function Experience({ setResumeData, resumeData }) {
+  const [experience, setExperience] = useState(resumeData.experience)
+
+  useEffect(() => {
+    setResumeData({ ...resumeData, experience: experience })
+  }, [experience])
 
   function handleAdd() {
-    setExperience([
-      ...experience,
-      { id: nextId.current, year: '', contents: '' },
-    ])
-    nextId.current += 1
+    setExperience([...experience, { year: '', contents: '' }])
   }
 
-  function handleDelete(id) {
-    setExperience(experience.filter((exp) => exp.id !== id))
+  function handleDelete(idx) {
+    setExperience(experience.filter((exp, i) => i !== idx))
   }
 
-  function handleUpdate(id, name, value) {
+  function handleUpdate(idx, name, value) {
     // const { name, value } = event.target
     setExperience(
-      experience.map((exp) => (exp.id === id ? { ...exp, [name]: value } : exp))
+      experience.map((exp, i) => (i === idx ? { ...exp, [name]: value } : exp))
     )
   }
 
@@ -30,9 +27,10 @@ export default function Experience() {
     <section className={styles.exp}>
       <h2>Experience</h2>
       {experience &&
-        experience.map((exp, i) => (
+        experience.map((exp, idx) => (
           <ExpContent
-            key={exp.id}
+            key={idx}
+            idx={idx}
             exp={exp}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
@@ -45,8 +43,7 @@ export default function Experience() {
   )
 }
 
-function ExpContent({ exp, handleDelete, handleUpdate }) {
-  const [value, setValue] = useState(exp.contents)
+function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -62,8 +59,8 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
     }
   }, [])
 
-  const handleItemClick = (item) => {
-    handleUpdate(exp.id, 'year', item)
+  const handleItemClick = (idx, item) => {
+    handleUpdate(idx, 'year', item)
     setIsOpen(false)
   }
 
@@ -86,7 +83,7 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
           <ul className={styles.listYear}>
             {YearList().map((v, i) => {
               return (
-                <li key={i} onClick={() => handleItemClick(v)}>
+                <li key={i} onClick={() => handleItemClick(idx, v)}>
                   {v}
                 </li>
               )
@@ -98,13 +95,15 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
         className={styles.inpItem}
         type="text"
         placeholder="예) ICT 해외봉사"
-        onChange={(e) => handleUpdate(exp.id, 'contents', e.target.value)}
+        required
+        value={exp.contents}
+        onChange={(e) => handleUpdate(idx, 'contents', e.target.value)}
       />
       <button className={styles.btnDel}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
-          onClick={() => handleDelete(exp.id)}
+          onClick={() => handleDelete(idx)}
         />
       </button>
     </div>

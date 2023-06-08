@@ -1,31 +1,35 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './url.module.css'
 
-export default function Url() {
-  const [url, setUrl] = useState([{ id: 1, title: '', url: '' }])
-  const nextId = useRef(2)
+export default function Url({ setResumeData, resumeData }) {
+  const [url, setUrl] = useState(resumeData.url)
+
+  useEffect(() => {
+    setResumeData({ ...resumeData, url: url })
+  }, [url])
 
   function handleAdd() {
-    setUrl([...url, { id: nextId.current, title: '', url: '' }])
-    nextId.current += 1
+    setUrl([...url, { contents: '', link: '' }])
   }
 
-  function handleDelete(id) {
-    setUrl(url.filter((url) => url.id !== id))
+  function handleDelete(idx) {
+    setUrl(url.filter((url, i) => i !== idx))
   }
 
-  function handleUpdate(id, name, value) {
-    // const { name, value } = event.target
-    setUrl(url.map((url) => (url.id === id ? { ...url, [name]: value } : url)))
+  function handleUpdate(idx, event) {
+    const { name, value } = event.target
+    setUrl(url.map((url, i) => (i === idx ? { ...url, [name]: value } : url)))
   }
 
   return (
     <section className={styles.url}>
       <h2>url</h2>
       {url &&
-        url.map((url, i) => (
+        url.map((url, idx) => (
           <UrlContent
-            key={url.id}
+            key={idx}
+            idx={idx}
+            url={url}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
@@ -37,29 +41,20 @@ export default function Url() {
   )
 }
 
-function UrlContent({ url, handleDelete, handleUpdate }) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleItemClick = (item) => {
-    handleUpdate(url.id, 'year', item)
-    setIsOpen(false)
-  }
-
-  function handleOpen() {
-    setIsOpen(!isOpen)
-  }
-
+function UrlContent({ url, idx, handleDelete, handleUpdate }) {
   return (
     <div className={styles.contContents}>
-      <label className={styles.lbTit} htmlFor="title">
+      <label className={styles.lbTit} htmlFor="contents">
         링크명
       </label>
       <input
         className={styles.inpItem}
         type="text"
-        id="title"
+        id="contents"
+        name="contents"
+        value={url.contents}
         placeholder="예) 포트폴리오"
-        onChange={(e) => handleUpdate(url.id, 'contents', e.target.value)}
+        onChange={(e) => handleUpdate(idx, e)}
       />
       <label htmlFor="link" className={styles.lbLink}>
         <img src="/images/link-icon.svg" alt="URL 주소" />
@@ -68,13 +63,16 @@ function UrlContent({ url, handleDelete, handleUpdate }) {
         className={styles.inpItem}
         type="text"
         placeholder="Url 주소를 입력하세요"
-        onChange={(e) => handleUpdate(url.id, 'contents', e.target.value)}
+        name="link"
+        id="link"
+        value={url.link}
+        onChange={(e) => handleUpdate(idx, e)}
       />
       <button className={styles.btnDel}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
-          onClick={() => handleDelete(url.id)}
+          onClick={() => handleDelete(idx)}
         />
       </button>
     </div>
