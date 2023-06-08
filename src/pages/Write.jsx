@@ -3,6 +3,7 @@ import Intro from '../components/Intro/IntroInput'
 import Skills from '../components/Skills/SkillsInput'
 import Experience from '../components/Experience/ExperienceInput'
 import Certificate from '../components/Certificate/CertificateInput'
+import Education from '../components/Education/EducationInput'
 
 function Write(props) {
   return (
@@ -21,6 +22,7 @@ function Write(props) {
       />
       <Experience />
       <Certificate />
+      <Education />
     </main>
   )
 }
