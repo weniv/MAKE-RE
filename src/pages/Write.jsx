@@ -2,8 +2,7 @@ import Profile from '../components/Profile/ProfileInput'
 import Intro from '../components/Intro/IntroInput'
 import Skills from '../components/Skills/SkillsInput'
 import Experience from '../components/Experience/ExperienceInput'
-import ProjectInput from '../components/Project/ProjectInput'
-import CareerInput from '../components/Career/CareerInput'
+import Project from '../components/Project/ProjectInput'
 
 function Write() {
   return (
@@ -12,8 +11,7 @@ function Write() {
       <Intro />
       <Skills />
       <Experience />
-      <ProjectInput />
-      <CareerInput />
+      <Project />
     </main>
   )
 }
