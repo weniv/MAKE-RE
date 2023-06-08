@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './experience.module.css'
 
-export default function Experience() {
+export default function Experience({ setResumeData, resumeData }) {
   const [experience, setExperience] = useState([
     { id: 1, year: '', contents: '' },
   ])
   const nextId = useRef(2)
+
+  useEffect(() => {
+    setResumeData({ ...resumeData, experience: experience })
+  }, [experience])
 
   function handleAdd() {
     setExperience([
@@ -98,6 +102,7 @@ function ExpContent({ exp, handleDelete, handleUpdate }) {
         className={styles.inpItem}
         type="text"
         placeholder="예) ICT 해외봉사"
+        required
         onChange={(e) => handleUpdate(exp.id, 'contents', e.target.value)}
       />
       <button className={styles.btnDel}>

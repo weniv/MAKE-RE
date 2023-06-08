@@ -8,6 +8,7 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
+    experience: [],
   }
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(dummyData)
@@ -58,7 +59,7 @@ function App() {
             <button className={styles.exportBtn}>PDF로 내보내기</button>
             <div className={styles.line}></div>
           </header>
-          <Preview />
+          <Preview resumeData={resumeData} />
         </>
       )}
     </div>

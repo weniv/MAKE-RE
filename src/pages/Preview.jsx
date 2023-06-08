@@ -6,13 +6,13 @@ import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
 
-function Preview() {
+function Preview(props) {
   return (
     <main>
       <Profile />
       <Intro />
       <Skills />
-      <Experience />
+      <Experience resumeData={props.resumeData} />
       <Certificate />
       <Education />
       <Url />
