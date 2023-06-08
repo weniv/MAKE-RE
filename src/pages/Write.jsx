@@ -2,6 +2,7 @@ import Profile from '../components/Profile/ProfileInput'
 import Intro from '../components/Intro/IntroInput'
 import Skills from '../components/Skills/SkillsInput'
 import Experience from '../components/Experience/ExperienceInput'
+import Certificate from '../components/Certificate/CertificateInput'
 
 function Write(props) {
   return (
@@ -19,6 +20,7 @@ function Write(props) {
         resumeData={props.resumeData}
       />
       <Experience />
+      <Certificate />
     </main>
   )
 }
