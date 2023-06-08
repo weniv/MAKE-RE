@@ -6,12 +6,7 @@ import Certificate from '../components/Certificate/CertificateInput'
 import Education from '../components/Education/EducationInput'
 import Url from '../components/Url/UrlInput'
 
-import { useEffect } from 'react'
 function Write(props) {
-  useEffect(() => {
-    console.log(JSON.stringify(props.resumeData))
-  }, [])
-
   return (
     <main>
       <Profile

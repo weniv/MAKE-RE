@@ -8,7 +8,10 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
-    experience: [],
+    experience: [
+      { year: 2020, contents: 'ICT 해외 봉사' },
+      { year: 2022, contents: '교육 기부 박람회' },
+    ],
   }
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(dummyData)
