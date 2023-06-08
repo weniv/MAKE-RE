@@ -21,7 +21,10 @@ function Write(props) {
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
-      <Career />
+      <Career
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
       <Experience />
       <Certificate />
       <Education />
