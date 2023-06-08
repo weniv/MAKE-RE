@@ -42,7 +42,7 @@ function App() {
             <button className={styles.exportBtn}>PDF로 내보내기</button>
             <div className={styles.line}></div>
           </header>
-          <Write />
+          <Write setResumeData={setResumeData} resumeData={resumeData} />
         </>
       ) : (
         <>

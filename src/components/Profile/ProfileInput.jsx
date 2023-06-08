@@ -1,13 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './ProfileInput.module.css'
 
-function ProfileInput() {
+function ProfileInput(props) {
   // 이메일 설정 코드
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('직접 입력')
   const [emailHost, setEmailHost] = useState(null)
   const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
   const dropBoxRef = useRef()
+
+  // 임시 데이터 업데이트 코드
+  function updateHandler() {
+    let copy = { ...props.resumeData }
+    copy['지지'] = '유진'
+    props.setResumeData(copy)
+  }
 
   // 외부 클릭했을 시
   useEffect(() => {
@@ -31,8 +38,7 @@ function ProfileInput() {
   }
 
   // --------
-  // 데이터 저장 코드 (useState 추후에 App.jsx에서 받아오기)
-  const [data, setData] = useState({})
+  // 데이터 저장 코드
 
   // 프로필 이미지
   // 프로필 이름, 영문이름, 전화번호, 이메일
@@ -42,6 +48,7 @@ function ProfileInput() {
 
   return (
     <section>
+      <button onClick={updateHandler}>임시 저장 테스트 버튼</button>
       <div className={styles.flexBox}>
         <div>
           <label htmlFor="profile-upload" className={styles.profileWrap}>
