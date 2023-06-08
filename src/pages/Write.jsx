@@ -4,6 +4,7 @@ import Skills from '../components/Skills/SkillsInput'
 import Experience from '../components/Experience/ExperienceInput'
 import Certificate from '../components/Certificate/CertificateInput'
 import Education from '../components/Education/EducationInput'
+import Career from '../components/Career/CareerInput'
 
 function Write(props) {
   return (
@@ -20,6 +21,7 @@ function Write(props) {
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
+      <Career />
       <Experience />
       <Certificate />
       <Education />
