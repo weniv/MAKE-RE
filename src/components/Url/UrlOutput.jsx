@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './url.module.css'
 
 export default function Url({ url }) {
-  const urlOutput = url && url.filter((u) => u.contents && u.link)
+  const urlOutput = url.filter((u) => u.contents && u.link)
   return (
     <>
       {urlOutput && (

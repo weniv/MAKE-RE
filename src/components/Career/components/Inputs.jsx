@@ -3,25 +3,31 @@ import styles from '../CareerInput.module.css'
 
 export default function Inputs(props) {
   const [career, setCareer] = useState([])
-  const [period, setperiod] = useState('')
+  const [start, setStart] = useState('')
+  const [end, setEnd] = useState('')
   const [companyName, setCompanyName] = useState('')
   const [works, setWorks] = useState()
 
   useEffect(() => {
-    props.setResumeData({ career })
+    props.setResumeData({ ...props.resumeData, career })
   }, [career])
 
   const val = {
     id: 1,
-    period,
+    start,
+    end,
     companyName,
     works,
   }
 
   const nextId = useRef(1)
 
-  const handlePeriod = (e) => {
-    setperiod(e.target.value)
+  const handleStart = (e) => {
+    setStart(e.target.value.replace('-', '.'))
+  }
+
+  const handleEnd = (e) => {
+    setEnd(e.target.value.replace('-', '.'))
   }
 
   const handleCompanyName = (e) => {
@@ -39,8 +45,6 @@ export default function Inputs(props) {
     setCareer([...career, val])
   }
 
-  // 임시저장 버튼이랑 연결방법 생각하기
-
   // console.log(career)
 
   return (
@@ -48,14 +52,16 @@ export default function Inputs(props) {
       <h2>Career</h2>
       <div className={styles.inputWrap}>
         <Input
-          period={handlePeriod}
+          start={handleStart}
+          end={handleEnd}
           companyName={handleCompanyName}
           work={handleWork}
         />
         {career &&
           career.map(() => (
             <Input
-              period={handlePeriod}
+              start={handleStart}
+              end={handleEnd}
               companyName={handleCompanyName}
               work={handleWork}
             />
@@ -71,7 +77,7 @@ export default function Inputs(props) {
 const Input = (props) => {
   return (
     <div className={styles.cont}>
-      <Period fuc={props.period} />
+      <Period start={props.start} end={props.end} />
       <CompanyName fuc={props.companyName} />
       <textarea placeholder="담당 업무" onChange={props.work}></textarea>
     </div>
@@ -82,13 +88,14 @@ const Period = (props) => {
   return (
     <div className={styles.deploy}>
       <label htmlFor="" className="inputDescription">
-        기간
+        시작일
       </label>
-      <input
-        type="text"
-        placeholder="예) 2019. 01. 01 ~ 2019. 01. 03"
-        onChange={props.fuc}
-      />
+      <input type="month" onChange={props.start} />
+
+      <label htmlFor="" className="inputDescription">
+        종료일
+      </label>
+      <input type="month" onChange={props.end} />
     </div>
   )
 }
