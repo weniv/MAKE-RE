@@ -2,6 +2,7 @@ import Profile from '../components/Profile/ProfileOutput'
 import Intro from '../components/Intro/IntroOutput'
 import Skills from '../components/Skills/SkillsOutput'
 import Career from '../components/Career/CareerOutput'
+import Project from '../components/Project/ProjectOutput'
 import Experience from '../components/Experience/ExperienceOutput'
 import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
@@ -16,6 +17,7 @@ function Preview() {
       <Intro />
       <Skills />
       <Career data={data.career} />
+      <Project />
       <Experience />
       <Certificate />
       <Education />

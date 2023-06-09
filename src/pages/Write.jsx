@@ -1,10 +1,11 @@
 import Profile from '../components/Profile/ProfileInput'
 import Intro from '../components/Intro/IntroInput'
 import Skills from '../components/Skills/SkillsInput'
+import Career from '../components/Career/CareerInput'
+import Project from '../components/Project/ProjectInput'
 import Experience from '../components/Experience/ExperienceInput'
 import Certificate from '../components/Certificate/CertificateInput'
 import Education from '../components/Education/EducationInput'
-import Career from '../components/Career/CareerInput'
 import Url from '../components/Url/UrlInput'
 
 function Write(props) {
@@ -23,6 +24,10 @@ function Write(props) {
         resumeData={props.resumeData}
       />
       <Career
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Project
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
