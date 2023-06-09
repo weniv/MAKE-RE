@@ -18,7 +18,7 @@ function Preview({ resumeData }) {
 
       <Career data={data.career} />
       <Experience experience={data.experience} />
-      <Certificate resumeData={resumeData} />
+      <Certificate certificate={data.certificate} />
       <Education education={data.education} />
       <Url url={data.url} />
     </main>

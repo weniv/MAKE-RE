@@ -1,7 +1,7 @@
 import styles from './CertificateOuput.module.css'
 
-export default function CertificateOutput({ resumeData }) {
-  const certificates = resumeData.certificate.sort((a, b) => b.year - a.year)
+export default function CertificateOutput({ certificate }) {
+  const certificates = certificate?.sort((a, b) => b.year - a.year)
 
   return (
     <section className={styles.certCont}>
