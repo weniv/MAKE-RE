@@ -6,21 +6,21 @@ export default function Inputs(props) {
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
   const [companyName, setCompanyName] = useState('')
-  const [works, setWorks] = useState()
+  const [works, setWorks] = useState('')
 
   useEffect(() => {
     props.setResumeData({ ...props.resumeData, career })
   }, [career])
 
+  const nextId = useRef(1)
+
   const val = {
-    id: 1,
+    id: nextId.current,
     start,
     end,
     companyName,
     works,
   }
-
-  const nextId = useRef(1)
 
   const handleStart = (e) => {
     setStart(e.target.value.replace('-', '.'))
@@ -35,17 +35,33 @@ export default function Inputs(props) {
   }
 
   const handleWork = (e) => {
-    setWorks(e.target.value.split('\n'))
+    setWorks(e.target.value)
   }
 
   const handleAdd = (e) => {
     e.preventDefault()
-    val.id = nextId.current
-    nextId.current += 1
-    setCareer([...career, val])
+    if (!isEmpty(val)) {
+      val.id = nextId.current
+      nextId.current += 1
+      setCareer([...career, val])
+      setStart('')
+      setEnd('')
+      setCompanyName('')
+      setWorks('')
+    }
   }
 
+  /** 객체가 모두 채워졌는지 확인하는 함수, true면 덜 입력된 값이 존재 */
+  const isEmpty = (obj) => {
+    return !Object.values(obj).every(
+      (x) => x !== null && x !== '' && x !== undefined
+    )
+  }
+
+  // console.log(props.resumeData)
   // console.log(career)
+  console.log(val)
+  console.log(isEmpty(val))
 
   return (
     <main>
@@ -91,7 +107,6 @@ const Period = (props) => {
         시작일
       </label>
       <input type="month" onChange={props.start} />
-
       <label htmlFor="" className="inputDescription">
         종료일
       </label>
@@ -110,6 +125,7 @@ const CompanyName = (props) => {
         type="text"
         placeholder="예) 네이버 (NAVER) "
         onChange={props.fuc}
+        required
       />
     </div>
   )
