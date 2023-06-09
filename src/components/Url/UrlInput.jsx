@@ -23,7 +23,7 @@ export default function Url({ setResumeData, resumeData }) {
 
   return (
     <section className={styles.url}>
-      <h2>url</h2>
+      <h2>URL</h2>
       {url &&
         url.map((url, idx) => (
           <UrlContent
