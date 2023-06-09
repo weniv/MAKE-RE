@@ -2,15 +2,20 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from '../CareerInput.module.css'
 
 export default function Inputs(props) {
-  const [career, setCareer] = useState([])
+  const [career, setCareer] = useState([
+    { id: 1, start: '', end: '', companyName: '', works: '' },
+  ])
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
   const [companyName, setCompanyName] = useState('')
   const [works, setWorks] = useState('')
 
-  useEffect(() => {
-    props.setResumeData({ ...props.resumeData, career })
-  }, [career])
+  /** 객체가 모두 채워졌는지 확인, true면 덜 입력된 값이 존재 */
+  const isEmpty = (obj) => {
+    return !Object.values(obj).every(
+      (x) => x !== null && x !== '' && x !== undefined
+    )
+  }
 
   const nextId = useRef(1)
 
@@ -21,6 +26,12 @@ export default function Inputs(props) {
     companyName,
     works,
   }
+
+  useEffect(() => {
+    if (!isEmpty(val)) {
+      props.setResumeData({ ...props.resumeData, career })
+    }
+  }, [start, end, companyName, works])
 
   const handleStart = (e) => {
     setStart(e.target.value.replace('-', '.'))
@@ -38,28 +49,30 @@ export default function Inputs(props) {
     setWorks(e.target.value)
   }
 
+  /** 새로운 input 추가 생성 */
   const handleAdd = (e) => {
     e.preventDefault()
-    if (!isEmpty(val)) {
-      val.id = nextId.current
-      nextId.current += 1
-      setCareer([...career, val])
-      setStart('')
-      setEnd('')
-      setCompanyName('')
-      setWorks('')
-    }
+    nextId.current += 1
+    val.id = nextId.current
+    setCareer([...career, val])
+    setStart('')
+    setEnd('')
+    setCompanyName('')
+    setWorks('')
   }
 
-  /** 객체가 모두 채워졌는지 확인하는 함수, true면 덜 입력된 값이 존재 */
-  const isEmpty = (obj) => {
-    return !Object.values(obj).every(
-      (x) => x !== null && x !== '' && x !== undefined
-    )
+  const handleMouseLeave = (e) => {
+    console.log('leave')
+    const currentId = e.currentTarget.id
+    const currentProject = career.filter((el) => el.id == currentId)[0]
+    currentProject['start'] = start
+    currentProject['end'] = end
+    currentProject['companyName'] = companyName
+    currentProject['works'] = works
   }
 
   // console.log(props.resumeData)
-  // console.log(career)
+  console.log(career)
   // console.log(val)
   // console.log(isEmpty(val))
 
@@ -67,19 +80,15 @@ export default function Inputs(props) {
     <main>
       <h2>Career</h2>
       <div className={styles.inputWrap}>
-        <Input
-          start={handleStart}
-          end={handleEnd}
-          companyName={handleCompanyName}
-          work={handleWork}
-        />
         {career &&
-          career.map(() => (
+          career.map((el) => (
             <Input
+              id={el.id}
               start={handleStart}
               end={handleEnd}
               companyName={handleCompanyName}
               work={handleWork}
+              mouseLeave={handleMouseLeave}
             />
           ))}
       </div>
@@ -92,7 +101,12 @@ export default function Inputs(props) {
 
 const Input = (props) => {
   return (
-    <div className={styles.cont}>
+    <div
+      id={props.id}
+      className={styles.cont}
+      onMouseEnter={props.mouseEnter}
+      onMouseLeave={props.mouseLeave}
+    >
       <Period start={props.start} end={props.end} />
       <CompanyName fuc={props.companyName} />
       <textarea placeholder="담당 업무" onChange={props.work}></textarea>

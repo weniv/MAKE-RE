@@ -12,7 +12,6 @@ function App() {
       { year: 2020, contents: 'ICT 해외 봉사' },
       { year: 2022, contents: '교육 기부 박람회' },
     ],
-    // career: [{ id: 1, period: 'sdf', companyName: 'sf', works: ['dsfsdf'] }],
     url: [
       { contents: '제주도 캐글 밋업', link: 'www.github.com' },
       { contents: '네이버로 이동', link: 'www.naver.com' },
@@ -22,19 +21,10 @@ function App() {
   const [resumeData, setResumeData] = useState(dummyData)
 
   const dataUpdateHandler = () => {
-    // console.log('re')
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
-  // const autoSave = () => {
-  //   const re = setInterval(() => {
-  //     dataUpdateHandler()
-  //   }, 3000)
-
-  //   return re
-  // }
-
-  // autoSave()
+  console.log(resumeData)
 
   return (
     <div className={`${App} ${styles.pageWrap}`}>
