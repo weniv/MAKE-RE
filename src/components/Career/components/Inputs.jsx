@@ -3,25 +3,31 @@ import styles from '../CareerInput.module.css'
 
 export default function Inputs(props) {
   const [career, setCareer] = useState([])
-  const [period, setperiod] = useState('')
+  const [start, setStart] = useState('')
+  const [end, setEnd] = useState('')
   const [companyName, setCompanyName] = useState('')
-  const [works, setWorks] = useState()
+  const [works, setWorks] = useState('')
 
   useEffect(() => {
-    props.setResumeData({ career })
+    props.setResumeData({ ...props.resumeData, career })
   }, [career])
 
+  const nextId = useRef(1)
+
   const val = {
-    id: 1,
-    period,
+    id: nextId.current,
+    start,
+    end,
     companyName,
     works,
   }
 
-  const nextId = useRef(1)
+  const handleStart = (e) => {
+    setStart(e.target.value.replace('-', '.'))
+  }
 
-  const handlePeriod = (e) => {
-    setperiod(e.target.value)
+  const handleEnd = (e) => {
+    setEnd(e.target.value.replace('-', '.'))
   }
 
   const handleCompanyName = (e) => {
@@ -29,33 +35,49 @@ export default function Inputs(props) {
   }
 
   const handleWork = (e) => {
-    setWorks(e.target.value.split('\n'))
+    setWorks(e.target.value)
   }
 
   const handleAdd = (e) => {
     e.preventDefault()
-    val.id = nextId.current
-    nextId.current += 1
-    setCareer([...career, val])
+    if (!isEmpty(val)) {
+      val.id = nextId.current
+      nextId.current += 1
+      setCareer([...career, val])
+      setStart('')
+      setEnd('')
+      setCompanyName('')
+      setWorks('')
+    }
   }
 
-  // 임시저장 버튼이랑 연결방법 생각하기
+  /** 객체가 모두 채워졌는지 확인하는 함수, true면 덜 입력된 값이 존재 */
+  const isEmpty = (obj) => {
+    return !Object.values(obj).every(
+      (x) => x !== null && x !== '' && x !== undefined
+    )
+  }
 
+  // console.log(props.resumeData)
   // console.log(career)
+  // console.log(val)
+  // console.log(isEmpty(val))
 
   return (
     <main>
       <h2>Career</h2>
       <div className={styles.inputWrap}>
         <Input
-          period={handlePeriod}
+          start={handleStart}
+          end={handleEnd}
           companyName={handleCompanyName}
           work={handleWork}
         />
         {career &&
           career.map(() => (
             <Input
-              period={handlePeriod}
+              start={handleStart}
+              end={handleEnd}
               companyName={handleCompanyName}
               work={handleWork}
             />
@@ -71,7 +93,7 @@ export default function Inputs(props) {
 const Input = (props) => {
   return (
     <div className={styles.cont}>
-      <Period fuc={props.period} />
+      <Period start={props.start} end={props.end} />
       <CompanyName fuc={props.companyName} />
       <textarea placeholder="담당 업무" onChange={props.work}></textarea>
     </div>
@@ -80,15 +102,19 @@ const Input = (props) => {
 
 const Period = (props) => {
   return (
-    <div className={styles.deploy}>
-      <label htmlFor="" className="inputDescription">
-        기간
-      </label>
-      <input
-        type="text"
-        placeholder="예) 2019. 01. 01 ~ 2019. 01. 03"
-        onChange={props.fuc}
-      />
+    <div className={styles.period}>
+      <div className={styles.start}>
+        <label htmlFor="" className="inputDescription">
+          시작일
+        </label>
+        <input type="month" onChange={props.start} />
+      </div>
+      <div className={styles.end}>
+        <label htmlFor="" className="inputDescription">
+          종료일
+        </label>
+        <input type="month" onChange={props.end} />
+      </div>
     </div>
   )
 }
@@ -103,6 +129,7 @@ const CompanyName = (props) => {
         type="text"
         placeholder="예) 네이버 (NAVER) "
         onChange={props.fuc}
+        required
       />
     </div>
   )
