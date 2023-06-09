@@ -7,7 +7,7 @@ export default function Url({ url }) {
     <>
       {urlOutput && (
         <section className={styles.exp}>
-          <h2 className={styles.titOutput}>Url</h2>
+          <h2 className={styles.titOutput}>URL</h2>
           <ul className={styles.listUrl}>
             {urlOutput.map((url) => (
               <li>
