@@ -62,7 +62,7 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
       <input
         className={styles.inpItem}
         type="text"
-        placeholder="Url 주소를 입력하세요"
+        placeholder="예) www.paullab.co.kr"
         name="link"
         id={`link-${idx}`}
         value={url.link}
