@@ -44,27 +44,27 @@ export default function Url({ setResumeData, resumeData }) {
 function UrlContent({ url, idx, handleDelete, handleUpdate }) {
   return (
     <div className={styles.contContents}>
-      <label className={styles.lbTit} htmlFor="contents">
+      <label className={styles.lbTit} htmlFor={`content-${idx}`}>
         링크명
       </label>
       <input
         className={styles.inpItem}
         type="text"
-        id="contents"
+        id={`content-${idx}`}
         name="contents"
         value={url.contents}
         placeholder="예) 포트폴리오"
         onChange={(e) => handleUpdate(idx, e)}
       />
-      <label htmlFor="link" className={styles.lbLink}>
+      <label htmlFor={`link-${idx}`} className={styles.lbLink}>
         <img src="/images/link-icon.svg" alt="URL 주소" />
       </label>
       <input
         className={styles.inpItem}
         type="text"
-        placeholder="Url 주소를 입력하세요"
+        placeholder="예) www.paullab.co.kr"
         name="link"
-        id="link"
+        id={`link-${idx}`}
         value={url.link}
         onChange={(e) => handleUpdate(idx, e)}
       />

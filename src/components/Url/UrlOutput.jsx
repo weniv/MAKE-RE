@@ -14,7 +14,13 @@ export default function Url({ url }) {
                 <p className={styles.urlTitle}>{url.contents}</p>
                 <div className={styles.urlLink}>
                   <img src="/images/link-icon-blue.svg" alt="" />
-                  <a href={url.link}>{url.link}/</a>
+                  <a
+                    href={urlValidation(url.link)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {url.link}/
+                  </a>
                 </div>
               </li>
             ))}
@@ -23,4 +29,12 @@ export default function Url({ url }) {
       )}
     </>
   )
+}
+
+function urlValidation(url) {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url
+  } else {
+    return 'http://' + url
+  }
 }
