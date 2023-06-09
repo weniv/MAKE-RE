@@ -14,7 +14,9 @@ export default function Url({ url }) {
                 <p className={styles.urlTitle}>{url.contents}</p>
                 <div className={styles.urlLink}>
                   <img src="/images/link-icon-blue.svg" alt="" />
-                  <a href={url.link}>{url.link}/</a>
+                  <a href={url.link} target="_blank">
+                    {url.link}/
+                  </a>
                 </div>
               </li>
             ))}
