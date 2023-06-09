@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from './experience.module.css'
 
 export default function Experience({ experience }) {
   const expOutput = experience.filter((exp) => exp.year && exp.contents)
+  expOutput.sort((a, b) => b.year - a.year)
+
   return (
     <>
       {expOutput && (
