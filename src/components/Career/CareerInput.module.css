@@ -9,26 +9,33 @@
   gap: 10px;
 }
 
-.deploy,
+.period {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.period div,
 .company {
-  display: flex;
+  display: grid;
+  grid-template-columns: 108px auto;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
 }
 
-.deploy label,
+.period label,
 .company label {
-  width: 108px;
   padding-left: 12px;
-  background-color: palegoldenrod;
 }
 
-.deploy input,
+.end {
+  border-left: 1px solid var(--border-color);
+}
+
+.period input,
 .company input {
   border: none;
   border-radius: 0;
   border-left: 1px solid var(--border-color);
-  background-color: aquamarine;
 }
 
 .cont textarea {

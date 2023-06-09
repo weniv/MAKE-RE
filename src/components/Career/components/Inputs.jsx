@@ -60,8 +60,8 @@ export default function Inputs(props) {
 
   // console.log(props.resumeData)
   // console.log(career)
-  console.log(val)
-  console.log(isEmpty(val))
+  // console.log(val)
+  // console.log(isEmpty(val))
 
   return (
     <main>
@@ -102,15 +102,19 @@ const Input = (props) => {
 
 const Period = (props) => {
   return (
-    <div className={styles.deploy}>
-      <label htmlFor="" className="inputDescription">
-        시작일
-      </label>
-      <input type="month" onChange={props.start} />
-      <label htmlFor="" className="inputDescription">
-        종료일
-      </label>
-      <input type="month" onChange={props.end} />
+    <div className={styles.period}>
+      <div className={styles.start}>
+        <label htmlFor="" className="inputDescription">
+          시작일
+        </label>
+        <input type="month" onChange={props.start} />
+      </div>
+      <div className={styles.end}>
+        <label htmlFor="" className="inputDescription">
+          종료일
+        </label>
+        <input type="month" onChange={props.end} />
+      </div>
     </div>
   )
 }
