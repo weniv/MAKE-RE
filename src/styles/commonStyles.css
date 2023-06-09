@@ -3,6 +3,7 @@
   /* 타이틀, hover, line */
   --main-color: #2f80ed;
   --background-color: #ffffff;
+  --input-fill-color: #f2f2f2;
   /* 요소 추가 버튼 */
   --addButton-color: #f96167;
   --text-color: #000000;
@@ -10,7 +11,7 @@
   --placeholder-color: #bdbdbd;
 }
 
-/* 각 섹션 타이틀 */
+/* 각 섹션 타이틀(작성페이지) */
 h2 {
   margin: 40px 0 26px;
   padding-bottom: 10px;
@@ -18,7 +19,7 @@ h2 {
   font-size: 18px;
   line-height: 26px;
   color: var(--main-color);
-  border-bottom: 1px solid var(--main-color);
+  border-bottom: 1.4px solid var(--main-color);
 }
 
 /* prev 페이지와 write페이지 규격 */
@@ -28,12 +29,15 @@ main {
 }
 
 /* 항목 추가 버튼 */
-.skillBtn {
+.addBtn {
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
   text-decoration-line: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
   color: var(--addButton-color);
+  margin-top: 10px;
 }
 
 /* radio, checkbox 버튼 */
@@ -41,6 +45,7 @@ main {
 
 input[type='checkbox'],
 input[type='radio'] {
+  padding: 0 !important;
   --active: #2f80ed;
   --active-inner: #ffffff;
   --focus: 2px rgba(39, 94, 254, 0.3);

@@ -1,0 +1,26 @@
+.certTitle {
+  margin: 40px 0 20px;
+}
+
+.certList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.certList li {
+  display: flex;
+  gap: 20px;
+}
+
+.certList li .year {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--placeholder-color);
+  line-height: 20px;
+}
+
+.certItem {
+  font-size: 14px;
+  line-height: 20px;
+}

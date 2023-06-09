@@ -3,6 +3,10 @@
   License: none (public domain)
 */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -57,6 +61,7 @@ form,
 label,
 legend,
 table,
+textarea,
 caption,
 tbody,
 tfoot,
@@ -83,8 +88,8 @@ summary,
 time,
 mark,
 audio,
-video {
-  box-sizing: border-box;
+video,
+::before {
   margin: 0;
   padding: 0;
   border: 0;
@@ -166,4 +171,9 @@ img {
 
 a {
   display: inline-block;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
 }
