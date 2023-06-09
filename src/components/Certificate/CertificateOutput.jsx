@@ -8,9 +8,9 @@ export default function CertificateOutput({ certificate }) {
       <h2 className={styles.certTitle}>Certificate</h2>
       <ul className={styles.certList}>
         {certificates &&
-          certificates.map((certificate, i) => {
+          certificates.map((certificate) => {
             return (
-              <li className={styles.certItem} key={i}>
+              <li className={styles.certItem} key={certificate.id}>
                 <span className={styles.year}>{certificate.year}</span>
                 <p className={styles.item}>{certificate.contents}</p>
               </li>

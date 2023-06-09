@@ -8,9 +8,9 @@ export default function EducationOutput({ education }) {
       <h2 className={styles.eduTitle}>Education</h2>
       <ul className={styles.eduList}>
         {educationList &&
-          educationList.map((edu, i) => {
+          educationList.map((edu) => {
             return (
-              <li className={styles.eduItem} key={i}>
+              <li className={styles.eduItem} key={edu.id}>
                 <span className={styles.year}>{edu.year}</span>
                 <p className={styles.item}>{edu.contents}</p>
               </li>
