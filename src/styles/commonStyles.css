@@ -97,6 +97,7 @@ input[type='radio'] {
   }
   &:focus {
     box-shadow: 0 0 0 var(--focus);
+    outline: none;
   }
   &:not(.switch) {
     width: 21px;
@@ -147,4 +148,49 @@ input[type='radio'] {
   &:checked {
     --s: 0.5;
   }
+}
+
+/* 기본 스타일 적용 */
+input {
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding-left: 12px;
+}
+
+/* 포커싱시 아웃라인 색상 변경 */
+input:focus,
+textarea:focus {
+  outline: solid var(--main-color);
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+}
+
+/* 플레이스홀더 색상 */
+*::placeholder {
+  color: var(--placeholder-color);
+}
+
+/* 클래스 */
+.inputDescription {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 스크린 리더용  */
+.ir {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

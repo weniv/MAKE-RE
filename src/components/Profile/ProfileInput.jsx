@@ -34,6 +34,12 @@ function ProfileInput() {
   // 데이터 저장 코드 (useState 추후에 App.jsx에서 받아오기)
   const [data, setData] = useState({})
 
+  // 임시 데이터 업데이트 코드
+  function updateHandler() {
+    let copy = { ...props.resumeData }
+    copy['지지'] = '유진'
+    props.setResumeData(copy)
+  }
   // 프로필 이미지
   // 프로필 이름, 영문이름, 전화번호, 이메일
   // 깃허브, 기술블로그 링크, 경력사항
