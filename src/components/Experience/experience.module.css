@@ -63,6 +63,7 @@
   background-color: var(--background-color);
   border-radius: 5px;
   overflow: scroll;
+  overflow-x: hidden;
   margin: 5px auto;
   color: var(--placeholder-color);
   outline: 1px solid var(--border-color);

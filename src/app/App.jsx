@@ -12,7 +12,6 @@ function App() {
       { year: 2020, contents: 'ICT 해외 봉사' },
       { year: 2022, contents: '교육 기부 박람회' },
     ],
-    // career: [{ id: 1, period: 'sdf', companyName: 'sf', works: ['dsfsdf'] }],
     url: [
       { contents: '제주도 캐글 밋업', link: 'www.github.com' },
       { contents: '네이버로 이동', link: 'www.naver.com' },
@@ -22,66 +21,77 @@ function App() {
   const [resumeData, setResumeData] = useState(dummyData)
 
   const dataUpdateHandler = () => {
-    // console.log('re')
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
-  // const autoSave = () => {
-  //   const re = setInterval(() => {
-  //     dataUpdateHandler()
-  //   }, 3000)
-
-  //   return re
-  // }
-
-  // autoSave()
-
-  return (
-    <div className={`${App} ${styles.pageWrap}`}>
-      {isWrite ? (
-        <>
-          <header className={styles.headerWrap}>
-            <h1>
-              메이커리
-              <span> Make A Career</span>
-            </h1>
-            <button
-              className={`${styles.header} ${styles.saveBtn}`}
-              onClick={dataUpdateHandler}
-            >
-              임시저장
-            </button>
-            <button
-              className={styles.prevBtn}
-              onClick={() => {
-                setIsWrite(false)
-              }}
-            >
-              미리보기
-            </button>
-            <button className={styles.exportBtn}>PDF로 내보내기</button>
-            <div className={styles.line}></div>
-          </header>
-          <Write setResumeData={setResumeData} resumeData={resumeData} />
-        </>
-      ) : (
-        <>
-          <header className={styles.headerWrap}>
-            <button
-              className={styles.prevBtn}
-              onClick={() => {
-                setIsWrite(true)
-              }}
-            >
-              돌아가기
-            </button>
-            <button className={styles.exportBtn}>PDF로 내보내기</button>
-            <div className={styles.line}></div>
-          </header>
-          <Preview resumeData={resumeData} />
-        </>
-      )}
-    </div>
+  return isWrite ? (
+    <>
+      <header className={styles.headerWrap}>
+        <h1 className={`${styles.logoWrap} ${styles.title}`}>
+          <img src="/images/logo.svg" alt="" />
+          메이커리
+          <span> Make A Career</span>
+        </h1>
+        <nav className={styles.headerNav}>
+          <ul>
+            <li>
+              <button
+                className={`${styles.header} ${styles.saveBtn}`}
+                onClick={dataUpdateHandler}
+              >
+                임시저장
+              </button>
+            </li>
+            <li>
+              <button
+                className={styles.prevBtn}
+                onClick={() => {
+                  setIsWrite(false)
+                }}
+              >
+                미리보기
+              </button>
+            </li>
+            <li>
+              <button className={styles.exportBtn}>PDF로 내보내기</button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div className={`${App} ${styles.pageWrap}`}>
+        <Write setResumeData={setResumeData} resumeData={resumeData} />
+      </div>
+    </>
+  ) : (
+    <>
+      <header className={styles.headerWrap}>
+        <h1 className={`${styles.logoWrap} ${styles.title}`}>
+          <img src="/images/logo.svg" alt="" />
+          메이커리
+          <span> Make A Career</span>
+        </h1>
+        <nav className={styles.headerNav}>
+          <ul>
+            <li>
+              <button
+                className={styles.prevBtn}
+                onClick={() => {
+                  setIsWrite(true)
+                }}
+              >
+                돌아가기
+              </button>
+            </li>
+            <li>
+              <button className={styles.exportBtn}>PDF로 내보내기</button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div className={styles.prevWrap}>
+        <Preview resumeData={resumeData} />
+      </div>
+    </>
   )
 }
 
