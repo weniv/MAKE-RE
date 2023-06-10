@@ -1,11 +1,17 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './EducationInput.module.css'
 
-export default function EducationInput() {
+export default function EducationInput(props) {
   const [education, setEducation] = useState([
     { id: 1, year: '', contents: '' },
   ])
   const nextId = useRef(2)
+
+  useEffect(() => {
+    let temp = { ...props.resumeData, education }
+
+    props.setResumeData(temp)
+  }, [education])
 
   function handleAdd() {
     setEducation([...education, { id: nextId.current, year: '', contents: '' }])

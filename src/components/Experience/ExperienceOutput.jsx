@@ -1,28 +1,25 @@
 import React from 'react'
 import styles from './experience.module.css'
 
-export default function Experience() {
+export default function Experience({ experience }) {
+  const expOutput = experience.filter((exp) => exp.year && exp.contents)
+  expOutput.sort((a, b) => b.year - a.year)
+
   return (
-    <section className={styles.exp}>
-      <h2 className={styles.titOutput}>Experience</h2>
-      <ul className={styles.listExp}>
-        <li>
-          <span className={styles.year}>2016</span>
-          <p className={styles.item}>베트남 ICT 해외봉사</p>
-        </li>
-        <li>
-          <span className={styles.year}>2012</span>
-          <p className={styles.item}>베트남 ICT 해외봉사</p>
-        </li>
-        <li>
-          <span className={styles.year}>2019</span>
-          <p className={styles.item}>베트남 ICT 해외봉사</p>
-        </li>
-        <li>
-          <span className={styles.year}>2010</span>
-          <p className={styles.item}>베트남 ICT 해외봉사</p>
-        </li>
-      </ul>
-    </section>
+    <>
+      {expOutput && (
+        <section className={styles.exp}>
+          <h2 className={styles.titOutput}>Experience</h2>
+          <ul className={styles.listExp}>
+            {expOutput.map((exp) => (
+              <li>
+                <span className={styles.year}>{exp.year}</span>
+                <p className={styles.item}>{exp.contents} </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </>
   )
 }
