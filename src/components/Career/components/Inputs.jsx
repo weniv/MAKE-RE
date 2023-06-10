@@ -1,64 +1,46 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../CareerInput.module.css'
 
-export default function Inputs(props) {
-  const [career, setCareer] = useState([])
-  const [period, setperiod] = useState('')
-  const [companyName, setCompanyName] = useState('')
-  const [works, setWorks] = useState()
+export default function Inputs({ resumeData, setResumeData }) {
+  const [career, setCareer] = useState([
+    { id: 1, start: '', end: '', companyName: '', works: '' },
+  ])
+
+  /** 객체가 모두 채워졌는지 확인, true면 덜 입력된 값이 존재 */
+  // const isEmpty = (obj) => {
+  //   return !Object.values(obj).every(
+  //     (x) => x !== null && x !== '' && x !== undefined
+  //   )
+  // }
 
   useEffect(() => {
-    props.setResumeData({ career })
+    setResumeData({ ...resumeData, career })
   }, [career])
-
-  const val = {
-    id: 1,
-    period,
-    companyName,
-    works,
-  }
 
   const nextId = useRef(1)
 
-  const handlePeriod = (e) => {
-    setperiod(e.target.value)
-  }
-
-  const handleCompanyName = (e) => {
-    setCompanyName(e.target.value)
-  }
-
-  const handleWork = (e) => {
-    setWorks(e.target.value.split('\n'))
+  const val = {
+    id: nextId.current,
+    start: '',
+    end: '',
+    companyName: '',
+    works: '',
   }
 
   const handleAdd = (e) => {
     e.preventDefault()
-    val.id = nextId.current
     nextId.current += 1
+    val.id = nextId.current
     setCareer([...career, val])
   }
-
-  // 임시저장 버튼이랑 연결방법 생각하기
-
-  // console.log(career)
 
   return (
     <main>
       <h2>Career</h2>
       <div className={styles.inputWrap}>
-        <Input
-          period={handlePeriod}
-          companyName={handleCompanyName}
-          work={handleWork}
-        />
         {career &&
-          career.map(() => (
-            <Input
-              period={handlePeriod}
-              companyName={handleCompanyName}
-              work={handleWork}
-            />
+          career.map((el) => (
+            <Input id={el.id} career={career} setCareer={setCareer} />
           ))}
       </div>
       <button type="button" className="addBtn" onClick={handleAdd}>
@@ -69,40 +51,103 @@ export default function Inputs(props) {
 }
 
 const Input = (props) => {
-  return (
-    <div className={styles.cont}>
-      <Period fuc={props.period} />
-      <CompanyName fuc={props.companyName} />
-      <textarea placeholder="담당 업무" onChange={props.work}></textarea>
-    </div>
-  )
-}
+  const [works, setWorks] = useState('')
 
-const Period = (props) => {
+  const handleWorks = (e) => {
+    setWorks(e.target.value)
+  }
+
+  useEffect(() => {
+    let findIndex = props.career.findIndex((item) => item.id === props.id)
+    let copiedItems = [...props.career]
+    copiedItems[findIndex].works = works
+
+    props.setCareer(copiedItems)
+  }, [works])
+
   return (
-    <div className={styles.deploy}>
-      <label htmlFor="" className="inputDescription">
-        기간
-      </label>
-      <input
-        type="text"
-        placeholder="예) 2019. 01. 01 ~ 2019. 01. 03"
-        onChange={props.fuc}
+    <div id={props.id} className={styles.cont}>
+      <Period id={props.id} setCareer={props.setCareer} career={props.career} />
+      <CompanyName
+        id={props.id}
+        setCareer={props.setCareer}
+        career={props.career}
       />
+      <textarea
+        id={props.id}
+        setCareer={props.setCareer}
+        career={props.career}
+        placeholder="담당 업무"
+        onChange={handleWorks}
+      ></textarea>
     </div>
   )
 }
 
-const CompanyName = (props) => {
+const Period = ({ id, career, setCareer }) => {
+  const [start, setStart] = useState('')
+  const [end, setEnd] = useState('')
+
+  const handleStart = (e) => {
+    setStart(e.target.value)
+  }
+
+  const handleEnd = (e) => {
+    setEnd(e.target.value)
+  }
+
+  useEffect(() => {
+    let findIndex = career.findIndex((item) => item.id === id)
+    let copiedItems = [...career]
+    copiedItems[findIndex].start = start
+    copiedItems[findIndex].end = end
+
+    setCareer(copiedItems)
+  }, [start, end])
+
+  return (
+    <div className={styles.period}>
+      <div className={styles.start}>
+        <label htmlFor="" className="inputDescription">
+          시작일
+        </label>
+        <input type="month" id={id} onChange={handleStart} />
+      </div>
+      <div className={styles.end}>
+        <label htmlFor="" className="inputDescription">
+          종료일
+        </label>
+        <input id={id} type="month" onChange={handleEnd} />
+      </div>
+    </div>
+  )
+}
+
+const CompanyName = ({ id, career, setCareer }) => {
+  const [name, setName] = useState('')
+
+  const handleName = (e) => {
+    setName(e.target.value)
+  }
+
+  useEffect(() => {
+    let findIndex = career.findIndex((item) => item.id === id)
+    let copiedItems = [...career]
+    copiedItems[findIndex].companyName = name
+
+    setCareer(copiedItems)
+  }, [name])
+
   return (
     <div className={styles.company}>
       <label htmlFor="" className="inputDescription">
         회사명
       </label>
       <input
+        id={id}
         type="text"
         placeholder="예) 네이버 (NAVER) "
-        onChange={props.fuc}
+        onChange={handleName}
       />
     </div>
   )
