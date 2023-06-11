@@ -1,3 +1,9 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .projectWrap {
   padding: 0 10px;
 }
@@ -54,8 +60,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 55px;
   height: 22px;
+  padding: 0 11px;
   font-size: 14px;
   color: var(--background-color);
   background-color: #4f4f4f;

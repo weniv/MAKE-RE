@@ -1,97 +1,107 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../ProjectInput.module.css'
 
-export default function Inputs(props) {
-  const [project, setProject] = useState([])
-  const [title, setTitle] = useState('')
-  const [outline, setOutline] = useState('')
-  const [people, setPeople] = useState('')
-  const [period, setPeriod] = useState('')
-  const [contribute, setContribute] = useState([])
-  const [skill, setSkill] = useState([])
-  const [github, setGithub] = useState('')
-  const [link, setLink] = useState('')
+export default function Inputs({ resumeData, setResumeData }) {
+  const [project, setProject] = useState([
+    {
+      id: 1,
+      title: '',
+      outline: '',
+      people: '',
+      startPeriod: '',
+      endPeriod: '',
+      contribute: [],
+      skill: [],
+      github: '',
+      link: '',
+    },
+  ])
   const [isDrop, setIsDrop] = useState(false)
 
-  useEffect(() => {}, [])
-
-  const val = {
-    id: 1,
-    title,
-    outline,
-    people,
-    period,
-    contribute,
-    skill,
-    github,
-    link,
-  }
+  useEffect(() => {
+    setResumeData({ ...resumeData, project })
+  }, [project])
 
   const nextId = useRef(1)
 
+  const val = {
+    id: nextId.current,
+    title: '',
+    outline: '',
+    people: '',
+    startPeriod: '',
+    endPeriod: '',
+    contribute: [],
+    skill: [],
+    github: '',
+    link: '',
+  }
+
   const handleAdd = (e) => {
     e.preventDefault()
-    val.id = nextId.current
     nextId.current += 1
+    val.id = nextId.current
     setProject([...project, val])
   }
 
-  console.log(val)
+  console.log('project')
+  console.log(project)
 
   return (
     <main>
       <h2>Project</h2>
       <ProjectAlign />
       <div className={styles.projectInput}>
-        <div className={styles.cont}>
-          <ProjectHeader
-            setIsDrop={setIsDrop}
-            isDrop={isDrop}
-            handleAdd={handleAdd}
-          />
-          {isDrop ? (
-            <>
-              <form className={styles.inputWrap}>
-                <ProjectTitle setTitle={setTitle} />
-                <ProjectOutline setOutline={setOutline} />
-                <ProjectDetail
-                  setPeople={setPeople}
-                  setPeriod={setPeriod}
-                  period={period}
-                />
-                <ProjectContribution setContribute={setContribute} />
-                <ProjectSkill setSkill={setSkill} />
-                <GithubLink setGithub={setGithub} />
-                <DeployLink setLink={setLink} />
-              </form>
-            </>
-          ) : null}
-        </div>
         {project &&
-          project.map(() => (
+          project.map((el) => (
             <div className={styles.cont}>
               <ProjectHeader
-                setIsDrop={setIsDrop}
-                isDrop={isDrop}
+                id={el.id}
+                // setIsDrop={setIsDrop}
+                // isDrop={isDrop}
                 handleAdd={handleAdd}
               />
-              {isDrop ? (
-                <>
-                  <form className={styles.inputWrap}>
-                    <ProjectTitle setTitle={setTitle} />
-                    <ProjectOutline setOutline={setOutline} />
-                    <ProjectDetail
-                      setPeople={setPeople}
-                      setPeriod={setPeriod}
-                      period={period}
-                    />
-                    <ProjectContribution setContribute={setContribute} />
-                    <ProjectSkill setSkill={setSkill} />
-                    <GithubLink setGithub={setGithub} />
-                    <DeployLink setLink={setLink} />
-                  </form>
-                </>
-              ) : null}
+              {/* {isDrop ? (
+                <> */}
+              <form className={styles.inputWrap}>
+                <ProjectTitle
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+                <ProjectOutline
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+                <ProjectDetail
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+                <ProjectContribution
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+                <ProjectSkill
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+                <GithubLink
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+                <DeployLink
+                  id={el.id}
+                  setProject={setProject}
+                  project={project}
+                />
+              </form>
+              {/* </>
+              ) : null} */}
             </div>
           ))}
       </div>
@@ -124,7 +134,7 @@ const ProjectHeader = (props) => {
       <button
         type="button"
         className={styles.downBtn}
-        onClick={dropDown}
+        // onClick={dropDown}
       ></button>
       <button
         type="button"
@@ -135,22 +145,39 @@ const ProjectHeader = (props) => {
   )
 }
 
-const ProjectTitle = (props) => {
-  const handleTitle = (e) => {
-    props.setTitle(e.target.value)
-  }
+const ProjectTitle = ({ id, project, setProject }) => {
+  const [title, setTitle] = useState('')
+
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].title = title
+
+    setProject(copiedItems)
+  }, [title])
+
   return (
-    <div className={styles.projectTitle}>
+    <div id={id} className={styles.projectTitle}>
       <h4 className="inputDescription">프로젝트명 입력</h4>
-      <input type="text" placeholder="프로젝트명 입력" onChange={handleTitle} />
+      <input
+        type="text"
+        placeholder="프로젝트명 입력"
+        onChange={(e) => setTitle(e.target.value)}
+      />
     </div>
   )
 }
 
-const ProjectOutline = (props) => {
-  const handleOutline = (e) => {
-    props.setOutline(e.target.value)
-  }
+const ProjectOutline = ({ id, project, setProject }) => {
+  const [outline, setOutline] = useState('')
+
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].outline = outline
+
+    setProject(copiedItems)
+  }, [outline])
 
   return (
     <>
@@ -158,16 +185,22 @@ const ProjectOutline = (props) => {
       <textarea
         className={styles.oulineText}
         placeholder="본문 내용 입력"
-        onChange={handleOutline}
+        onChange={(e) => setOutline(e.target.value)}
       ></textarea>
     </>
   )
 }
 
-const People = (props) => {
-  const handlePeople = (e) => {
-    props.setPeople(e.target.value)
-  }
+const People = ({ id, project, setProject }) => {
+  const [people, setPeople] = useState('')
+
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].people = people
+
+    setProject(copiedItems)
+  }, [people])
 
   return (
     <div className={styles.peple}>
@@ -175,7 +208,7 @@ const People = (props) => {
       <input
         type="text"
         placeholder="예) Front-End 4명, Back-End 2명"
-        onChange={handlePeople}
+        onChange={(e) => setPeople(e.target.value)}
       />
     </div>
   )
@@ -195,16 +228,16 @@ const Period = (props) => {
   }
 
   useEffect(() => {
-    handlePeriod()
+    // handlePeriod()
   }, [])
 
-  const handlePeriod = () => {
-    if (isChecked) {
-      props.setPeriod('진행중')
-    } else {
-      props.setPeriod(val)
-    }
-  }
+  // const handlePeriod = () => {
+  //   if (isChecked) {
+  //     props.setPeriod('진행중')
+  //   } else {
+  //     props.setPeriod(val)
+  //   }
+  // }
 
   const handleStartYear = (e) => {
     setStartYear(e.target.value)
@@ -247,8 +280,6 @@ const Period = (props) => {
     }
   }
 
-  console.log(props.period)
-
   return (
     <div className={styles.period}>
       <h4 className="inputDescription" onClick={isEmpty}>
@@ -290,12 +321,12 @@ const Period = (props) => {
   )
 }
 
-const ProjectDetail = (props) => {
+const ProjectDetail = ({ id, project, setProject }) => {
   return (
     <>
       <h3 className={styles.subTitle}>개발 인원 및 기간</h3>
-      <People setPeople={props.setPeople} />
-      <Period setPeriod={props.setPeriod} period={props.period} />
+      <People id={id} setProject={setProject} project={project} />
+      <Period id={id} setProject={setProject} project={project} />
     </>
   )
 }
@@ -303,9 +334,9 @@ const ProjectDetail = (props) => {
 const ProjectContribution = (props) => {
   const [contribute, setContribute] = useState([])
 
-  useEffect(() => {
-    console.log(contribute)
-  }, [contribute])
+  // useEffect(() => {
+  //   console.log(contribute)
+  // }, [contribute])
 
   const handleContribute = (e) => {
     setContribute(e.target.value)
@@ -346,16 +377,58 @@ const ProjectContribution = (props) => {
   )
 }
 
-const ProjectSkill = () => {
+const ProjectSkill = ({ id, project, setProject }) => {
+  const [skill, setSkill] = useState([{ id: 1, skill: '' }])
+  const [skillVal, setSkillVal] = useState('')
+  const [curId, setCurId] = useState(1)
+
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].skill = skill
+
+    setProject(copiedItems)
+  }, [skill])
+
+  const nextId = useRef(1)
+
+  const val = {
+    id: nextId.current,
+    skill: '',
+  }
+
+  useEffect(() => {
+    let findIndex = skill.findIndex((item) => item.id === parseInt(curId))
+    let copiedItems = [...skill]
+    copiedItems[findIndex].skill = skillVal
+    setSkill(copiedItems)
+  }, [skill.length, skillVal, curId])
+
+  const handleAdd = (e) => {
+    e.preventDefault()
+    nextId.current += 1
+    val.id = nextId.current
+    setSkill([...skill, val])
+  }
+
   return (
     <>
       <h3 className={styles.subTitle}>적용 기술</h3>
       <div className={styles.skill}>
-        <input type="text" placeholder="예) Java" />
-        <button type="button" className="addBtn ">
-          +) 추가 입력하기
-        </button>
+        {skill &&
+          skill.map((el) => (
+            <input
+              id={el.id}
+              type="text"
+              placeholder="예) Java"
+              onChange={(e) => setSkillVal(e.target.value)}
+              onMouseDown={(e) => setCurId(e.target.id)}
+            />
+          ))}
       </div>
+      <button type="button" className="addBtn" onClick={handleAdd}>
+        +) 추가 입력하기
+      </button>
     </>
   )
 }
