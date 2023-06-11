@@ -53,10 +53,6 @@ export default function Inputs({ resumeData, setResumeData }) {
 const Input = (props) => {
   const [works, setWorks] = useState('')
 
-  const handleWorks = (e) => {
-    setWorks(e.target.value)
-  }
-
   useEffect(() => {
     let findIndex = props.career.findIndex((item) => item.id === props.id)
     let copiedItems = [...props.career]
@@ -78,7 +74,7 @@ const Input = (props) => {
         setCareer={props.setCareer}
         career={props.career}
         placeholder="담당 업무"
-        onChange={handleWorks}
+        onChange={(e) => setWorks(e.target.value)}
       ></textarea>
     </div>
   )
@@ -87,14 +83,6 @@ const Input = (props) => {
 const Period = ({ id, career, setCareer }) => {
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
-
-  const handleStart = (e) => {
-    setStart(e.target.value)
-  }
-
-  const handleEnd = (e) => {
-    setEnd(e.target.value)
-  }
 
   useEffect(() => {
     let findIndex = career.findIndex((item) => item.id === id)
@@ -111,13 +99,17 @@ const Period = ({ id, career, setCareer }) => {
         <label htmlFor="" className="inputDescription">
           시작일
         </label>
-        <input type="month" id={id} onChange={handleStart} />
+        <input
+          type="month"
+          id={id}
+          onChange={(e) => setStart(e.target.value)}
+        />
       </div>
       <div className={styles.end}>
         <label htmlFor="" className="inputDescription">
           종료일
         </label>
-        <input id={id} type="month" onChange={handleEnd} />
+        <input id={id} type="month" onChange={(e) => setEnd(e.target.value)} />
       </div>
     </div>
   )
@@ -125,10 +117,6 @@ const Period = ({ id, career, setCareer }) => {
 
 const CompanyName = ({ id, career, setCareer }) => {
   const [name, setName] = useState('')
-
-  const handleName = (e) => {
-    setName(e.target.value)
-  }
 
   useEffect(() => {
     let findIndex = career.findIndex((item) => item.id === id)
@@ -147,7 +135,7 @@ const CompanyName = ({ id, career, setCareer }) => {
         id={id}
         type="text"
         placeholder="예) 네이버 (NAVER) "
-        onChange={handleName}
+        onChange={(e) => setName(e.target.value)}
       />
     </div>
   )
