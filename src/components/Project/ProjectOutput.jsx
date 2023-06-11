@@ -22,9 +22,9 @@ const Project = (props) => {
   return (
     <div className={styles.projectWrap}>
       <div className={styles.rowWrap}>
-        <div>
-          <p className={styles.period}>2019.01</p>
-          <p className={styles.period}>~ 2019.03</p>
+        <div className={styles.period}>
+          <p>2019.01</p>
+          <p>~2019.03</p>
         </div>
 
         <div className={styles.columnWrap}>
@@ -38,9 +38,19 @@ const Project = (props) => {
             </p>
           </div>
 
-          <div>
+          <div className={styles.row}>
             <p className={styles.title}>인원</p>
-            <span>JAVA</span>
+            <p>Front-End 4명</p>
+          </div>
+
+          <div>
+            <p className={styles.title}>적용기술</p>
+            <ul className={styles.skillWrap}>
+              <li className={styles.skill}>JAVA</li>
+              <li className={styles.skill}>JAVA</li>
+              <li className={styles.skill}>JAVA</li>
+              <li className={styles.skill}>JAVA</li>
+            </ul>
           </div>
 
           <div>
@@ -54,17 +64,31 @@ const Project = (props) => {
         </div>
       </div>
 
-      <div>
+      <div className={styles.github}>
         <p className={styles.title}>깃허브 링크</p>
-        <div>
-          <p className={styles.sub}>https://github.com/</p>
+        <div className={styles.urlLink}>
+          <img src="/images/link-icon-blue.svg" alt="" />
+          <a
+            // href={urlValidation(url.link)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://github.com/
+          </a>
         </div>
       </div>
 
-      <div>
+      <div className={styles.link}>
         <p className={styles.title}>프로젝트 링크</p>
-        <div>
-          <p className={styles.sub}>https://github.com/</p>
+        <div className={styles.urlLink}>
+          <img src="/images/link-icon-blue.svg" alt="" />
+          <a
+            // href={urlValidation(url.link)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://github.com/
+          </a>
         </div>
       </div>
     </div>

@@ -27,6 +27,10 @@ function Write(props) {
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
       />
+      <Project
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
       <Experience
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}

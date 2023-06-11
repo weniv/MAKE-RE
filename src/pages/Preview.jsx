@@ -17,6 +17,7 @@ function Preview({ resumeData }) {
       <Intro />
       <Skills />
       <Career data={data.career} />
+      <Project data={data.project} />
       <Experience experience={data.experience} />
       <Certificate certificate={data.certificate} />
       <Education education={data.education} />
