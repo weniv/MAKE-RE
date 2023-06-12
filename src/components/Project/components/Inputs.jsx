@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../ProjectInput.module.css'
 
+// 수정 필요
+// 아코디언 메뉴
+// 미완성 프로젝트 넘기지않기
+
 export default function Inputs({ resumeData, setResumeData }) {
   const [project, setProject] = useState([
     {
@@ -44,8 +48,8 @@ export default function Inputs({ resumeData, setResumeData }) {
     setProject([...project, val])
   }
 
-  console.log('project')
-  console.log(project)
+  // console.log('project')
+  // console.log(project)
 
   return (
     <main>
@@ -57,51 +61,23 @@ export default function Inputs({ resumeData, setResumeData }) {
             <div className={styles.cont}>
               <ProjectHeader
                 id={el.id}
-                // setIsDrop={setIsDrop}
-                // isDrop={isDrop}
                 handleAdd={handleAdd}
+                isDrop={isDrop}
+                setIsDrop={setIsDrop}
               />
-              {/* {isDrop ? (
-                <> */}
-              <form className={styles.inputWrap}>
-                <ProjectTitle
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-                <ProjectOutline
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-                <ProjectDetail
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-                <ProjectContribution
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-                <ProjectSkill
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-                <GithubLink
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-                <DeployLink
-                  id={el.id}
-                  setProject={setProject}
-                  project={project}
-                />
-              </form>
-              {/* </>
-              ) : null} */}
+              {isDrop ? (
+                <>
+                  <form className={styles.inputWrap}>
+                    <ProjectTitle />
+                    <ProjectOutline />
+                    <ProjectDetail />
+                    <ProjectContribution />
+                    <ProjectSkill />
+                    <GithubLink />
+                    <DeployLink />
+                  </form>
+                </>
+              ) : null}
             </div>
           ))}
       </div>
@@ -118,28 +94,29 @@ const ProjectAlign = () => {
   )
 }
 
-const ProjectHeader = (props) => {
+const ProjectHeader = ({ id, isDrop, setIsDrop, handleAdd, project }) => {
   const dropDown = () => {
-    if (props.isDrop) {
-      props.setIsDrop(false)
-    } else {
-      props.setIsDrop(true)
+    if (true) {
+      setIsDrop(!isDrop)
     }
   }
+  // console.log('ProjectHeader')
+  // console.log(id)
 
   return (
     <div className={styles.projectHeader}>
       <button type="button" className={styles.menuBtn}></button>
-      <p>AT(Arzra Takarsen)</p>
+      <p>{`새로운 프로젝트`}</p>
       <button
+        id={id}
         type="button"
         className={styles.downBtn}
-        // onClick={dropDown}
+        onClick={(e) => console.log(e.target.id)}
       ></button>
       <button
         type="button"
         className={styles.moreBtn}
-        onClick={props.handleAdd}
+        onClick={handleAdd}
       ></button>
     </div>
   )
