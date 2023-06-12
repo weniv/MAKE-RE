@@ -1,0 +1,105 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.projectWrap {
+  padding: 0 10px;
+}
+
+.rowWrap {
+  display: flex;
+}
+
+.period {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.period p:first-child {
+  padding-bottom: 5px;
+}
+
+.columnWrap {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  gap: 15px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.sub {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+/* Project */
+.list {
+  list-style: inside;
+}
+
+.skillWrap {
+  display: flex;
+  gap: 5px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 11px;
+  font-size: 14px;
+  color: var(--background-color);
+  background-color: #4f4f4f;
+  border-radius: 100px;
+}
+
+.github,
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.github {
+  margin: 30px 0 12px 0;
+}
+
+.github .title,
+.link .title {
+  margin: 0;
+}
+
+.urlLink {
+  background-color: #f2f2f2;
+  width: 678px;
+  display: flex;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+.urLink img {
+  width: 14px;
+  height: 14px;
+}
+.urlLink a {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.urlLink a:hover {
+  text-decoration: underline;
+}

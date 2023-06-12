@@ -2,6 +2,7 @@ import Profile from '../components/Profile/ProfileOutput'
 import Intro from '../components/Intro/IntroOutput'
 import Skills from '../components/Skills/SkillsOutput'
 import Career from '../components/Career/CareerOutput'
+import Project from '../components/Project/ProjectOutput'
 import Experience from '../components/Experience/ExperienceOutput'
 import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
@@ -16,6 +17,7 @@ function Preview({ resumeData }) {
       <Intro />
       <Skills />
       <Career data={data.career} />
+      <Project project={data.project} />
       <Experience experience={data.experience} />
       <Certificate certificate={data.certificate} />
       <Education education={data.education} />

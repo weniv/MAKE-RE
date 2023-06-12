@@ -1,0 +1,220 @@
+/* common */
+h3.subTitle {
+  margin: 26px 0 26px;
+  padding-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--main-color);
+  border-bottom: 1.4px solid var(--main-color);
+}
+
+/* main */
+main .cont {
+  position: relative;
+  background-color: var(--input-fill-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.projectInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form.inputWrap {
+  width: 92%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 36px;
+}
+
+/* ProjectAlign */
+.isAlign {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 0 34px 13px;
+}
+
+/* projectHeader */
+.projectHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.projectHeader button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.projectHeader .menuBtn {
+  background-image: url('/public/images/menu.svg');
+  left: 10px;
+}
+
+.projectHeader p {
+  position: absolute;
+  font-size: 14px;
+  left: 48px;
+}
+
+.projectHeader .downBtn {
+  background-image: url('/public/images/polygon-down.svg');
+  right: 48px;
+}
+
+.projectHeader .moreBtn {
+  background-image: url('/public/images/more-horizontal.svg');
+  right: 14px;
+}
+
+/* ProjectTitle */
+.projectTitle {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: var(--background-color);
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  gap: 42px;
+  margin: 36px 0 0 0;
+}
+
+.projectTitle h4 {
+  width: 148px;
+  padding-left: 12px;
+}
+
+.projectTitle input {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
+  background-color: transparent;
+}
+
+/* ProjectOutline */
+textarea.oulineText {
+  height: 140px;
+}
+
+/* ProjectDetail */
+.peple {
+  margin-bottom: 16px;
+}
+.peple,
+.period {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* background-color: aqua; */
+  gap: 18px;
+}
+
+.peple h4,
+.period h4 {
+  width: 39px;
+  text-align: center;
+  margin-left: 12px;
+}
+
+.peple input,
+.period div {
+  width: 100%;
+}
+
+.period div {
+  display: flex;
+  align-items: center;
+}
+
+.period input {
+  box-sizing: content-box;
+  padding: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.period .year {
+  width: 55px;
+}
+
+.period .month {
+  width: 44px;
+}
+
+.period input[type='checkbox']::before {
+  content: '진행 중';
+  width: 50px;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 26px;
+}
+
+/* ProjectContribution */
+.contribution {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.contributeWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contribution input {
+  width: 100%;
+}
+
+/* ProjectSkill */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.skill input {
+  width: 350px;
+}
+
+/* GithubLink */
+/* DeployLink */
+.github,
+.deploy {
+  display: flex;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.deploy {
+  margin-bottom: 66px;
+}
+
+.github img,
+.deploy img {
+  width: 40px;
+  height: 40px;
+  background-color: aqua;
+}
+
+.github input,
+.deploy input {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
+}

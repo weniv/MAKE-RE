@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './CareerOutput.module.css'
 
-const Work = (props) => {
-  const works = props.work.split('\n')
+const Work = ({ work }) => {
+  const works = work.split('\n')
   return (
     <ul className={styles.list}>
       {works && works.map((work) => <li className={styles.list}>{work}</li>)}
