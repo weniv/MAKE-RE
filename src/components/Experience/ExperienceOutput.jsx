@@ -2,7 +2,9 @@ import React from 'react'
 import styles from './experience.module.css'
 
 export default function Experience({ experience }) {
-  const expOutput = experience.filter((exp) => exp.year && exp.contents)
+  const expOutput = experience.filter((exp) => exp.year || exp.contents.trim())
+
+  console.log('out', expOutput)
   expOutput.sort((a, b) => b.year - a.year)
 
   return (
@@ -14,7 +16,7 @@ export default function Experience({ experience }) {
             {expOutput.map((exp) => (
               <li>
                 <span className={styles.year}>{exp.year}</span>
-                <p className={styles.item}>{exp.contents} </p>
+                <p className={styles.item}>{exp.contents.trim()}</p>
               </li>
             ))}
           </ul>
