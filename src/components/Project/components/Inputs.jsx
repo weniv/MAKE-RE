@@ -214,107 +214,71 @@ const People = ({ id, project, setProject }) => {
   )
 }
 
-const Period = (props) => {
+const Period = ({ id, project, setProject }) => {
+  const min_month = 1
+  const max_month = 31
+
+  const [startPeriod, setStartPeriod] = useState('')
+  const [endPeriod, setEndPeriod] = useState('')
   const [startYear, setStartYear] = useState('')
   const [startMonth, setStartMonth] = useState('')
   const [endYear, setEndYear] = useState('')
   const [endMonth, setEndMonth] = useState('')
-  const [isChecked, setIsChecked] = useState(false)
-  const [isDone, setIsDone] = useState(false)
-
-  const val = {
-    start: `${startYear}.${startMonth}`,
-    end: `${endYear}.${endMonth}`,
-  }
 
   useEffect(() => {
-    // handlePeriod()
-  }, [])
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].startPeriod = startPeriod
+    copiedItems[findIndex].endPeriod = endPeriod
 
-  // const handlePeriod = () => {
-  //   if (isChecked) {
-  //     props.setPeriod('진행중')
-  //   } else {
-  //     props.setPeriod(val)
-  //   }
-  // }
+    setProject(copiedItems)
+  }, [startPeriod, endPeriod])
 
-  const handleStartYear = (e) => {
-    setStartYear(e.target.value)
-    checkIsDone(val)
-  }
+  useEffect(() => {
+    setStartPeriod(`${startYear}.${startMonth}`)
+  }, [startYear, startMonth])
 
-  const handleStartMonth = (e) => {
-    setStartMonth(e.target.value)
-    checkIsDone(val)
-  }
-
-  const handleEndYear = (e) => {
-    setEndYear(e.target.value)
-    checkIsDone(val)
-  }
-
-  const handleEndMonth = (e) => {
-    setEndMonth(e.target.value)
-    checkIsDone(val)
-  }
-
-  const handleProceeding = (e) => {
-    setIsChecked(e.target.checked)
-    checkIsDone(val)
-  }
-
-  const isEmpty = (obj) =>
-    !Object.values(obj).every((x) => x !== null && x !== '')
-
-  const checkIsDone = (obj) => {
-    const checkVal = isEmpty(obj) // null이 있으면 true
-    // console.log(!checkVal)
-    // console.log(!checkVal  !isChecked)
-    if (!isChecked) {
-      setIsDone(true)
-    } else if (checkVal) {
-      setIsDone(true)
-    } else {
-      setIsDone(false)
-    }
-  }
+  useEffect(() => {
+    setEndPeriod(`${endYear}.${endMonth}`)
+  }, [endYear, endMonth])
 
   return (
     <div className={styles.period}>
-      <h4 className="inputDescription" onClick={isEmpty}>
-        기간
-      </h4>
+      <h4 className="inputDescription">기간</h4>
       <div>
         <input
-          type="text"
+          type="number"
           placeholder="YYYY"
           className={styles.year}
-          onChange={handleStartYear}
+          onChange={(e) => setStartYear(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           placeholder="MM"
           className={styles.month}
-          onChange={handleStartMonth}
+          onChange={(e) => setStartMonth(e.target.value)}
+          min={min_month}
+          max={max_month}
         />
         <input
-          type="text"
+          type="number"
           placeholder="YYYY"
           className={styles.year}
-          onChange={handleEndYear}
+          onChange={(e) => setEndYear(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           placeholder="MM"
           className={styles.month}
-          onChange={handleEndMonth}
+          onChange={(e) => setEndMonth(e.target.value)}
+          min={min_month}
+          max={max_month}
         />
         <input
           type="checkbox"
           name="Proceeding"
           id="Proceeding"
-          onChange={handleProceeding}
+          onChange={(e) => console.log(e.target.checked)}
         />
       </div>
     </div>
@@ -331,23 +295,38 @@ const ProjectDetail = ({ id, project, setProject }) => {
   )
 }
 
-const ProjectContribution = (props) => {
-  const [contribute, setContribute] = useState([])
+const ProjectContribution = ({ id, project, setProject }) => {
+  const [contribute, setContribute] = useState([{ id: 1, contribute: '' }])
+  const [contributeVal, setContributeVal] = useState('')
+  const [curId, setCurId] = useState(1)
 
-  // useEffect(() => {
-  //   console.log(contribute)
-  // }, [contribute])
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].contribute = contribute
 
-  const handleContribute = (e) => {
-    setContribute(e.target.value)
-  }
+    setProject(copiedItems)
+  }, [contribute])
 
   const nextId = useRef(1)
+
+  const val = {
+    id: nextId.current,
+    contribute: '',
+  }
+
+  useEffect(() => {
+    let findIndex = contribute.findIndex((item) => item.id === parseInt(curId))
+    let copiedItems = [...contribute]
+    copiedItems[findIndex].contribute = contributeVal
+    setContribute(copiedItems)
+  }, [contribute.length, contributeVal, curId])
 
   const handleAdd = (e) => {
     e.preventDefault()
     nextId.current += 1
-    setContribute([...contribute, contribute])
+    val.id = nextId.current
+    setContribute([...contribute, val])
   }
 
   return (
@@ -355,19 +334,16 @@ const ProjectContribution = (props) => {
       <h3 className={styles.subTitle}>기여 부분</h3>
       <div className={styles.contribution}>
         <div className={styles.contributeWrap}>
-          <input
-            type="text"
-            placeholder="예) 스마트 컨트렉스 서버와 연동되는 웹 개발 전반"
-            onChange={handleContribute}
-          />
-          {/* {contribute &&
-            contribute.map(() => (
+          {contribute &&
+            contribute.map((el) => (
               <input
+                id={el.id}
                 type="text"
                 placeholder="예) 스마트 컨트렉스 서버와 연동되는 웹 개발 전반"
-                onChange={handleContribute}
+                onChange={(e) => setContributeVal(e.target.value)}
+                onMouseDown={(e) => setCurId(e.target.id)}
               />
-            ))} */}
+            ))}
         </div>
         <button type="button" className="addBtn" onClick={handleAdd}>
           +) 추가 입력하기
@@ -433,25 +409,45 @@ const ProjectSkill = ({ id, project, setProject }) => {
   )
 }
 
-const GithubLink = () => {
+const GithubLink = ({ id, project, setProject }) => {
+  const [github, setGithub] = useState('')
+
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].github = github
+
+    setProject(copiedItems)
+  }, [github])
+
   return (
     <>
       <h3 className={styles.subTitle}>깃허브 링크</h3>
-      <div className={styles.github}>
+      <div id="id" className={styles.github}>
         <img src="" alt="" />
-        <input type="url" />
+        <input type="url" onChange={(e) => setGithub(e.target.value)} />
       </div>
     </>
   )
 }
 
-const DeployLink = () => {
+const DeployLink = ({ id, project, setProject }) => {
+  const [link, setLink] = useState('')
+
+  useEffect(() => {
+    let findIndex = project.findIndex((item) => item.id === id)
+    let copiedItems = [...project]
+    copiedItems[findIndex].link = link
+
+    setProject(copiedItems)
+  }, [link])
+
   return (
     <>
       <h3 className={styles.subTitle}>프로젝트 링크</h3>
       <div className={styles.deploy}>
         <img src="" alt="" />
-        <input type="url" />
+        <input type="url" onChange={(e) => setLink(e.target.value)} />
       </div>
     </>
   )

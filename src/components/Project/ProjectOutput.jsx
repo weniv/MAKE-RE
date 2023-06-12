@@ -2,26 +2,15 @@ import React from 'react'
 import styles from '../Project/ProjectOutput.module.css'
 
 export default function ProjectOutput({ project }) {
-  console.log(12222)
-  console.log(project)
-  const dummy = [
-    '쇼핑라이브 방송 송출 및 서비스에 필요한 Backend API 개발 및 운영',
-    '2021년 실시간 방송 재생 정보 HTTP -> Socket 방식으로 전환',
-    '순간적인 트래픽이 몰렸을 때 API 대역폭 리스크 감소',
-    '2021년 방송 트레일러 개선',
-    'CPC에 효과적인 트레일러를 노출시키기 위해, 다시보기 영상에 실시간 방송 지표를 적용한 트레일러 추출 및 적용',
-  ]
   return (
     <section className={styles.projectSection}>
       <h2>Project</h2>
-      <Project dummy={dummy} project={project} />
+      <Project project={project} />
     </section>
   )
 }
 
-const Project = ({ dummy, project }) => {
-  const data = dummy
-
+const Project = ({ project }) => {
   return (
     <div className={styles.cont}>
       {project &&
@@ -29,8 +18,8 @@ const Project = ({ dummy, project }) => {
           <div className={styles.projectWrap}>
             <div className={styles.rowWrap}>
               <div className={styles.period}>
-                <p>2019.01</p>
-                <p>~2019.03</p>
+                <p>{project.startPeriod}</p>
+                <p>~{project.endPeriod}</p>
               </div>
 
               <div className={styles.columnWrap}>
@@ -57,9 +46,10 @@ const Project = ({ dummy, project }) => {
                 <div>
                   <p className={styles.title}>기여 부분</p>
                   <ul className={styles.list}>
-                    {data.map((el) => (
-                      <li className={styles.sub}>{el}</li>
-                    ))}
+                    {project.contribute &&
+                      project.contribute.map((el) => (
+                        <li className={styles.sub}>{el.contribute}</li>
+                      ))}
                   </ul>
                 </div>
               </div>
@@ -70,11 +60,11 @@ const Project = ({ dummy, project }) => {
               <div className={styles.urlLink}>
                 <img src="/images/link-icon-blue.svg" alt="" />
                 <a
-                  // href={urlValidation(url.link)}
+                  href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://github.com/
+                  {project.github}
                 </a>
               </div>
             </div>
@@ -84,11 +74,11 @@ const Project = ({ dummy, project }) => {
               <div className={styles.urlLink}>
                 <img src="/images/link-icon-blue.svg" alt="" />
                 <a
-                  // href={urlValidation(url.link)}
+                  href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://github.com/
+                  {project.link}
                 </a>
               </div>
             </div>
