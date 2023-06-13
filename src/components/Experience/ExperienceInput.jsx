@@ -9,7 +9,7 @@ export default function Experience({ setResumeData, resumeData }) {
   }, [experience])
 
   function handleAdd() {
-    setExperience([...experience, { year: '', contents: '' }])
+    setExperience([...experience, { date: '', contents: '' }])
   }
 
   function handleDelete(idx) {
@@ -44,58 +44,20 @@ export default function Experience({ setResumeData, resumeData }) {
 }
 
 function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
-  const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
-  const handleItemClick = (idx, item) => {
-    handleUpdate(idx, 'year', item)
-    setIsOpen(false)
-  }
-
-  function handleOpen() {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <div className={styles.contContents} ref={dropdownRef}>
-      <div className={styles.contYear}>
-        <button className={styles.btnYear} onClick={handleOpen}>
-          {exp.year ? exp.year : '연도'}
-          {isOpen ? (
-            <img src="/images/polygon-up-icon.svg" alt="" />
-          ) : (
-            <img src="/images/polygon-down-icon.svg" alt="" />
-          )}
-        </button>
-        {isOpen && (
-          <ul className={styles.listYear}>
-            {YearList().map((v, i) => {
-              return (
-                <li key={i} onClick={() => handleItemClick(idx, v)}>
-                  {v}
-                </li>
-              )
-            })}
-          </ul>
-        )}
-      </div>
+      <input
+        type="month"
+        className={styles.inpDate}
+        value={exp.date}
+        onChange={(e) => handleUpdate(idx, 'date', e.target.value)}
+      />
       <input
         className={styles.inpItem}
         type="text"
         placeholder="예) ICT 해외봉사"
-        required
         value={exp.contents}
         onChange={(e) => handleUpdate(idx, 'contents', e.target.value)}
       />
@@ -108,13 +70,4 @@ function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
       </button>
     </div>
   )
-}
-
-function YearList() {
-  const year = []
-  const birthYear = 2000
-  for (let i = 2023; i >= birthYear; i--) {
-    year.push(i)
-  }
-  return year
 }

@@ -8,7 +8,7 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
-    experience: [{ year: '', contents: '' }],
+    experience: [{ date: '', contents: '' }],
     url: [{ contents: '', link: '' }],
   }
   const [isWrite, setIsWrite] = useState(true)
