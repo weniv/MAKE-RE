@@ -12,8 +12,8 @@ function App() {
       { date: '2023-02', contents: '테스트1 입니다' },
       { date: '2023-06', contents: '테스트2 입니다' },
     ],
-    certificate: [{ date: '', contents: '' }],
-    education: [{ date: '', contents: '' }],
+    certificate: [{ date: '2023-03', contents: '컴퓨터 활용능력 1급' }],
+    education: [{ date: '2023-04', contents: '정보처리기사' }],
     url: [
       { contents: '제주도 캐글 밋업', link: 'www.github.com' },
       { contents: '네이버로 이동', link: 'www.naver.com' },
