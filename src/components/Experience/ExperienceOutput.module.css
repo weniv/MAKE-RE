@@ -1,0 +1,48 @@
+.titOutput {
+  margin: 40px 0 20px;
+}
+
+.listExp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listExp li {
+  display: flex;
+  gap: 20px;
+}
+
+.listExp li .date {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  min-width: 52px;
+  color: var(--placeholder-color);
+  position: relative;
+}
+
+.listExp li .date:empty::before {
+  content: '-';
+  width: 100%;
+  text-align: center;
+  position: absolute;
+}
+.listExp li .date:not(:empty)::after {
+  content: '.';
+  position: absolute;
+}
+
+.listExp li .item {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  position: relative;
+}
+
+.listExp li .item:empty::before {
+  content: '-';
+  width: 100%;
+  position: absolute;
+  line-height: 16px;
+}
