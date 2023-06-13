@@ -78,12 +78,3 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
     </div>
   )
 }
-
-function YearList() {
-  const year = []
-  const birthYear = 2000
-  for (let i = 2023; i >= birthYear; i--) {
-    year.push(i)
-  }
-  return year
-}
