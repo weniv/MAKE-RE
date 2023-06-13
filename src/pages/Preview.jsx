@@ -9,6 +9,7 @@ import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
 import { useReactToPrint } from 'react-to-print'
 import { useRef } from 'react'
+import styles from './preview.module.css'
 
 function Preview({ resumeData }) {
   const data = JSON.parse(localStorage.getItem('data'))
@@ -23,17 +24,19 @@ function Preview({ resumeData }) {
   return (
     <>
       <button onClick={handleClick}>프린트</button>
-      <main ref={componentRef}>
-        <Profile />
-        <Intro />
-        <Skills />
-        <Career data={data.career} />
-        <Project project={data.project} />
-        <Experience experience={data.experience} />
-        <Certificate certificate={data.certificate} />
-        <Education education={data.education} />
-        <Url url={data.url} />
-      </main>
+      <div ref={componentRef} className={styles.printPage}>
+        <main>
+          <Profile />
+          <Intro />
+          <Skills />
+          <Career data={data.career} />
+          <Project project={data.project} />
+          <Experience experience={data.experience} />
+          <Certificate certificate={data.certificate} />
+          <Education education={data.education} />
+          <Url url={data.url} />
+        </main>
+      </div>
     </>
   )
 }
