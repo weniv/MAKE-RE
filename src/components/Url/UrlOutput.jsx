@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './url.module.css'
+import styles from './UrlOutput.module.css'
 
 export default function Url({ url }) {
   const urlOutput = url.filter((u) => u.contents.trim() || u.link.trim())

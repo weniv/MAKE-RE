@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './experience.module.css'
+import styles from './ExperienceInput.module.css'
 
 export default function Experience({ setResumeData, resumeData }) {
   const [experience, setExperience] = useState(resumeData.experience)
