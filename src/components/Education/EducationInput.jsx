@@ -9,7 +9,7 @@ export default function EducationInput({ resumeData, setResumeData }) {
   }, [education])
 
   function handleAdd() {
-    setEducation([...education, { year: '', contents: '' }])
+    setEducation([...education, { date: '', contents: '' }])
   }
 
   function handleDelete(idx) {
@@ -28,9 +28,9 @@ export default function EducationInput({ resumeData, setResumeData }) {
       {education &&
         education.map((edu, idx) => (
           <EduContent
-            key={edu.id}
-            edu={edu}
+            key={idx}
             idx={idx}
+            edu={edu}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
@@ -43,58 +43,20 @@ export default function EducationInput({ resumeData, setResumeData }) {
 }
 
 function EduContent({ edu, idx, handleDelete, handleUpdate }) {
-  const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
-  const handleItemClick = (idx, item) => {
-    handleUpdate(idx, 'year', item)
-    setIsOpen(false)
-  }
-
-  function handleOpen() {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <div className={styles.contentCont} ref={dropdownRef}>
-      <div className={styles.yearCont}>
-        <button className={styles.yearBtn} onClick={handleOpen}>
-          {edu.year || '연도'}
-          {isOpen ? (
-            <img src="/images/polygon-up-icon.svg" alt="연도 메뉴 닫기" />
-          ) : (
-            <img src="/images/polygon-down-icon.svg" alt="연도 메뉴 열기" />
-          )}
-        </button>
-        {isOpen && (
-          <ol className={styles.yearList}>
-            {getYearList().map((v, i) => {
-              return (
-                <li key={i} onClick={() => handleItemClick(idx, v)}>
-                  <button>{v}</button>
-                </li>
-              )
-            })}
-          </ol>
-        )}
-      </div>
       <input
-        className={styles.contentInput}
+        type="month"
+        value={edu.date}
+        className={styles.dateInput}
+        onChange={(e) => handleUpdate(idx, 'date', e.target.value)}
+      />
+      <input
         type="text"
-        required
         value={edu.contents}
+        className={styles.contentInput}
         placeholder="예) 프론트엔드 스쿨 과정 3기 수료 (4개월)"
         onChange={(e) => handleUpdate(idx, 'contents', e.target.value)}
       />
@@ -107,15 +69,4 @@ function EduContent({ edu, idx, handleDelete, handleUpdate }) {
       </button>
     </div>
   )
-}
-
-function getYearList() {
-  const yearList = []
-  const currentYear = new Date().getFullYear()
-
-  for (let i = 0; i < 20; i++) {
-    yearList.push(currentYear - i)
-  }
-
-  return yearList
 }

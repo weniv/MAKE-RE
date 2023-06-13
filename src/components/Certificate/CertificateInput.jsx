@@ -9,7 +9,7 @@ export default function CertificateInput({ resumeData, setResumeData }) {
   }, [certificate])
 
   function handleAdd() {
-    setCertificate([...certificate, { year: '', contents: '' }])
+    setCertificate([...certificate, { date: '', contents: '' }])
   }
 
   function handleDelete(idx) {
@@ -45,53 +45,16 @@ export default function CertificateInput({ resumeData, setResumeData }) {
 }
 
 function CertContent({ cert, idx, handleDelete, handleUpdate }) {
-  const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
-  const handleItemClick = (idx, item) => {
-    handleUpdate(idx, 'year', item)
-    setIsOpen(false)
-  }
-
-  function handleOpen() {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <div className={styles.contentCont} ref={dropdownRef}>
-      <div className={styles.yearCont}>
-        <button className={styles.yearBtn} onClick={handleOpen}>
-          {cert.year || '연도'}
-          {isOpen ? (
-            <img src="/images/polygon-up-icon.svg" alt="연도 메뉴 닫기" />
-          ) : (
-            <img src="/images/polygon-down-icon.svg" alt="연도 메뉴 열기" />
-          )}
-        </button>
-        {isOpen && (
-          <ol className={styles.yearList}>
-            {getYearList().map((v, i) => {
-              return (
-                <li key={i} onClick={() => handleItemClick(idx, v)}>
-                  <button>{v}</button>
-                </li>
-              )
-            })}
-          </ol>
-        )}
-      </div>
+      <input
+        type="month"
+        value={cert.date}
+        className={styles.dateInput}
+        onChange={(e) => handleUpdate(idx, 'date', e.target.value)}
+      />
       <input
         className={styles.contentInput}
         type="text"
@@ -109,15 +72,4 @@ function CertContent({ cert, idx, handleDelete, handleUpdate }) {
       </button>
     </div>
   )
-}
-
-function getYearList() {
-  const yearList = []
-  const currentYear = new Date().getFullYear()
-
-  for (let i = 0; i < 20; i++) {
-    yearList.push(currentYear - i)
-  }
-
-  return yearList
 }
