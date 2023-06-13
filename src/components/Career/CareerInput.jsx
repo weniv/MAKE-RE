@@ -37,7 +37,7 @@ export default function CareerInput({ setResumeData, resumeData }) {
   }
 
   const handleDelete = (id) => {
-    setCareer(career.filter((el) => el.id == id))
+    setCareer(career.filter((el) => el.id !== id))
   }
 
   return (
