@@ -8,6 +8,20 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
+    project: [
+      {
+        title: '',
+        outline: '',
+        people: '',
+        startPeriod: '',
+        endPeriod: '',
+        progress: false,
+        contributes: [],
+        skills: [],
+        github: '',
+        link: '',
+      },
+    ],
     experience: [
       { date: '2023-02', contents: '테스트1 입니다' },
       { date: '2023-06', contents: '테스트2 입니다' },

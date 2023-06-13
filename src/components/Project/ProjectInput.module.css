@@ -19,8 +19,22 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: fit-content;
   display: flex;
   align-items: center;
+  gap: 14px;
+  padding: 10px;
+}
+
+.contHeader .btnDel {
+  background-color: transparent;
+  padding: 0;
+}
+.contHeader h3 {
+  margin: 0 auto 0 2px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
 }
 .btnDel {
   border: none;
@@ -43,6 +57,27 @@
   padding-bottom: 8px;
   color: var(--main-color);
   border-bottom: 1.4px solid var(--main-color);
+}
+
+.contTit {
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+}
+.contTit label {
+  white-space: nowrap;
+  padding: 10px 42px 10px 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.contTit input {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  border-left: 1px solid var(--border-color);
 }
 
 .inpOutline {
@@ -105,4 +140,30 @@
   border-left: 1px solid var(--border-color);
   border-radius: 0 5px 5px 0;
   width: 100%;
+}
+
+.inpContribute,
+.inpSkills {
+  position: relative;
+}
+.inpContribute input {
+  display: block;
+  width: 100%;
+}
+
+.inpSkills input {
+  display: block;
+  width: 350px;
+}
+
+.inpContribute .btnDel,
+.inpSkills .btnDel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+}
+
+.inpSkills {
+  width: fit-content;
 }

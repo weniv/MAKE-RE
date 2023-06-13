@@ -32,7 +32,14 @@ function ProjectContent({ idx, handleDelete }) {
   return (
     <div className={styles.contProject}>
       <div className={styles.contHeader}>
+        <button className={styles.btnDrag}>
+          <img src="/images/drag-icon.svg" alt="드래그" />
+        </button>
         <h3>제대로 가자</h3>
+
+        <button className={styles.btnToggle}>
+          <img src="/images/polygon-down.svg" alt="내용 열기" />
+        </button>
         <button className={styles.btnDel}>
           <img
             src="/images/delete-icon.svg"
@@ -72,9 +79,34 @@ function ProjectContent({ idx, handleDelete }) {
       </div>
       <div className={styles.contContribute}>
         <h4 className={styles.subTit}>기여 부분</h4>
+        <div className={styles.inpContribute}>
+          <input
+            type="text"
+            placeholder="예) 스마트 컨트렉스 서버와 연동되는 웹 개발 전반"
+          />
+          <button className={styles.btnDel}>
+            <img
+              src="/images/delete-icon.svg"
+              alt="삭제"
+              onClick={() => handleDelete(idx)}
+            />
+          </button>
+        </div>
+        <button className={`addBtn ${styles.btnAdd}`}>+) 추가 입력하기</button>
       </div>
       <div className={styles.contSkills}>
         <h4 className={styles.subTit}>적용 기술</h4>
+        <div className={styles.inpSkills}>
+          <input type="text" placeholder="예) Java" />
+          <button className={styles.btnDel}>
+            <img
+              src="/images/delete-icon.svg"
+              alt="삭제"
+              onClick={() => handleDelete(idx)}
+            />
+          </button>
+        </div>
+        <button className={`addBtn ${styles.btnAdd}`}>+) 추가 입력하기</button>
       </div>
       <div>
         <h4 className={styles.subTit}>깃허브 링크</h4>
