@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import styles from './url.module.css'
+import React, { useEffect, useState } from 'react'
+import styles from './UrlInput.module.css'
 
 export default function Url({ setResumeData, resumeData }) {
   const [url, setUrl] = useState(resumeData.url)
