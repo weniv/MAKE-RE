@@ -9,8 +9,8 @@ function App() {
     name: '전유진',
     enName: 'YouJin Jeon',
     experience: [
-      { year: 2020, contents: 'ICT 해외 봉사' },
-      { year: 2022, contents: '교육 기부 박람회' },
+      { date: '2020-02', contents: 'ICT 해외 봉사' },
+      { date: '2023-03', contents: '교육 기부 박람회' },
     ],
     certificate: [
       { year: 2020, contents: '컴퓨터 활용능력 1급' },
