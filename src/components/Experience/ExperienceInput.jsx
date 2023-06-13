@@ -44,10 +44,8 @@ export default function Experience({ setResumeData, resumeData }) {
 }
 
 function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
-  const dropdownRef = useRef(null)
-
   return (
-    <div className={styles.contContents} ref={dropdownRef}>
+    <div className={styles.contContents}>
       <input
         type="month"
         className={styles.inpDate}
