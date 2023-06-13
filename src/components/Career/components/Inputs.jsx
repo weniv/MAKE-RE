@@ -34,13 +34,22 @@ export default function Inputs({ resumeData, setResumeData }) {
     setCareer([...career, val])
   }
 
+  const handleDelete = (id) => {
+    setCareer(career.filter((el) => el.id == id))
+  }
+
   return (
     <main>
       <h2>Career</h2>
       <div className={styles.inputWrap}>
         {career &&
           career.map((el) => (
-            <Input id={el.id} career={career} setCareer={setCareer} />
+            <Input
+              id={el.id}
+              career={career}
+              setCareer={setCareer}
+              handleDelete={handleDelete}
+            />
           ))}
       </div>
       <button type="button" className="addBtn" onClick={handleAdd}>
@@ -50,29 +59,30 @@ export default function Inputs({ resumeData, setResumeData }) {
   )
 }
 
-const Input = (props) => {
+const Input = ({ id, career, setCareer, handleDelete }) => {
   const [works, setWorks] = useState('')
 
   useEffect(() => {
-    let findIndex = props.career.findIndex((item) => item.id === props.id)
-    let copiedItems = [...props.career]
+    let findIndex = career.findIndex((item) => item.id === id)
+    let copiedItems = [...career]
     copiedItems[findIndex].works = works
 
-    props.setCareer(copiedItems)
+    setCareer(copiedItems)
   }, [works])
 
   return (
-    <div id={props.id} className={styles.cont}>
-      <Period id={props.id} setCareer={props.setCareer} career={props.career} />
+    <div id={id} className={styles.cont}>
       <CompanyName
-        id={props.id}
-        setCareer={props.setCareer}
-        career={props.career}
+        id={id}
+        setCareer={setCareer}
+        career={career}
+        handleDelete={handleDelete}
       />
+      <Period id={id} setCareer={setCareer} career={career} />
       <textarea
-        id={props.id}
-        setCareer={props.setCareer}
-        career={props.career}
+        id={id}
+        setCareer={setCareer}
+        career={career}
         placeholder="담당 업무"
         onChange={(e) => setWorks(e.target.value)}
       ></textarea>
@@ -115,7 +125,7 @@ const Period = ({ id, career, setCareer }) => {
   )
 }
 
-const CompanyName = ({ id, career, setCareer }) => {
+const CompanyName = ({ id, career, setCareer, handleDelete }) => {
   const [name, setName] = useState('')
 
   useEffect(() => {
@@ -137,6 +147,13 @@ const CompanyName = ({ id, career, setCareer }) => {
         placeholder="예) 네이버 (NAVER) "
         onChange={(e) => setName(e.target.value)}
       />
+      <button className={styles.btnDel}>
+        <img
+          src="/images/delete-icon.svg"
+          alt="삭제"
+          onClick={(e) => handleDelete(id)}
+        />
+      </button>
     </div>
   )
 }
