@@ -4,9 +4,14 @@ import styles from './CareerOutput.module.css'
 const Work = ({ work }) => {
   const works = work.split('\n')
   return (
-    <ul className={styles.list}>
-      {works && works.map((work) => <li className={styles.list}>{work}</li>)}
-    </ul>
+    <>
+      {work ? (
+        <ul className={styles.list}>
+          {works &&
+            works.map((work) => <li className={styles.list}>{work}</li>)}
+        </ul>
+      ) : null}
+    </>
   )
 }
 
@@ -18,10 +23,14 @@ export default function CareerOutput(props) {
       {careerData &&
         careerData.map((career) => (
           <div className={styles.cont}>
-            <p className={styles.period}>
-              {career.start} ~ {career.end}
-            </p>
-            <p className={styles.companyName}>{career.companyName}</p>
+            {career.start && career.end ? (
+              <p className={styles.period}>
+                {career.start} ~ {career.end}
+              </p>
+            ) : null}
+            {career.companyName ? (
+              <p className={styles.companyName}>{career.companyName}</p>
+            ) : null}
             <Work work={career.works} />
           </div>
         ))}

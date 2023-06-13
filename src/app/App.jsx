@@ -1,6 +1,6 @@
 import Write from '../pages/Write'
 import Preview from '../pages/Preview'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from './style.module.css'
 
@@ -9,8 +9,16 @@ function App() {
     name: '전유진',
     enName: 'YouJin Jeon',
     experience: [
-      { year: 2020, contents: 'ICT 해외 봉사' },
-      { year: 2022, contents: '교육 기부 박람회' },
+      { date: '2023-02', contents: '테스트1 입니다' },
+      { date: '2023-06', contents: '테스트2 입니다' },
+    ],
+    certificate: [
+      { year: 2020, contents: '컴퓨터 활용능력 1급' },
+      { year: 2023, contents: '정보처리기사' },
+    ],
+    education: [
+      { year: 2021, contents: '한국대학교 졸업' },
+      { year: 2022, contents: '프론트엔드스쿨 3기 수료' },
     ],
     url: [
       { contents: '제주도 캐글 밋업', link: 'www.github.com' },
@@ -18,7 +26,15 @@ function App() {
     ],
   }
   const [isWrite, setIsWrite] = useState(true)
-  const [resumeData, setResumeData] = useState(dummyData)
+  const [resumeData, setResumeData] = useState(initValue())
+  function initValue() {
+    if (localStorage.getItem('data')) {
+      return JSON.parse(localStorage.getItem('data'))
+    } else {
+      // 추후 초기 데이터 수정 필요
+      return dummyData
+    }
+  }
 
   const dataUpdateHandler = () => {
     localStorage.setItem('data', JSON.stringify(resumeData))

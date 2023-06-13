@@ -10,35 +10,86 @@
 }
 
 .period {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  display: flex;
+  height: 39px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  gap: 1px;
+  border-radius: 0;
 }
 
-.period div,
-.company {
+.company,
+.period div {
+  position: relative;
   display: grid;
   grid-template-columns: 108px auto;
+  width: 100%;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
 }
 
-.period label,
+.period div label,
 .company label {
-  padding-left: 12px;
+  width: 108px;
+  border: none;
+  background-color: var(--background-color);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 11px;
+  border-radius: 5px 0px 0px 5px;
+  cursor: pointer;
+  text-align: left;
+  z-index: -1;
+}
+
+.company input,
+.period input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 9px 11px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  background-color: var(--background-color);
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
+}
+
+.company input {
+  border-top-right-radius: 5px;
+  margin-bottom: 1px;
+}
+
+::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 0px;
+  top: 9px;
+  transform: translateX(-10px);
+  padding-left: 3000px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.delBtn {
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+  right: 8px;
 }
 
 .end {
   border-left: 1px solid var(--border-color);
 }
 
-.period input,
-.company input {
-  border: none;
-  border-radius: 0;
-  border-left: 1px solid var(--border-color);
+.date-wrap {
+  margin: 0 auto;
 }
 
 .cont textarea {
   border-radius: 0;
   border: none;
+  height: 94px;
 }

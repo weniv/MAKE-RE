@@ -1,35 +1,25 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './CertificateInput.module.css'
 
-export default function CertificateInput(props) {
-  // const certificates = props.resumeData.certificate
-  const [certificate, setCertificate] = useState([
-    { id: 1, year: '', contents: '' },
-  ])
-  const nextId = useRef(2)
+export default function CertificateInput({ resumeData, setResumeData }) {
+  const [certificate, setCertificate] = useState(resumeData.certificate)
 
   useEffect(() => {
-    let temp = { ...props.resumeData, certificate }
-
-    props.setResumeData(temp)
+    setResumeData({ ...resumeData, certificate })
   }, [certificate])
 
   function handleAdd() {
-    setCertificate([
-      ...certificate,
-      { id: nextId.current, year: '', contents: '' },
-    ])
-    nextId.current += 1
+    setCertificate([...certificate, { year: '', contents: '' }])
   }
 
-  function handleDelete(id) {
-    setCertificate(certificate.filter((cert) => cert.id !== id))
+  function handleDelete(idx) {
+    setCertificate(certificate.filter((cert, i) => i !== idx))
   }
 
-  function handleUpdate(id, name, value) {
+  function handleUpdate(idx, name, value) {
     setCertificate(
-      certificate.map((cert) =>
-        cert.id === id ? { ...cert, [name]: value } : cert
+      certificate.map((cert, i) =>
+        i === idx ? { ...cert, [name]: value } : cert
       )
     )
   }
@@ -38,9 +28,10 @@ export default function CertificateInput(props) {
     <section>
       <h2 className={styles.title}>Certificate</h2>
       {certificate &&
-        certificate.map((cert) => (
+        certificate.map((cert, idx) => (
           <CertContent
-            key={cert.id}
+            key={idx}
+            idx={idx}
             cert={cert}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
@@ -53,7 +44,7 @@ export default function CertificateInput(props) {
   )
 }
 
-function CertContent({ cert, handleDelete, handleUpdate }) {
+function CertContent({ cert, idx, handleDelete, handleUpdate }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -69,8 +60,8 @@ function CertContent({ cert, handleDelete, handleUpdate }) {
     }
   }, [])
 
-  const handleItemClick = (year) => {
-    handleUpdate(cert.id, 'year', year)
+  const handleItemClick = (idx, item) => {
+    handleUpdate(idx, 'year', item)
     setIsOpen(false)
   }
 
@@ -93,7 +84,7 @@ function CertContent({ cert, handleDelete, handleUpdate }) {
           <ol className={styles.yearList}>
             {getYearList().map((v, i) => {
               return (
-                <li key={i} onClick={() => handleItemClick(v)}>
+                <li key={i} onClick={() => handleItemClick(idx, v)}>
                   <button>{v}</button>
                 </li>
               )
@@ -105,13 +96,15 @@ function CertContent({ cert, handleDelete, handleUpdate }) {
         className={styles.contentInput}
         type="text"
         placeholder="예) 정보처리기사"
-        onChange={(e) => handleUpdate(cert.id, 'contents', e.target.value)}
+        required
+        value={cert.contents}
+        onChange={(e) => handleUpdate(idx, 'contents', e.target.value)}
       />
       <button className={styles.deleteBtn}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
-          onClick={() => handleDelete(cert.id)}
+          onClick={() => handleDelete(idx)}
         />
       </button>
     </div>
