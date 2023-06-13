@@ -91,7 +91,12 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 23px;
-  margin: 0px auto 16px;
+  margin: 0px auto 12px;
+}
+
+.urlTitle:empty::before {
+  content: '-';
+  width: 100%;
 }
 
 .urlLink {
@@ -108,9 +113,15 @@
 }
 .urlLink a {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
+  position: relative;
 }
 .urlLink a:hover {
   text-decoration: underline;
+}
+
+.urlLink a:empty::before {
+  content: '-';
+  width: 100%;
 }

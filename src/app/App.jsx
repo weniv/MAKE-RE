@@ -1,6 +1,6 @@
 import Write from '../pages/Write'
 import Preview from '../pages/Preview'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from './style.module.css'
 

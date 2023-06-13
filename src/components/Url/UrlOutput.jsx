@@ -2,24 +2,24 @@ import React from 'react'
 import styles from './url.module.css'
 
 export default function Url({ url }) {
-  const urlOutput = url.filter((u) => u.contents && u.link)
+  const urlOutput = url.filter((u) => u.contents.trim() || u.link.trim())
   return (
     <>
-      {urlOutput && (
+      {!!urlOutput.length && (
         <section className={styles.exp}>
           <h2 className={styles.titOutput}>URL</h2>
           <ul className={styles.listUrl}>
             {urlOutput.map((url) => (
               <li>
-                <p className={styles.urlTitle}>{url.contents}</p>
+                <p className={styles.urlTitle}>{url.contents.trim()}</p>
                 <div className={styles.urlLink}>
                   <img src="/images/link-icon-blue.svg" alt="" />
                   <a
-                    href={urlValidation(url.link)}
+                    href={urlValidation(url.link.trim())}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {url.link}/
+                    {url.link.trim()}
                   </a>
                 </div>
               </li>
