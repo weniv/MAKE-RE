@@ -23,7 +23,7 @@ export default function CompanyName({ id, career, setCareer, handleDelete }) {
         placeholder="예) 네이버 (NAVER) "
         onChange={(e) => setName(e.target.value)}
       />
-      <button className={styles.btnDel}>
+      <button className={styles.delBtn}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
