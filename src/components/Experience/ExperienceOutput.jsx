@@ -3,13 +3,11 @@ import styles from './experience.module.css'
 
 export default function Experience({ experience }) {
   const expOutput = experience.filter((exp) => exp.year || exp.contents.trim())
-
-  console.log('out', expOutput)
   expOutput.sort((a, b) => b.year - a.year)
 
   return (
     <>
-      {expOutput && (
+      {!!expOutput.length && (
         <section className={styles.exp}>
           <h2 className={styles.titOutput}>Experience</h2>
           <ul className={styles.listExp}>

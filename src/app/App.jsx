@@ -1,6 +1,6 @@
 import Write from '../pages/Write'
 import Preview from '../pages/Preview'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from './style.module.css'
 
@@ -8,14 +8,8 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
-    experience: [
-      { year: 2020, contents: 'ICT 해외 봉사' },
-      { year: 2022, contents: '교육 기부 박람회' },
-    ],
-    url: [
-      { contents: '제주도 캐글 밋업', link: 'www.github.com' },
-      { contents: '네이버로 이동', link: 'www.naver.com' },
-    ],
+    experience: [{ year: '', contents: '' }],
+    url: [{ contents: '', link: '' }],
   }
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(dummyData)

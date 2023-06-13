@@ -5,7 +5,7 @@ export default function Url({ url }) {
   const urlOutput = url.filter((u) => u.contents.trim() || u.link.trim())
   return (
     <>
-      {urlOutput && (
+      {!!urlOutput.length && (
         <section className={styles.exp}>
           <h2 className={styles.titOutput}>URL</h2>
           <ul className={styles.listUrl}>
