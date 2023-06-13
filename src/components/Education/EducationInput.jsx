@@ -1,30 +1,24 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './EducationInput.module.css'
 
-export default function EducationInput(props) {
-  const [education, setEducation] = useState([
-    { id: 1, year: '', contents: '' },
-  ])
-  const nextId = useRef(2)
+export default function EducationInput({ resumeData, setResumeData }) {
+  const [education, setEducation] = useState(resumeData.education)
 
   useEffect(() => {
-    let temp = { ...props.resumeData, education }
-
-    props.setResumeData(temp)
+    setResumeData({ ...resumeData, education })
   }, [education])
 
   function handleAdd() {
-    setEducation([...education, { id: nextId.current, year: '', contents: '' }])
-    nextId.current += 1
+    setEducation([...education, { year: '', contents: '' }])
   }
 
-  function handleDelete(id) {
-    setEducation(education.filter((edu) => edu.id !== id))
+  function handleDelete(idx) {
+    setEducation(education.filter((edu, i) => i !== idx))
   }
 
-  function handleUpdate(id, name, value) {
+  function handleUpdate(idx, name, value) {
     setEducation(
-      education.map((edu) => (edu.id === id ? { ...edu, [name]: value } : edu))
+      education.map((edu, i) => (i === idx ? { ...edu, [name]: value } : edu))
     )
   }
 
@@ -32,10 +26,11 @@ export default function EducationInput(props) {
     <section>
       <h2>Education</h2>
       {education &&
-        education.map((edu, i) => (
+        education.map((edu, idx) => (
           <EduContent
             key={edu.id}
             edu={edu}
+            idx={idx}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
@@ -47,7 +42,7 @@ export default function EducationInput(props) {
   )
 }
 
-function EduContent({ edu, handleDelete, handleUpdate }) {
+function EduContent({ edu, idx, handleDelete, handleUpdate }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -63,8 +58,8 @@ function EduContent({ edu, handleDelete, handleUpdate }) {
     }
   }, [])
 
-  const handleItemClick = (year) => {
-    handleUpdate(edu.id, 'year', year)
+  const handleItemClick = (idx, item) => {
+    handleUpdate(idx, 'year', item)
     setIsOpen(false)
   }
 
@@ -87,7 +82,7 @@ function EduContent({ edu, handleDelete, handleUpdate }) {
           <ol className={styles.yearList}>
             {getYearList().map((v, i) => {
               return (
-                <li key={i} onClick={() => handleItemClick(v)}>
+                <li key={i} onClick={() => handleItemClick(idx, v)}>
                   <button>{v}</button>
                 </li>
               )
@@ -98,14 +93,16 @@ function EduContent({ edu, handleDelete, handleUpdate }) {
       <input
         className={styles.contentInput}
         type="text"
+        required
+        value={edu.contents}
         placeholder="예) 프론트엔드 스쿨 과정 3기 수료 (4개월)"
-        onChange={(e) => handleUpdate(edu.id, 'contents', e.target.value)}
+        onChange={(e) => handleUpdate(idx, 'contents', e.target.value)}
       />
       <button className={styles.deleteBtn}>
         <img
           src="/images/delete-icon.svg"
           alt="삭제"
-          onClick={() => handleDelete(edu.id)}
+          onClick={() => handleDelete(idx)}
         />
       </button>
     </div>
