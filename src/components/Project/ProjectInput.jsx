@@ -76,11 +76,33 @@ function ProjectContent({ idx, handleDelete }) {
       <div className={styles.contSkills}>
         <h4 className={styles.subTit}>적용 기술</h4>
       </div>
-      <div className={styles.link}>
+      <div>
         <h4 className={styles.subTit}>깃허브 링크</h4>
+        <div className={styles.contLink}>
+          <label htmlFor={`ghLink-${idx}`} className={styles.lbLink}>
+            <img src="/images/link-icon.svg" alt="URL 주소" />
+          </label>
+          <input
+            className={styles.inpItem}
+            type="text"
+            name="github"
+            id={`ghLink-${idx}`}
+          />
+        </div>
       </div>
-      <div className={styles.link}>
+      <div>
         <h4 className={styles.subTit}>프로젝트 링크</h4>
+        <div className={styles.contLink}>
+          <label htmlFor={`dmLink-${idx}`} className={styles.lbLink}>
+            <img src="/images/link-icon.svg" alt="URL 주소" />
+          </label>
+          <input
+            className={styles.inpItem}
+            type="text"
+            name="demo"
+            id={`dmLink-${idx}`}
+          />
+        </div>
       </div>
     </div>
   )
