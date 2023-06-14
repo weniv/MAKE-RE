@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styles from './ProjectInput.module.css'
+import { DndContext, closestCenter } from '@dnd-kit/core'
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  useSortable,
+  arrayMove,
+} from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 export default function ProjectInput({ setResumeData, resumeData }) {
   const [project, setProject] = useState(resumeData.project)
+  const nextId = useRef(1)
 
   useEffect(() => {
     setResumeData({ ...resumeData, project: project })
   }, [project])
 
   function handleAdd() {
+    nextId.current += 1
     setProject([
       ...project,
       {
+        id: nextId.current,
         title: '',
         outline: '',
         people: '',
@@ -25,9 +36,6 @@ export default function ProjectInput({ setResumeData, resumeData }) {
       },
     ])
   }
-
-  // console.log('project')
-  // console.log(project)
 
   function handleUpdate(idx, e) {
     const { name, value } = e.target
@@ -64,24 +72,41 @@ export default function ProjectInput({ setResumeData, resumeData }) {
     )
   }
 
+  const handleDragEnd = (e) => {
+    const { active, over } = e
+    setProject((project) => {
+      const oldIdx = project.findIndex((pro) => pro.id === active.id)
+      const newIdx = project.findIndex((pro) => pro.id === over.id)
+      return arrayMove(project, oldIdx, newIdx)
+    })
+  }
+
+  console.log('project', project)
+
   return (
     <>
-      <section className={styles.project}>
+      <DndContext
+        className={styles.project}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
         <h2>Project</h2>
-        {project &&
-          project.map((pro, idx) => (
-            <ProjectContent
-              key={idx}
-              pro={pro}
-              idx={idx}
-              handleUpdate={handleUpdate}
-              handleDelete={handleDelete}
-              handleAddArr={handleAddArr}
-              handleUpdateArr={handleUpdateArr}
-              handleDeleteArr={handleDeleteArr}
-            />
-          ))}
-      </section>
+        <SortableContext items={project} strategy={verticalListSortingStrategy}>
+          {project &&
+            project.map((pro, idx) => (
+              <ProjectContent
+                key={idx}
+                pro={pro}
+                idx={idx}
+                handleUpdate={handleUpdate}
+                handleDelete={handleDelete}
+                handleAddArr={handleAddArr}
+                handleUpdateArr={handleUpdateArr}
+                handleDeleteArr={handleDeleteArr}
+              />
+            ))}
+        </SortableContext>
+      </DndContext>
 
       <button className={`addBtn ${styles.btnAdd}`} onClick={handleAdd}>
         +) 추가 입력하기
@@ -93,6 +118,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
 function ProjectContent({
   pro,
   idx,
+
   handleUpdate,
   handleDelete,
   handleAddArr,
@@ -107,10 +133,25 @@ function ProjectContent({
     }
   }
 
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({
+      id: pro.id,
+    })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  }
+
   return (
-    <div className={styles.contProject}>
+    <div className={styles.contProject} style={style}>
       <div className={styles.contHeader}>
-        <button className={styles.btnDrag}>
+        <button
+          className={styles.btnDrag}
+          ref={setNodeRef}
+          {...attributes}
+          {...listeners}
+        >
           <img src="/images/drag-icon.svg" alt="드래그" />
         </button>
         <h3>{pro.title ? pro.title : '새로운 프로젝트'}</h3>
