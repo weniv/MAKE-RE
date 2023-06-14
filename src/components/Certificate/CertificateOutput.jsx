@@ -23,7 +23,7 @@ export default function CertificateOutput({ certificate }) {
                   <span className={styles.date}>
                     {formateDate(certificate.date)}
                   </span>
-                  <p className={styles.item}>{certificate.contents}</p>
+                  <p className={styles.contents}>{certificate.contents}</p>
                 </li>
               )
             })}
@@ -35,5 +35,7 @@ export default function CertificateOutput({ certificate }) {
 }
 
 function formateDate(date) {
-  return date.replace('-', '. ') + '.'
+  if (date) {
+    return date.replace('-', '. ') + '.'
+  }
 }
