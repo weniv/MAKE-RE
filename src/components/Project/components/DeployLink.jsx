@@ -4,13 +4,13 @@ import styles from '../ProjectInput.module.css'
 export default function DeployLink({ id, project, setProject }) {
   const [link, setLink] = useState('')
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].link = link
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].link = link
 
-    setProject(copiedItems)
-  }, [link])
+  //   setProject(copiedItems)
+  // }, [link])
 
   return (
     <>

@@ -4,13 +4,13 @@ import styles from '../ProjectInput.module.css'
 export default function People({ id, project, setProject }) {
   const [people, setPeople] = useState('')
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].people = people
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].people = people
 
-    setProject(copiedItems)
-  }, [people])
+  //   setProject(copiedItems)
+  // }, [people])
 
   return (
     <div className={styles.peple}>

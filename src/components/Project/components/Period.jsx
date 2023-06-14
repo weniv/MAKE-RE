@@ -12,14 +12,14 @@ export default function Period({ id, project, setProject }) {
   const [endYear, setEndYear] = useState('')
   const [endMonth, setEndMonth] = useState('')
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].startPeriod = startPeriod
-    copiedItems[findIndex].endPeriod = endPeriod
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].startPeriod = startPeriod
+  //   copiedItems[findIndex].endPeriod = endPeriod
 
-    setProject(copiedItems)
-  }, [startPeriod, endPeriod])
+  //   setProject(copiedItems)
+  // }, [startPeriod, endPeriod])
 
   useEffect(() => {
     setStartPeriod(`${startYear}.${startMonth}`)
@@ -32,13 +32,15 @@ export default function Period({ id, project, setProject }) {
   return (
     <div className={styles.period}>
       <h4 className="inputDescription">기간</h4>
-      <div>
+      <form>
         <input
           type="number"
           placeholder="YYYY"
           className={styles.year}
           onChange={(e) => setStartYear(e.target.value)}
+          value={startYear}
         />
+        <p className={styles.dot}>.</p>
         <input
           type="number"
           placeholder="MM"
@@ -46,13 +48,17 @@ export default function Period({ id, project, setProject }) {
           onChange={(e) => setStartMonth(e.target.value)}
           min={min_month}
           max={max_month}
+          value={startMonth}
         />
+        <p>~</p>
         <input
           type="number"
           placeholder="YYYY"
           className={styles.year}
           onChange={(e) => setEndYear(e.target.value)}
+          value={endYear}
         />
+        <p className={styles.dot}>.</p>
         <input
           type="number"
           placeholder="MM"
@@ -60,6 +66,7 @@ export default function Period({ id, project, setProject }) {
           onChange={(e) => setEndMonth(e.target.value)}
           min={min_month}
           max={max_month}
+          value={endMonth}
         />
         <input
           type="checkbox"
@@ -67,7 +74,7 @@ export default function Period({ id, project, setProject }) {
           id="Proceeding"
           onChange={(e) => console.log(e.target.checked)}
         />
-      </div>
+      </form>
     </div>
   )
 }

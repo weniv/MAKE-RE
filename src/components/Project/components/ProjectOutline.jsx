@@ -4,13 +4,13 @@ import styles from '../ProjectInput.module.css'
 export default function ProjectOutline({ id, project, setProject }) {
   const [outline, setOutline] = useState('')
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].outline = outline
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].outline = outline
 
-    setProject(copiedItems)
-  }, [outline])
+  //   setProject(copiedItems)
+  // }, [outline])
 
   return (
     <>

@@ -33,9 +33,9 @@ function Preview({ resumeData }) {
           <Skills />
           <Career data={data.career} />
           <Project project={data.project} />
-          <Experience experience={data.experience} />
+          {/* <Experience experience={data.experience} />
           <Certificate certificate={data.certificate} />
-          <Education education={data.education} />
+          <Education education={data.education} /> */}
           <Url url={data.url} />
         </main>
       </div>
