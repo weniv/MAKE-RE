@@ -38,21 +38,23 @@ function ProjectContent({ proj }) {
         <div className={styles.contSkill}>
           <p className={styles.subtit}> 적용 기술</p>
           <ul className={styles.skillList}>
-            {proj.skills.map((skill, i) => (
-              <li key={i} className={styles.skillItem}>
-                {skill}
-              </li>
-            ))}
+            {proj.skills &&
+              proj.skills.map((skill, i) => (
+                <li key={i} className={styles.skillItem}>
+                  {skill}
+                </li>
+              ))}
           </ul>
         </div>
         <div className={styles.contContribute}>
           <p className={styles.subtit}>기여 부분</p>
           <ul className={styles.contrList}>
-            {proj.contributes.map((contr, i) => (
-              <li key={i} className={styles.contritem}>
-                {contr}
-              </li>
-            ))}
+            {proj.contributes &&
+              proj.contributes.map((contr, i) => (
+                <li key={i} className={styles.contritem}>
+                  {contr}
+                </li>
+              ))}
           </ul>
         </div>
       </div>
@@ -75,11 +77,11 @@ function ProjectContent({ proj }) {
           <div className={styles.urlLink}>
             <img src="/images/link-icon-blue.svg" alt="" />
             <a
-              href={urlValidation(proj.demo.trim())}
+              href={urlValidation(proj.demo && proj.demo.trim())}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {proj.demo.trim()}
+              {proj.demo && proj.demo.trim()}
             </a>
           </div>
         </div>
@@ -89,7 +91,10 @@ function ProjectContent({ proj }) {
 }
 
 function urlValidation(url) {
-  if (url.startsWith('http://') || url.startsWith('https://')) {
+  if (
+    (url && url.startsWith('http://')) ||
+    (url && url.startsWith('https://'))
+  ) {
     return url
   } else {
     return 'http://' + url
@@ -98,7 +103,7 @@ function urlValidation(url) {
 
 function dateFormat(date) {
   if (date) {
-    return date.replace('-', '. ')
+    return date && date.replace('-', '. ')
   }
   return date
 }

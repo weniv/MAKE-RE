@@ -4,13 +4,13 @@ import styles from '../ProjectInput.module.css'
 export default function GithubLink({ id, project, setProject }) {
   const [github, setGithub] = useState('')
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].github = github
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].github = github
 
-    setProject(copiedItems)
-  }, [github])
+  //   setProject(copiedItems)
+  // }, [github])
 
   return (
     <>

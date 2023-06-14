@@ -6,13 +6,13 @@ export default function ProjectContribution({ id, project, setProject }) {
   const [contributeVal, setContributeVal] = useState('')
   const [curId, setCurId] = useState(1)
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].contribute = contribute
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].contribute = contribute
 
-    setProject(copiedItems)
-  }, [contribute])
+  //   setProject(copiedItems)
+  // }, [contribute])
 
   const nextId = useRef(1)
 

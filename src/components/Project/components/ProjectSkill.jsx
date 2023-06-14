@@ -6,13 +6,13 @@ export default function ProjectSkill({ id, project, setProject }) {
   const [skillVal, setSkillVal] = useState('')
   const [curId, setCurId] = useState(1)
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].skill = skill
+  // useEffect(() => {
+  //   let findIndex = project.findIndex((item) => item.id === id)
+  //   let copiedItems = [...project]
+  //   copiedItems[findIndex].skill = skill
 
-    setProject(copiedItems)
-  }, [skill])
+  //   setProject(copiedItems)
+  // }, [skill])
 
   const nextId = useRef(1)
 

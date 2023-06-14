@@ -1,24 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../ProjectInput.module.css'
 
-export default function ProjectTitle({ id, project, setProject }) {
+export default function ProjectTitle({ id, idx, data, handleUpdate }) {
   const [title, setTitle] = useState('')
 
-  useEffect(() => {
-    let findIndex = project.findIndex((item) => item.id === id)
-    let copiedItems = [...project]
-    copiedItems[findIndex].title = title
-
-    setProject(copiedItems)
-  }, [title])
+  const update = (id, e) => {
+    setTitle(e.target.value)
+    handleUpdate(id, e)
+  }
 
   return (
-    <div id={id} className={styles.projectTitle}>
+    <div className={styles.projectTitle}>
       <h4 className="inputDescription">프로젝트명 입력</h4>
       <input
+        name="title"
         type="text"
         placeholder="프로젝트명 입력"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => update(id, e)}
+        value={data.project[idx].title}
       />
     </div>
   )
