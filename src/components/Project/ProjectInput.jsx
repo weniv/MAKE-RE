@@ -5,7 +5,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
   const [project, setProject] = useState(resumeData.project)
 
   useEffect(() => {
-    console.log('prop', project)
+    setResumeData({ ...resumeData, project: project })
   }, [project])
 
   function handleAdd() {
