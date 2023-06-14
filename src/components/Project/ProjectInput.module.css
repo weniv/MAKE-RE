@@ -1,171 +1,220 @@
-* {
-  box-sizing: border-box;
-}
-
-.project {
-  margin: 40px 0;
-}
-.contProject {
-  margin: 10px 0;
-  width: 100%;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  border: 1px solid var(--placeholder-color);
-  position: relative;
-  padding: 66px 30px;
-}
-
-.contProject .contHeader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px;
-}
-
-.contHeader .btnDel {
-  background-color: transparent;
-  padding: 0;
-}
-.contHeader h3 {
-  margin: 0 auto 0 2px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-}
-.btnDel {
-  border: none;
-  background-color: var(--background-color);
-  border-radius: 5px;
-  padding: 9px;
-}
-.btnDel img {
-  display: block;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-}
-
-.subTit {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  margin: 26px 0;
+/* common */
+h3.subTitle {
+  margin: 26px 0 26px;
   padding-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
   color: var(--main-color);
   border-bottom: 1.4px solid var(--main-color);
 }
 
-.contTit {
-  width: 100%;
-  background-color: var(--background-color);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--border-color);
-}
-.contTit label {
-  white-space: nowrap;
-  padding: 10px 42px 10px 12px;
-  font-size: 14px;
-  font-weight: 700;
-}
-.contTit input {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
-  border: none;
-  border-left: 1px solid var(--border-color);
-}
-
-.inpOutline {
-  width: 100%;
-  height: 140px;
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  resize: none;
-  outline: none;
-}
-
-.contPerson,
-.contDate {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 16px;
-}
-
-.contPerson label,
-.contDate label {
-  white-space: nowrap;
-  font-size: 14px;
-}
-.contPerson input {
-  width: 100%;
-  font-weight: 500;
-}
-
-.contDate input[type='month'] {
-  padding: 6px 12px;
-}
-
-.contDate .progress {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.contLink {
-  display: flex;
-  background-color: var(--background-color);
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-}
-
-.contLink label {
-  padding: 12px;
-  width: 40px;
-}
-.contLink label img {
-  display: block;
-  cursor: pointer;
-  width: 14px;
-  height: 14px;
-}
-.contLink input {
-  border: none;
-  border-left: 1px solid var(--border-color);
-  border-radius: 0 5px 5px 0;
-  width: 100%;
-}
-
-.inpContribute,
-.inpSkills {
+/* main */
+main .cont {
   position: relative;
-  margin-bottom: 12px;
+  background-color: var(--input-fill-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
 }
-.inpContribute input {
-  display: block;
+
+.projectInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form.inputWrap {
+  width: 92%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 36px;
+}
+
+/* ProjectAlign */
+.isAlign {
   width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 0 34px 13px;
 }
 
-.inpSkills input {
-  display: block;
-  width: 350px;
+/* projectHeader */
+.projectHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 
-.inpContribute .btnDel,
-.inpSkills .btnDel {
+.projectHeader button {
   position: absolute;
-  top: 0;
-  right: 0;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.projectHeader .menuBtn {
+  background-image: url('/public/images/menu.svg');
+  left: 10px;
+}
+
+.projectHeader p {
+  position: absolute;
+  font-size: 14px;
+  left: 48px;
+}
+
+.projectHeader .downBtn {
+  background-image: url('/public/images/polygon-down.svg');
+  right: 48px;
+}
+
+.projectHeader .moreBtn {
+  background-image: url('/public/images/more-horizontal.svg');
+  right: 14px;
+}
+
+/* ProjectTitle */
+.projectTitle {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: var(--background-color);
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  gap: 42px;
+  margin: 36px 0 0 0;
+}
+
+.projectTitle h4 {
+  width: 148px;
+  padding-left: 12px;
+}
+
+.projectTitle input {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
   background-color: transparent;
 }
 
-.inpSkills {
-  width: fit-content;
+/* ProjectOutline */
+textarea.oulineText {
+  height: 140px;
+}
+
+/* ProjectDetail */
+.peple {
+  margin-bottom: 16px;
+}
+.peple,
+.period {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* background-color: aqua; */
+  gap: 18px;
+}
+
+.peple h4,
+.period h4 {
+  width: 39px;
+  text-align: center;
+  margin-left: 12px;
+}
+
+.peple input,
+.period div {
+  width: 100%;
+}
+
+.period div {
+  display: flex;
+  align-items: center;
+}
+
+.period input {
+  box-sizing: content-box;
+  padding: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.period .year {
+  width: 55px;
+}
+
+.period .month {
+  width: 44px;
+}
+
+.period input[type='checkbox']::before {
+  content: '진행 중';
+  width: 50px;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 26px;
+}
+
+/* ProjectContribution */
+.contribution {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.contributeWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contribution input {
+  width: 100%;
+}
+
+/* ProjectSkill */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.skill input {
+  width: 350px;
+}
+
+/* GithubLink */
+/* DeployLink */
+.github,
+.deploy {
+  display: flex;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.deploy {
+  margin-bottom: 66px;
+}
+
+.github img,
+.deploy img {
+  width: 40px;
+  height: 40px;
+  background-color: aqua;
+}
+
+.github input,
+.deploy input {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid var(--border-color);
 }
