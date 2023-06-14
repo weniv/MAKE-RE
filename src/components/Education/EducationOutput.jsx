@@ -22,7 +22,7 @@ export default function EducationOutput({ education }) {
                 return (
                   <li className={styles.eduItem} key={i}>
                     <span className={styles.date}>{formateDate(edu.date)}</span>
-                    <p className={styles.item}>{edu.contents}</p>
+                    <p className={styles.contents}>{edu.contents}</p>
                   </li>
                 )
               })}
@@ -34,5 +34,7 @@ export default function EducationOutput({ education }) {
 }
 
 function formateDate(date) {
-  return date.replace('-', '. ') + '.'
+  if (date) {
+    return date.replace('-', '. ') + '.'
+  }
 }
