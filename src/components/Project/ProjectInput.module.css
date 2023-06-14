@@ -66,11 +66,16 @@ form.inputWrap {
 
 .projectHeader .downBtn {
   background-image: url('/public/images/polygon-down.svg');
-  right: 48px;
+  right: 82px;
 }
 
 .projectHeader .moreBtn {
   background-image: url('/public/images/more-horizontal.svg');
+  right: 48px;
+}
+
+.projectHeader .delBtn {
+  background-image: url('/public/images/delete-icon.svg');
   right: 14px;
 }
 

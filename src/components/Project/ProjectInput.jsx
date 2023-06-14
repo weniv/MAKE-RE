@@ -72,7 +72,13 @@ export default function ProjectInput({ resumeData, setResumeData }) {
         {project &&
           project.map((el) => (
             <div className={styles.cont}>
-              <ProjectHeader id={el.id} handleAdd={handleAdd} click={click} />
+              <ProjectHeader
+                id={el.id}
+                handleAdd={handleAdd}
+                click={click}
+                proejct={project}
+                setProject={setProject}
+              />
               {isDrop && dropId == el.id ? (
                 <form id={el.id} className={styles.inputWrap}>
                   <ProjectTitle
