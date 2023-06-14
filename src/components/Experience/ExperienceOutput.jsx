@@ -7,7 +7,6 @@ export default function Experience({ experience }) {
     (a, b) =>
       parseInt(b.date.replace('-', '')) - parseInt(a.date.replace('-', ''))
   )
-  console.log(expOutput)
   return (
     <>
       {!!expOutput.length && (

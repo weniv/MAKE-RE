@@ -13,6 +13,7 @@ import styles from './preview.module.css'
 
 function Preview({ resumeData }) {
   const data = JSON.parse(localStorage.getItem('data'))
+
   const componentRef = useRef(null)
   function handleClick() {
     handlePrint()
@@ -21,6 +22,7 @@ function Preview({ resumeData }) {
     content: () => componentRef.current,
     documentTitle: '파일명',
   })
+
   return (
     <>
       <button onClick={handleClick}>프린트</button>
