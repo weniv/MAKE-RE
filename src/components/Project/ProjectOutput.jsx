@@ -1,89 +1,104 @@
 import React from 'react'
 import styles from '../Project/ProjectOutput.module.css'
 
-export default function ProjectOutput({ project }) {
+export default function Project({ project }) {
   return (
-    <section className={styles.projectSection}>
-      <h2>Project</h2>
-      <Project project={project} />
-    </section>
+    <>
+      {!!project.length && (
+        <section>
+          <h2 className={styles.mainTit}>Project</h2>
+          <ul>
+            {project.map((proj, i) => (
+              <ProjectContent key={i} proj={proj} />
+            ))}
+          </ul>
+        </section>
+      )}
+    </>
   )
 }
 
-const Project = ({ project }) => {
+function ProjectContent({ proj }) {
   return (
-    <div className={styles.cont}>
-      {project &&
-        project.map((project) => (
-          <div className={styles.projectWrap}>
-            <div className={styles.rowWrap}>
-              <div className={styles.period}>
-                <p>{project.startPeriod}</p>
-                <p>~{project.endPeriod}</p>
-              </div>
-
-              <div className={styles.columnWrap}>
-                <div>
-                  <p className={styles.title}>{project.title}</p>
-                  <pre className={styles.sub}>{project.outline}</pre>
-                </div>
-
-                <div className={styles.row}>
-                  <p className={styles.title}>인원</p>
-                  <p>{project.people}</p>
-                </div>
-
-                <div>
-                  <p className={styles.title}>적용기술</p>
-                  <ul className={styles.skillWrap}>
-                    {project.skill &&
-                      project.skill.map((skill) => (
-                        <li className={styles.skill}>{skill.skill}</li>
-                      ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <p className={styles.title}>기여 부분</p>
-                  <ul className={styles.list}>
-                    {project.contribute &&
-                      project.contribute.map((el) => (
-                        <li className={styles.sub}>{el.contribute}</li>
-                      ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.github}>
-              <p className={styles.title}>깃허브 링크</p>
-              <div className={styles.urlLink}>
-                <img src="/images/link-icon-blue.svg" alt="" />
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.github}
-                </a>
-              </div>
-            </div>
-
-            <div className={styles.link}>
-              <p className={styles.title}>프로젝트 링크</p>
-              <div className={styles.urlLink}>
-                <img src="/images/link-icon-blue.svg" alt="" />
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.link}
-                </a>
-              </div>
-            </div>
+    <li className={`${styles.projectItem}`}>
+      <div className={styles.contDetail}>
+        <h3 className={styles.title}>{proj.title}</h3>
+        <p className={styles.outline}>{proj.outline}</p>
+        <div className={styles.contCategory}>
+          <p className={styles.subtit}>인원</p>
+          <p>{proj.people}</p>
+        </div>
+        <div className={styles.contPeriod}>
+          <p className="ir">기간</p>
+          <p>
+            {dateFormat(proj.startPeriod)}
+            <br />~ {dateFormat(proj.endPeriod)}
+          </p>
+        </div>
+        <div className={styles.contSkill}>
+          <p className={styles.subtit}> 적용 기술</p>
+          <ul className={styles.skillList}>
+            {proj.skills.map((skill, i) => (
+              <li key={i} className={styles.skillItem}>
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.contContribute}>
+          <p className={styles.subtit}>기여 부분</p>
+          <ul className={styles.contrList}>
+            {proj.contributes.map((contr, i) => (
+              <li key={i} className={styles.contritem}>
+                {contr}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div className={styles.github}>
+          <p className={styles.subtit}>깃허브 링크</p>
+          <div className={styles.urlLink}>
+            <img src="/images/link-icon-blue.svg" alt="" />
+            <a
+              href={urlValidation(proj.github.trim())}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {proj.github.trim()}
+            </a>
           </div>
-        ))}
-    </div>
+        </div>
+        <div className={styles.demo}>
+          <p className={styles.subtit}>프로젝트 링크</p>
+          <div className={styles.urlLink}>
+            <img src="/images/link-icon-blue.svg" alt="" />
+            <a
+              href={urlValidation(proj.demo.trim())}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {proj.demo.trim()}
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
   )
+}
+
+function urlValidation(url) {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url
+  } else {
+    return 'http://' + url
+  }
+}
+
+function dateFormat(date) {
+  if (date) {
+    return date.replace('-', '. ')
+  }
+  return date
 }

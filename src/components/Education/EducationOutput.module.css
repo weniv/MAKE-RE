@@ -13,14 +13,26 @@
   gap: 20px;
 }
 
-.eduList li .year {
+.eduItem {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.eduList li .date {
   font-size: 14px;
   font-weight: 700;
+  min-width: 80px;
   color: var(--placeholder-color);
   line-height: 20px;
 }
 
-.eduItem {
-  font-size: 14px;
-  line-height: 20px;
+.eduItem .date:empty::before {
+  content: '-';
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.eduItem .contents:empty::before {
+  content: '-';
 }

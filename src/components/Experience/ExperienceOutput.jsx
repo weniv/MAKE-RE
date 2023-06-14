@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './experience.module.css'
+import styles from './ExperienceOutput.module.css'
 
 export default function Experience({ experience }) {
   const expOutput = experience.filter((exp) => exp.date || exp.contents.trim())
@@ -7,7 +7,6 @@ export default function Experience({ experience }) {
     (a, b) =>
       parseInt(b.date.replace('-', '')) - parseInt(a.date.replace('-', ''))
   )
-  console.log(expOutput)
   return (
     <>
       {!!expOutput.length && (

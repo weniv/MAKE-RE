@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import styles from './url.module.css'
+import React, { useEffect, useState } from 'react'
+import styles from './UrlInput.module.css'
 
 export default function Url({ setResumeData, resumeData }) {
   const [url, setUrl] = useState(resumeData.url)
@@ -77,13 +77,4 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
       </button>
     </div>
   )
-}
-
-function YearList() {
-  const year = []
-  const birthYear = 2000
-  for (let i = 2023; i >= birthYear; i--) {
-    year.push(i)
-  }
-  return year
 }

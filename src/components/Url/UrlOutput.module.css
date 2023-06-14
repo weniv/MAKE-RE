@@ -1,0 +1,48 @@
+.titOutput {
+  margin: 40px 0 20px;
+}
+
+.listUrl {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.urlTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 23px;
+  margin: 0px auto 12px;
+}
+
+.urlTitle:empty::before {
+  content: '-';
+  width: 100%;
+}
+
+.urlLink {
+  background-color: #f2f2f2;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+.urLink img {
+  width: 14px;
+  height: 14px;
+}
+.urlLink a {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  position: relative;
+}
+.urlLink a:hover {
+  text-decoration: underline;
+}
+
+.urlLink a:empty::before {
+  content: '-';
+  width: 100%;
+}

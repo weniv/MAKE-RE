@@ -13,14 +13,26 @@
   gap: 20px;
 }
 
-.certList li .year {
+.certList li .date {
   font-size: 14px;
   font-weight: 700;
   color: var(--placeholder-color);
   line-height: 20px;
+  min-width: 80px;
 }
 
 .certItem {
   font-size: 14px;
   line-height: 20px;
+}
+
+.certItem .date:empty::before {
+  content: '-';
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.certItem .contents:empty::before {
+  content: '-';
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './experience.module.css'
+import styles from './ExperienceInput.module.css'
 
 export default function Experience({ setResumeData, resumeData }) {
   const [experience, setExperience] = useState(resumeData.experience)
@@ -44,10 +44,8 @@ export default function Experience({ setResumeData, resumeData }) {
 }
 
 function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
-  const dropdownRef = useRef(null)
-
   return (
-    <div className={styles.contContents} ref={dropdownRef}>
+    <div className={styles.contContents}>
       <input
         type="month"
         className={styles.inpDate}

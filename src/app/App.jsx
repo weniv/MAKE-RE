@@ -8,18 +8,26 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
+    project: [
+      {
+        title: '메이커리',
+        outline: '이력서 출력 서비스입니다.',
+        people: 'FE 4명',
+        startPeriod: '2023-05',
+        endPeriod: '2023-06',
+        progress: false,
+        contributes: ['컴포넌트 구현', '데이터 연결'],
+        skills: ['React', 'Module CSS'],
+        github: 'https://github.com/weniv/Resume',
+        demo: 'https://localhost.com',
+      },
+    ],
     experience: [
       { date: '2023-02', contents: '테스트1 입니다' },
       { date: '2023-06', contents: '테스트2 입니다' },
     ],
-    certificate: [
-      { year: 2020, contents: '컴퓨터 활용능력 1급' },
-      { year: 2023, contents: '정보처리기사' },
-    ],
-    education: [
-      { year: 2021, contents: '한국대학교 졸업' },
-      { year: 2022, contents: '프론트엔드스쿨 3기 수료' },
-    ],
+    certificate: [{ date: '2023-03', contents: '컴퓨터 활용능력 1급' }],
+    education: [{ date: '2023-04', contents: '정보처리기사' }],
     url: [
       { contents: '제주도 캐글 밋업', link: 'www.github.com' },
       { contents: '네이버로 이동', link: 'www.naver.com' },
