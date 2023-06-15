@@ -2,19 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './ProfileInput.module.css'
 
 function ProfileInput(props) {
+  // ----------------------------------
+  // 프로필 데이터 업데이트
+  function updateHandler() {
+    let copy = { ...props.resumeData }
+    copy['지지'] = '유진'
+    props.setResumeData(copy)
+  }
+
+  // ----------------------------------
   // 이메일 설정 코드
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('직접 입력')
   const [emailHost, setEmailHost] = useState(null)
   const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
   const dropBoxRef = useRef()
-
-  // 임시 데이터 업데이트 코드
-  function updateHandler() {
-    let copy = { ...props.resumeData }
-    copy['지지'] = '유진'
-    props.setResumeData(copy)
-  }
 
   // 외부 클릭했을 시
   useEffect(() => {
@@ -37,24 +39,8 @@ function ProfileInput(props) {
     setEmailHost(e.target.value)
   }
 
-  // --------
-  // 데이터 저장 코드
-
-  // 임시 데이터 업데이트 코드
-  function updateHandler() {
-    let copy = { ...props.resumeData }
-    copy['지지'] = '유진'
-    props.setResumeData(copy)
-  }
-  // 프로필 이미지
-  // 프로필 이름, 영문이름, 전화번호, 이메일
-  // 깃허브, 기술블로그 링크, 경력사항
-  // intro
-  // skills
-
   return (
     <section>
-      <button onClick={updateHandler}>임시 저장 테스트 버튼</button>
       <div className={styles.flexBox}>
         <div>
           <label htmlFor="profile-upload" className={styles.profileWrap}>
@@ -107,23 +93,34 @@ function ProfileInput(props) {
               </div>
             )}
             <div ref={dropBoxRef}>
-              <input
-                type="button"
-                className={styles.emailBtn}
-                value={email}
-                onClick={() => {
-                  isOpen ? setIsOpen(false) : setIsOpen(true)
-                }}
-              />
+              {isOpen ? (
+                <>
+                  <input
+                    type="button"
+                    className={`${styles.emailBtn} ${styles.open}`}
+                    value={email}
+                    onClick={() => {
+                      isOpen ? setIsOpen(false) : setIsOpen(true)
+                    }}
+                  />
 
-              {isOpen && (
-                <ul className={styles.emailList}>
-                  {FrequencyEmails.map((item, idx) => (
-                    <li key={idx} onClick={() => selectBoxHandler(item)}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className={styles.emailList}>
+                    {FrequencyEmails.map((item, idx) => (
+                      <li key={idx} onClick={() => selectBoxHandler(item)}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <input
+                  type="button"
+                  className={`${styles.emailBtn} ${styles.close}`}
+                  value={email}
+                  onClick={() => {
+                    isOpen ? setIsOpen(false) : setIsOpen(true)
+                  }}
+                />
               )}
             </div>
           </div>

@@ -15,6 +15,7 @@
   border-radius: 100px;
   border: 2px solid #2f80ed;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .profileBtn {
@@ -67,13 +68,9 @@
   width: 348px;
 }
 
-/* .enInput input {
-  width: 230px;
-}
-
 .mailInput {
   width: 182px;
-} */
+}
 
 .emailWrap {
   display: flex;
@@ -94,9 +91,16 @@
   font-weight: 500;
   font-size: 14px;
   color: var(--placeholder-color);
-  background-image: url('../../../public/images/polygon-down.svg');
   background-repeat: no-repeat;
   background-position: 126px center;
+}
+
+.close {
+  background-image: url('../../../public/images/polygon-down-icon.svg');
+}
+
+.open {
+  background-image: url('../../../public/images/polygon-up-icon.svg');
 }
 
 .emailBtn:focus {
