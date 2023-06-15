@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './ProfileInput.module.css'
+import axios from 'axios'
 
 function ProfileInput(props) {
   // ----------------------------------
@@ -8,6 +9,32 @@ function ProfileInput(props) {
     let copy = { ...props.resumeData }
     copy['지지'] = '유진'
     props.setResumeData(copy)
+  }
+
+  // ----------------------------------
+  // 프로필 이미지 설정
+  const [profileUrl, setProfileUrl] = useState()
+  const [profileData, setProfileData] = useState({ ...props.resumeData })
+
+  const handleImageChange = async (e) => {
+    const formData = new FormData()
+    const imageFile = e.target.files[0]
+    formData.append('image', imageFile)
+
+    try {
+      const response = await axios.post(
+        'https://api.mandarin.weniv.co.kr/image/uploadfile',
+        formData
+      )
+      await console.log(response)
+
+      const imageUrl =
+        'https://api.mandarin.weniv.co.kr/' + response.data.filename
+
+      setProfileUrl(imageUrl)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   // ----------------------------------
@@ -44,7 +71,13 @@ function ProfileInput(props) {
       <div className={styles.flexBox}>
         <div>
           <label htmlFor="profile-upload" className={styles.profileWrap}>
-            <div className={styles.profile}></div>
+            {profileUrl ? (
+              <div className={styles.profile}>
+                <img className={styles.profileImg} src={profileUrl} alt="" />
+              </div>
+            ) : (
+              <div className={styles.profile}></div>
+            )}
             <img
               className={styles.profileBtn}
               src="images/camera-icon.svg"
@@ -56,6 +89,7 @@ function ProfileInput(props) {
             type="file"
             accept=""
             id="profile-upload"
+            onChange={handleImageChange}
           />
         </div>
         <div>
