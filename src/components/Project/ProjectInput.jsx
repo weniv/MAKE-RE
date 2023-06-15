@@ -185,7 +185,6 @@ function ProjectContent({
               value={pro.title}
               onChange={(e) => handleUpdate(idx, e)}
             />
-            t
           </div>
           <div className={styles.contOutline}>
             <h4 className={styles.subTit}>프로젝트 개요</h4>
