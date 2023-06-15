@@ -11,7 +11,15 @@ import { CSS } from '@dnd-kit/utilities'
 
 export default function ProjectInput({ setResumeData, resumeData }) {
   const [project, setProject] = useState(resumeData.project)
-  const nextId = useRef(1)
+
+  const maxId = project.reduce(
+    (acc, cur) => {
+      return acc.id > cur.id ? acc : cur
+    },
+    { id: 0 }
+  ).id
+
+  const nextId = useRef(maxId)
 
   useEffect(() => {
     setResumeData({ ...resumeData, project: project })
