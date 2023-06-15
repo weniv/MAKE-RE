@@ -28,7 +28,7 @@ function Preview({ resumeData }) {
       <button onClick={handleClick}>프린트</button>
       <div ref={componentRef} className={styles.printPage}>
         <main>
-          <Profile />
+          <Profile profile={data} />
           <Intro />
           <Skills />
           <Career data={data.career} />
