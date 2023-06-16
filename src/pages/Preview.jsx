@@ -29,8 +29,8 @@ function Preview({ resumeData }) {
       <div ref={componentRef} className={styles.printPage}>
         <main>
           <Profile profile={data} />
-          <Intro />
-          <Skills />
+          <Intro intro={data.intro} />
+          <Skills skills={data.skills} />
           <Career data={data.career} />
           <Project project={data.project} />
           <Experience experience={data.experience} />

@@ -5,17 +5,26 @@
   margin: 0 0 10px 10px;
 }
 
-.skillInput {
-  box-sizing: border-box;
+.SkillsInputBox {
+  display: flex;
   width: 282px;
-  height: 40px;
-  background: #ffffff;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
+}
+
+.skillInput {
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  height: 40px;
+  background: #ffffff;
   padding: 9px 12px;
   outline: none;
 }
 
+.btnDel {
+  margin: 8px;
+}
 .skillBtn {
   border: none;
   outline: none;
