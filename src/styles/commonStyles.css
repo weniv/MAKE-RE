@@ -171,7 +171,7 @@ input {
 /* 포커싱시 아웃라인 색상 변경 */
 input:focus,
 textarea:focus {
-  outline: solid var(--main-color);
+  outline: 1px solid var(--main-color);
 }
 
 textarea {
