@@ -11,15 +11,7 @@ import { CSS } from '@dnd-kit/utilities'
 
 export default function ProjectInput({ setResumeData, resumeData }) {
   const [project, setProject] = useState(resumeData.project)
-
-  const maxId = project.reduce(
-    (acc, cur) => {
-      return acc.id > cur.id ? acc : cur
-    },
-    { id: 0 }
-  ).id
-
-  const nextId = useRef(maxId)
+  const nextId = useRef(1)
 
   useEffect(() => {
     setResumeData({ ...resumeData, project: project })
@@ -185,6 +177,7 @@ function ProjectContent({
               value={pro.title}
               onChange={(e) => handleUpdate(idx, e)}
             />
+            t
           </div>
           <div className={styles.contOutline}>
             <h4 className={styles.subTit}>프로젝트 개요</h4>
@@ -213,6 +206,7 @@ function ProjectContent({
               <label htmlFor="">기간</label>
               <input
                 type="month"
+                max="9999-12"
                 name="startPeriod"
                 value={pro.startPeriod}
                 onChange={(e) => handleUpdate(idx, e)}
@@ -220,6 +214,7 @@ function ProjectContent({
               ~
               <input
                 type="month"
+                max="9999-12"
                 name="endPeriod"
                 value={pro.endPeriod}
                 onChange={(e) => handleUpdate(idx, e)}

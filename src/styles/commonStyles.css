@@ -155,6 +155,10 @@ input[type='radio'] {
   }
 }
 
+input[type='month'] {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 /* 기본 스타일 적용 */
 input {
   height: 40px;

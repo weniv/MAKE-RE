@@ -51,6 +51,7 @@ function CertContent({ cert, idx, handleDelete, handleUpdate }) {
     <div className={styles.contentCont} ref={dropdownRef}>
       <input
         type="month"
+        max="9999-12"
         value={cert.date}
         className={styles.dateInput}
         onChange={(e) => handleUpdate(idx, 'date', e.target.value)}

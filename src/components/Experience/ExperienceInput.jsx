@@ -48,6 +48,7 @@ function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
     <div className={styles.contContents}>
       <input
         type="month"
+        max="9999-12"
         className={styles.inpDate}
         value={exp.date}
         onChange={(e) => handleUpdate(idx, 'date', e.target.value)}
