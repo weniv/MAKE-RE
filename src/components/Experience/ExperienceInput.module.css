@@ -45,9 +45,6 @@
   font-size: 14px;
   flex-grow: 1;
 }
-.inpItem::placeholder {
-  color: var(--placeholder-color);
-}
 
 .btnDel {
   position: absolute;

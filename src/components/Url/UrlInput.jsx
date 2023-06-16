@@ -60,7 +60,7 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
         <img src="/images/link-icon.svg" alt="URL 주소" />
       </label>
       <input
-        className={styles.inpItem}
+        className={styles.inpLink}
         type="text"
         placeholder="예) www.paullab.co.kr"
         name="link"
