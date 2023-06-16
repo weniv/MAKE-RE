@@ -206,6 +206,7 @@ function ProjectContent({
               <label htmlFor="">기간</label>
               <input
                 type="month"
+                max="9999-12"
                 name="startPeriod"
                 value={pro.startPeriod}
                 onChange={(e) => handleUpdate(idx, e)}
@@ -213,6 +214,7 @@ function ProjectContent({
               ~
               <input
                 type="month"
+                max="9999-12"
                 name="endPeriod"
                 value={pro.endPeriod}
                 onChange={(e) => handleUpdate(idx, e)}

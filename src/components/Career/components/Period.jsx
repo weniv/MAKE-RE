@@ -22,6 +22,7 @@ export default function Period({ id, career, setCareer }) {
         </label>
         <input
           type="month"
+          max="9999-12"
           id={id}
           onChange={(e) => setStart(e.target.value)}
         />
@@ -30,7 +31,12 @@ export default function Period({ id, career, setCareer }) {
         <label htmlFor="" className="inputDescription">
           종료일
         </label>
-        <input id={id} type="month" onChange={(e) => setEnd(e.target.value)} />
+        <input
+          id={id}
+          type="month"
+          max="9999-12"
+          onChange={(e) => setEnd(e.target.value)}
+        />
       </div>
     </div>
   )
