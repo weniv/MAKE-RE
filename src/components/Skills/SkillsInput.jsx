@@ -1,27 +1,53 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './SkillsInput.module.css'
 
-function SkillsInput() {
-  const [skillCount, setSkillCount] = useState([''])
+function SkillsInput({ resumeData, setResumeData }) {
+  const [skill, setSkill] = useState(resumeData.skills)
 
-  const addBtnHandler = () => {
-    setSkillCount([...skillCount, ''])
+  // 스킬 추가
+  const HandleAdd = () => {
+    setSkill([...skill, ''])
   }
+
+  // 스킬 삭제
+  function handleDelete(idx) {
+    setSkill(skill.filter((item, i) => i !== idx))
+  }
+
+  useEffect(() => {
+    setResumeData({ ...resumeData, skills: skill })
+  }, [skill])
 
   return (
     <section>
       <h2>Skills</h2>
       <div className={styles.skillFlexBox}>
-        <input
-          className={styles.skillInput}
-          type="text"
-          placeholder="예) JavaScript"
-        />
-        {skillCount.map((item, idx) => {
-          return <input className={styles.skillInput} type="text" key={idx} />
+        {skill.map((item, idx) => {
+          return (
+            <div className={styles.SkillsInputBox}>
+              <input
+                className={styles.skillInput}
+                type="text"
+                key={idx}
+                placeholder="예) JavaScript"
+                value={item}
+                onChange={(e) => {
+                  setSkill(
+                    skill.map((item, i) => (i === idx ? e.target.value : item))
+                  )
+                }}
+              />
+              <button
+                className={styles.btnDel}
+                onClick={() => handleDelete(idx)}
+              >
+                <img src="/images/delete-icon.svg" alt="삭제" />
+              </button>
+            </div>
+          )
         })}
       </div>
-      <button className={`addBtn ${styles.skillBtn}`} onClick={addBtnHandler}>
+      <button className={`addBtn ${styles.skillBtn}`} onClick={HandleAdd}>
         +) 추가 입력하기
       </button>
     </section>
