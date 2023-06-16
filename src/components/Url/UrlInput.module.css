@@ -38,16 +38,21 @@
   padding: 12px;
 }
 
-.inpItem {
+.inpItem,
+.inpLink {
   width: 100%;
   height: 100%;
   flex-grow: 1;
-  padding: 9px 11px;
+  padding: 11px 12px;
   position: relative;
   font-size: 14px;
   font-weight: 500;
   border: none;
+  border-radius: 0;
   background-color: var(--background-color);
+}
+.inpLink {
+  border-radius: 0 5px 5px 0;
 }
 .lbLink {
   flex: none;
@@ -68,6 +73,10 @@
   background-color: var(--background-color);
   border-radius: 5px;
   padding: 9px;
+  position: absolute;
+  right: 0;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .btnDel img {
   display: block;

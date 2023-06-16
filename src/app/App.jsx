@@ -8,6 +8,8 @@ function App() {
   const dummyData = {
     name: '전유진',
     enName: 'YouJin Jeon',
+    intro: 'test',
+    skills: ['React', 'JavaScript'],
     project: [
       {
         id: 1,
@@ -24,7 +26,7 @@ function App() {
       },
     ],
     experience: [
-      { date: '2023-02', contents: '테스트1 입니다' },
+      { date: '2023-12', contents: '테스트1 입니다' },
       { date: '2023-06', contents: '테스트2 입니다' },
     ],
     certificate: [{ date: '2023-03', contents: '컴퓨터 활용능력 1급' }],
@@ -34,6 +36,7 @@ function App() {
       { contents: '네이버로 이동', link: 'www.naver.com' },
     ],
   }
+
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
   function initValue() {
