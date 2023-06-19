@@ -40,8 +40,9 @@ export default function ProjectSkill({ id, project, setProject }) {
       <h3 className={styles.subTitle}>적용 기술</h3>
       <div className={styles.skill}>
         {skill &&
-          skill.map((el) => (
+          skill.map((el, idx) => (
             <input
+              key={idx}
               id={el.id}
               type="text"
               placeholder="예) Java"

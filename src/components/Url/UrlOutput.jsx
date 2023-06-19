@@ -9,8 +9,8 @@ export default function Url({ url }) {
         <section className={styles.exp}>
           <h2 className={styles.titOutput}>URL</h2>
           <ul className={styles.listUrl}>
-            {urlOutput.map((url) => (
-              <li>
+            {urlOutput.map((url, idx) => (
+              <li key={idx}>
                 <p className={styles.urlTitle}>{url.contents.trim()}</p>
                 <div className={styles.urlLink}>
                   <img src="/images/link-icon-blue.svg" alt="" />

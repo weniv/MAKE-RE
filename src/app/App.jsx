@@ -10,6 +10,7 @@ function App() {
     enName: 'YouJin Jeon',
     intro: 'test',
     skills: ['React', 'JavaScript'],
+    career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
     project: [
       {
         id: 1,
