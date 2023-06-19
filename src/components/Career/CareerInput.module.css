@@ -1,12 +1,28 @@
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .cont {
   border-radius: 5px;
   border: 1px solid var(--border-color);
 }
 
-.inputWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.company {
+  position: relative;
+  display: grid;
+  grid-template-columns: 108px auto;
+  width: 100%;
+  align-items: center;
+}
+
+.period div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 108px auto;
+  width: 100%;
+  align-items: center;
 }
 
 .period {
@@ -14,19 +30,10 @@
   display: flex;
   height: 39px;
   justify-content: space-between;
-  align-items: center;
   border-radius: 5px;
   gap: 1px;
   border-radius: 0;
-}
-
-.company,
-.period div {
-  position: relative;
-  display: grid;
-  grid-template-columns: 108px auto;
-  width: 100%;
-  align-items: center;
+  border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -60,7 +67,6 @@
 
 .company input {
   border-top-right-radius: 5px;
-  margin-bottom: 1px;
 }
 
 .company input::-webkit-calendar-picker-indicator {

@@ -24,7 +24,7 @@ function SkillsInput({ resumeData, setResumeData }) {
       <div className={styles.skillFlexBox}>
         {skill.map((item, idx) => {
           return (
-            <div className={styles.SkillsInputBox}>
+            <div key={idx} className={styles.SkillsInputBox}>
               <input
                 className={styles.skillInput}
                 type="text"

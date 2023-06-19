@@ -81,7 +81,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
     })
   }
 
-  console.log('project', project)
+  // console.log('project', project)
 
   return (
     <>
@@ -118,7 +118,6 @@ export default function ProjectInput({ setResumeData, resumeData }) {
 function ProjectContent({
   pro,
   idx,
-
   handleUpdate,
   handleDelete,
   handleAddArr,
@@ -177,7 +176,6 @@ function ProjectContent({
               value={pro.title}
               onChange={(e) => handleUpdate(idx, e)}
             />
-            t
           </div>
           <div className={styles.contOutline}>
             <h4 className={styles.subTit}>프로젝트 개요</h4>
@@ -235,7 +233,7 @@ function ProjectContent({
             <h4 className={styles.subTit}>기여 부분</h4>
             {pro.contributes &&
               pro.contributes.map((ctb, i) => (
-                <div className={styles.inpContribute}>
+                <div key={i} className={styles.inpContribute}>
                   <input
                     type="text"
                     placeholder="예) 스마트 컨트렉스 서버와 연동되는 웹 개발 전반"
@@ -272,7 +270,7 @@ function ProjectContent({
             <h4 className={styles.subTit}>적용 기술</h4>
             {pro.skills &&
               pro.skills.map((skill, i) => (
-                <div className={styles.inpSkills}>
+                <div key={i} className={styles.inpSkills}>
                   <input
                     type="text"
                     placeholder="예) Java"

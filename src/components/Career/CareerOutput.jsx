@@ -8,7 +8,11 @@ const Work = ({ work }) => {
       {work ? (
         <ul className={styles.list}>
           {works &&
-            works.map((work) => <li className={styles.list}>{work}</li>)}
+            works.map((work, idx) => (
+              <li key={idx} className={styles.list}>
+                {work}
+              </li>
+            ))}
         </ul>
       ) : null}
     </>
@@ -21,8 +25,8 @@ export default function CareerOutput(props) {
     <section>
       <h2>Career</h2>
       {careerData &&
-        careerData.map((career) => (
-          <div className={styles.cont}>
+        careerData.map((career, idx) => (
+          <div key={idx} className={styles.cont}>
             {career.start && career.end ? (
               <p className={styles.period}>
                 {career.start} ~ {career.end}

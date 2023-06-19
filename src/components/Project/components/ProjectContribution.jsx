@@ -41,8 +41,9 @@ export default function ProjectContribution({ id, project, setProject }) {
       <div className={styles.contribution}>
         <div className={styles.contributeWrap}>
           {contribute &&
-            contribute.map((el) => (
+            contribute.map((el, idx) => (
               <input
+                key={idx}
                 id={el.id}
                 type="text"
                 placeholder="예) 스마트 컨트렉스 서버와 연동되는 웹 개발 전반"
