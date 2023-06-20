@@ -15,6 +15,7 @@ function App() {
     blog: 'https://github.com/Iam-Ujin',
     intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
     skills: ['', ''],
+    career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
     project: [
       {
         id: 1,
