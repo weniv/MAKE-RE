@@ -46,7 +46,16 @@ export default function ProjectInput({ setResumeData, resumeData }) {
   }
 
   function handleUpdate(idx, e) {
-    const { name, value } = e.target
+    let { name, value } = e.target
+
+    if (name === 'progress') {
+      value = e.target.checked
+    }
+
+    setProject(
+      project.map((pro, i) => (i === idx ? { ...pro, [name]: value } : pro))
+    )
+
     setProject(
       project.map((pro, i) => (i === idx ? { ...pro, [name]: value } : pro))
     )
@@ -89,7 +98,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
     })
   }
 
-  // console.log('project', project)
+  console.log('project', project)
 
   return (
     <>
@@ -133,6 +142,7 @@ function ProjectContent({
   handleDeleteArr,
 }) {
   const [isDrop, setIsDrop] = useState(false)
+  const [proceeding, setProceeding] = useState()
 
   const handleInputDrop = () => {
     if (true) {
@@ -149,6 +159,8 @@ function ProjectContent({
     transform: CSS.Transform.toString(transform),
     transition,
   }
+
+  console.log('proceeding', proceeding)
 
   return (
     <div className={styles.contProject} style={style}>
@@ -218,20 +230,28 @@ function ProjectContent({
                 onChange={(e) => handleUpdate(idx, e)}
               />
               ~
-              <input
-                type="month"
-                max="9999-12"
-                name="endPeriod"
-                value={pro.endPeriod}
-                onChange={(e) => handleUpdate(idx, e)}
-              />
+              {pro.progress ? (
+                ' 진행중'
+              ) : (
+                <input
+                  type="month"
+                  max="9999-12"
+                  name="endPeriod"
+                  value={pro.endPeriod}
+                  onChange={(e) => handleUpdate(idx, e)}
+                />
+              )}
               <label htmlFor={`prog-${idx}`} className={styles.progress}>
                 <input
                   type="checkbox"
                   name="progress"
-                  id={`prog-${idx}`}
                   value={pro.progress}
-                  onChange={(e) => handleUpdate(idx, e)}
+                  checked={pro.progress}
+                  onChange={(e) => {
+                    setProceeding(e.target.checked)
+                    handleUpdate(idx, e)
+                  }}
+                  id={`prog-${idx}`}
                 />
                 진행 중
               </label>
