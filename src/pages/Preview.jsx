@@ -27,15 +27,21 @@ function Preview({ resumeData }) {
       <button onClick={handleClick}>프린트</button>
       <div ref={componentRef} className={styles.printPage}>
         <main>
-          <Profile profile={data} />
-          <Intro intro={data.intro} />
-          <Skills skills={data.skills} />
+          <Profile profile={data} className={styles.test} />
+          <Intro intro={data.intro} className={styles.pagebreak} />
+          <Skills skills={data.skills} className={styles.pagebreak} />
           <Career data={data.career} />
           <Project project={data.project} />
-          <Experience experience={data.experience} />
-          <Certificate certificate={data.certificate} />
+          <Experience
+            experience={data.experience}
+            className={styles.pagebreak}
+          />
+          <Certificate
+            certificate={data.certificate}
+            className={styles.pagebreak}
+          />
           <Education education={data.education} />
-          <Url url={data.url} />
+          <Url url={data.url} className={styles.pagebreak} />
         </main>
       </div>
     </>
