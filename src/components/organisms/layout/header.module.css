@@ -1,0 +1,54 @@
+.headerWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-color);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 1030px;
+  height: 80px;
+  padding: 18px 28px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoWrap img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+}
+
+.title {
+  color: var(--background-color);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.title span {
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 5px;
+  align-self: flex-end;
+  padding-bottom: 8px;
+}
+
+.headerNav ul {
+  display: flex;
+}
+
+.headerNav button {
+  color: var(--background-color);
+  margin-left: 20px;
+}
+
+.prevWrap {
+  margin: 80px auto;
+}
