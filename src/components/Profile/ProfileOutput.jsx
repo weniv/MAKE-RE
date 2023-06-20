@@ -1,36 +1,56 @@
 import styles from './ProfileOutput.module.css'
 
-function ProfileOutput() {
+function ProfileOutput({ profile }) {
   return (
     <section className={styles.profileSection}>
       <div className={styles.profileImg}>
-        <img src="https://paullab.co.kr/images/weniv-gary.png" alt="" />
+        <img src={profile.profileImg} alt="" />
       </div>
       <div>
-        <span className={styles.profileTitle}>
-          <strong>홍길동</strong>Kildong Hong
-        </span>
+        {profile.enName ? (
+          <span className={styles.profileTitle}>
+            <strong>{profile.name}</strong>
+            {profile.enName}
+          </span>
+        ) : (
+          <span className={styles.profileTitle}>
+            <strong>{profile.name}</strong>
+            {profile.enName}
+          </span>
+        )}
+
         <ul className={styles.dataList}>
-          <li>
-            <strong>전화번호</strong>
-            010-1234-2022
-          </li>
-          <li>
-            <strong>이메일</strong>
-            lovecoding22@gmail.com
-          </li>
-          <li>
-            <strong>깃허브</strong>
-            https://github.com/
-          </li>
-          <li>
-            <strong>기술 블로그</strong>
-            https://velog.io/
-          </li>
-          <li>
-            <strong>경력 사항</strong>
-            신입
-          </li>
+          {profile.phoneNumber && (
+            <li>
+              <strong>전화번호</strong>
+              {profile.phoneNumber}
+            </li>
+          )}
+
+          {profile.fullEmail && (
+            <li>
+              <strong>이메일</strong>
+              {profile.fullEmail}
+            </li>
+          )}
+          {profile.github && (
+            <li>
+              <strong>깃허브</strong>
+              {profile.github}
+            </li>
+          )}
+          {profile.blog && (
+            <li>
+              <strong>기술 블로그</strong>
+              {profile.blog}
+            </li>
+          )}
+          {profile.newcomer && (
+            <li>
+              <strong>경력 사항</strong>
+              {profile.newcomer === 'true' ? '신입' : '경력'}
+            </li>
+          )}
         </ul>
       </div>
     </section>
