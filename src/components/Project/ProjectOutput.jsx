@@ -5,7 +5,7 @@ export default function Project({ project }) {
   return (
     <>
       {!!project.length && (
-        <section>
+        <section className={styles.project}>
           <h2 className={styles.mainTit}>Project</h2>
           <ul>
             {project.map((proj, i) => (

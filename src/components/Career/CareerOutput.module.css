@@ -3,6 +3,10 @@
   margin-top: 20px;
 }
 
+.cont + .cont {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
 .period {
   font-size: 12px;
   font-weight: bold;

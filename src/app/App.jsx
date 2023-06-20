@@ -6,11 +6,15 @@ import styles from './style.module.css'
 
 function App() {
   const dummyData = {
+    profileImg: 'https://api.mandarin.weniv.co.kr/1686804643848.gif',
     name: '전유진',
     enName: 'YouJin Jeon',
-    intro: 'test',
-    skills: ['React', 'JavaScript'],
-    career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
+    phoneNumber: '010-6878-0493',
+    fullEmail: 'weniv@email.com',
+    github: 'https://github.com/Iam-Ujin',
+    blog: 'https://github.com/Iam-Ujin',
+    intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
+    skills: ['', ''],
     project: [
       {
         id: 1,
@@ -27,7 +31,7 @@ function App() {
       },
     ],
     experience: [
-      { date: '2023-12', contents: '테스트1 입니다' },
+      { date: '2023-02', contents: '테스트1 입니다' },
       { date: '2023-06', contents: '테스트2 입니다' },
     ],
     certificate: [{ date: '2023-03', contents: '컴퓨터 활용능력 1급' }],
