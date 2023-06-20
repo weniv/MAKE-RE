@@ -1,20 +1,56 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './ProfileInput.module.css'
+import axios from 'axios'
 
-function ProfileInput(props) {
+function ProfileInput({ setResumeData, resumeData }) {
+  // ----------------------------------
+  // 프로필 데이터 업데이트
+  const [profileData, setProfileData] = useState({
+    profileImg: resumeData.profileImg,
+    name: resumeData.name,
+    enName: resumeData.enName,
+    phoneNumber: resumeData.phoneNumber,
+    fullEmail: resumeData.fullEmail,
+    github: resumeData.github,
+    blog: resumeData.blog,
+    newcomer: resumeData.newcomer,
+  })
+
+  // 프로필 정보 변경될 때마다 resumeData 업데이트
+  useEffect(() => {
+    setResumeData({ ...resumeData, ...profileData })
+  }, [profileData])
+
+  // ----------------------------------
+  // 프로필 이미지 설정
+  const handleImageChange = async (e) => {
+    const formData = new FormData()
+    const imageFile = e.target.files[0]
+    formData.append('image', imageFile)
+
+    try {
+      const response = await axios.post(
+        'https://api.mandarin.weniv.co.kr/image/uploadfile',
+        formData
+      )
+      await console.log(response)
+
+      const imageUrl =
+        'https://api.mandarin.weniv.co.kr/' + response.data.filename
+
+      setProfileData({ ...resumeData, profileImg: imageUrl })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  // ----------------------------------
   // 이메일 설정 코드
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('직접 입력')
   const [emailHost, setEmailHost] = useState(null)
   const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
   const dropBoxRef = useRef()
-
-  // 임시 데이터 업데이트 코드
-  function updateHandler() {
-    let copy = { ...props.resumeData }
-    copy['지지'] = '유진'
-    props.setResumeData(copy)
-  }
 
   // 외부 클릭했을 시
   useEffect(() => {
@@ -37,28 +73,22 @@ function ProfileInput(props) {
     setEmailHost(e.target.value)
   }
 
-  // --------
-  // 데이터 저장 코드
-
-  // 임시 데이터 업데이트 코드
-  function updateHandler() {
-    let copy = { ...props.resumeData }
-    copy['지지'] = '유진'
-    props.setResumeData(copy)
-  }
-  // 프로필 이미지
-  // 프로필 이름, 영문이름, 전화번호, 이메일
-  // 깃허브, 기술블로그 링크, 경력사항
-  // intro
-  // skills
-
   return (
     <section>
-      <button onClick={updateHandler}>임시 저장 테스트 버튼</button>
       <div className={styles.flexBox}>
         <div>
           <label htmlFor="profile-upload" className={styles.profileWrap}>
-            <div className={styles.profile}></div>
+            {profileData.profileImg ? (
+              <div className={styles.profile}>
+                <img
+                  className={styles.profileImg}
+                  src={profileData.profileImg}
+                  alt=""
+                />
+              </div>
+            ) : (
+              <div className={styles.profile}></div>
+            )}
             <img
               className={styles.profileBtn}
               src="images/camera-icon.svg"
@@ -70,60 +100,102 @@ function ProfileInput(props) {
             type="file"
             accept=""
             id="profile-upload"
+            onChange={handleImageChange}
           />
         </div>
         <div>
           <div className={styles.profileBox}>
             <div className={`${styles.inputBox} ${styles.firstInput}`}>
               <label>이름</label>
-              <input type="text" placeholder="예) 홍길동"></input>
+              <input
+                type="text"
+                value={profileData.name}
+                onChange={(e) => {
+                  setProfileData({ ...profileData, name: e.target.value })
+                }}
+                placeholder="예) 홍길동"
+              ></input>
             </div>
             <div className={`${styles.inputBox} ${styles.enInput}`}>
               <label>영문 이름</label>
-              <input type="text" placeholder="예) Kildong Hong"></input>
+              <input
+                type="text"
+                placeholder="예) Kildong Hong"
+                value={profileData.enName}
+                onChange={(e) => {
+                  setProfileData({ ...profileData, enName: e.target.value })
+                }}
+              ></input>
             </div>
           </div>
           <div className={`${styles.inputBox} ${styles.firstInput}`}>
             <label>전화번호</label>
-            <input type="tel" placeholder="예) 010-0000-0000"></input>
+            <input
+              type="tel"
+              placeholder="예) 010-0000-0000"
+              value={profileData.phoneNumber}
+              onChange={(e) => {
+                setProfileData({ ...profileData, phoneNumber: e.target.value })
+              }}
+            ></input>
           </div>
           <div className={styles.emailWrap}>
             <div className={`${styles.inputBox} ${styles.firstInput}`}>
               <label>이메일</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={profileData.fullEmail.split('@')[0]}
+                onChange={(e) => {}}
+              />
             </div>
             @
             {email !== '직접 입력' ? (
               <div className={`${styles.inputBox} ${styles.mailInput}`}>
-                <input type="text" value={email} readOnly />
+                <input
+                  type="text"
+                  readOnly
+                  value={profileData.fullEmail.split('@')[1]}
+                  onChange={(e) => {}}
+                />
               </div>
             ) : (
               <div className={`${styles.inputBox} ${styles.mailInput}`}>
                 <input
                   type="text"
-                  value={emailHost}
+                  value={profileData.fullEmail.split('@')[1]}
                   onChange={emailHostHandler}
                 />
               </div>
             )}
             <div ref={dropBoxRef}>
-              <input
-                type="button"
-                className={styles.emailBtn}
-                value={email}
-                onClick={() => {
-                  isOpen ? setIsOpen(false) : setIsOpen(true)
-                }}
-              />
+              {isOpen ? (
+                <>
+                  <input
+                    type="button"
+                    className={`${styles.emailBtn} ${styles.open}`}
+                    value={email}
+                    onClick={() => {
+                      isOpen ? setIsOpen(false) : setIsOpen(true)
+                    }}
+                  />
 
-              {isOpen && (
-                <ul className={styles.emailList}>
-                  {FrequencyEmails.map((item, idx) => (
-                    <li key={idx} onClick={() => selectBoxHandler(item)}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className={styles.emailList}>
+                    {FrequencyEmails.map((item, idx) => (
+                      <li key={idx} onClick={() => selectBoxHandler(item)}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <input
+                  type="button"
+                  className={`${styles.emailBtn} ${styles.close}`}
+                  value={email}
+                  onClick={() => {
+                    isOpen ? setIsOpen(false) : setIsOpen(true)
+                  }}
+                />
               )}
             </div>
           </div>
@@ -131,22 +203,79 @@ function ProfileInput(props) {
       </div>
       <div className={styles.linkInput}>
         <label htmlFor="">GitHub 링크</label>
-        <input type="url" />
+        <input
+          type="url"
+          value={profileData.github}
+          onChange={(e) => {
+            setProfileData({ ...profileData, github: e.target.value })
+          }}
+        />
       </div>
       <div className={styles.linkInput}>
         <label htmlFor="">기술 블로그 링크</label>
-        <input type="url" />
+        <input
+          type="url"
+          value={profileData.blog}
+          onChange={(e) => {
+            setProfileData({ ...profileData, blog: e.target.value })
+          }}
+        />
       </div>
       <div className={styles.careerBox}>
         <span>경력사항</span>
-        <div>
-          <input id="r1" type="radio" name="radio" />
-          <label htmlFor="r1">신입</label>
-        </div>
-        <div>
-          <input id="r2" type="radio" name="radio" />
-          <label htmlFor="r2">경력</label>
-        </div>
+        {profileData.newcomer === 'true' ? (
+          <>
+            <div>
+              <input
+                id="r1"
+                type="radio"
+                name="radio"
+                checked
+                onClick={() => {
+                  setProfileData({ ...profileData, newcomer: 'true' })
+                }}
+              />
+              <label htmlFor="r1">신입</label>
+            </div>
+            <div>
+              <input
+                id="r2"
+                type="radio"
+                name="radio"
+                onClick={() => {
+                  setProfileData({ ...profileData, newcomer: 'false' })
+                }}
+              />
+              <label htmlFor="r2">경력</label>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <input
+                id="r1"
+                type="radio"
+                name="radio"
+                onClick={() => {
+                  setProfileData({ ...profileData, newcomer: 'true' })
+                }}
+              />
+              <label htmlFor="r1">신입</label>
+            </div>
+            <div>
+              <input
+                id="r2"
+                type="radio"
+                name="radio"
+                checked
+                onClick={() => {
+                  setProfileData({ ...profileData, newcomer: 'false' })
+                }}
+              />
+              <label htmlFor="r2">경력</label>
+            </div>
+          </>
+        )}
       </div>
     </section>
   )
