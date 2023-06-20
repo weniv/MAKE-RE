@@ -7,9 +7,9 @@ import Experience from '../components/Experience/ExperienceOutput'
 import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
-import { useReactToPrint } from 'react-to-print'
-import { useRef } from 'react'
 import styles from './preview.module.css'
+import { useRef, useState } from 'react'
+import { useReactToPrint } from 'react-to-print'
 
 function Preview({ resumeData }) {
   const data = JSON.parse(localStorage.getItem('data'))
@@ -22,7 +22,6 @@ function Preview({ resumeData }) {
     content: () => componentRef.current,
     documentTitle: '파일명',
   })
-
   return (
     <>
       <button onClick={handleClick}>프린트</button>
