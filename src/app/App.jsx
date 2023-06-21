@@ -46,6 +46,8 @@ function App() {
 
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
+  const [formNum, setFormNum] = useState(0)
+
   function initValue() {
     if (localStorage.getItem('data')) {
       return JSON.parse(localStorage.getItem('data'))
@@ -59,6 +61,8 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
+  console.log('formNum', formNum)
+
   return isWrite ? (
     <>
       <header className={styles.headerWrap}>
@@ -71,6 +75,7 @@ function App() {
           <ul>
             <li>
               <button
+                form={`career-form-${formNum}`}
                 className={`${styles.header} ${styles.saveBtn}`}
                 onClick={dataUpdateHandler}
               >
@@ -94,7 +99,11 @@ function App() {
         </nav>
       </header>
       <div className={`${App} ${styles.pageWrap}`}>
-        <Write setResumeData={setResumeData} resumeData={resumeData} />
+        <Write
+          setResumeData={setResumeData}
+          resumeData={resumeData}
+          setFormNum={setFormNum}
+        />
       </div>
     </>
   ) : (
