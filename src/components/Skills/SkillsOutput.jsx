@@ -5,7 +5,7 @@ function SkillsOutput({ skills }) {
     <section className={styles.skillsSection}>
       <h3 className={styles.skillsTitle}>Skills</h3>
       <ul className={styles.skillList}>
-        {skills === '' || skills.map((item, idx) => <li key={idx}>{item}</li>)}
+        {skills.map((item, idx) => item === '' || <li key={idx}>{item}</li>)}
       </ul>
     </section>
   )
