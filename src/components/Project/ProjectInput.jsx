@@ -99,7 +99,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
     })
   }
 
-  console.log('project', project)
+  // console.log('project', project)
 
   return (
     <>

@@ -3,14 +3,6 @@ import styles from './CareerInput.module.css'
 
 export default function CareerInput({ setResumeData, resumeData }) {
   const [career, setCareer] = useState(resumeData.career)
-  const nextId = useRef(1)
-
-  /** 객체가 모두 채워졌는지 확인, true면 덜 입력된 값이 존재 */
-  // const isEmpty = (obj) => {
-  //   return !Object.values(obj).every(
-  //     (x) => x !== null && x !== '' && x !== undefined
-  //   )
-  // }
 
   useEffect(() => {
     setResumeData({ ...resumeData, career: career })
@@ -18,11 +10,9 @@ export default function CareerInput({ setResumeData, resumeData }) {
 
   const handleAdd = (e) => {
     e.preventDefault()
-    nextId.current += 1
     setCareer([
       ...career,
       {
-        id: nextId.current,
         start: '',
         end: '',
         companyName: '',

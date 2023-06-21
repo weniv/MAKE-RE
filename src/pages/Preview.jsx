@@ -30,7 +30,7 @@ function Preview({ resumeData }) {
           <Profile profile={data} className={styles.test} />
           <Intro intro={data.intro} className={styles.pagebreak} />
           <Skills skills={data.skills} className={styles.pagebreak} />
-          <Career data={data.career} />
+          <Career career={data.career} />
           <Project project={data.project} />
           <Experience
             experience={data.experience}
