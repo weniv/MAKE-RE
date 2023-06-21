@@ -32,7 +32,7 @@ function ProjectContent({ proj }) {
           <p className="ir">기간</p>
           <p>
             {dateFormat(proj.startPeriod)}
-            <br />~ {dateFormat(proj.endPeriod)}
+            <br />~ {proj.progress ? '진행중' : dateFormat(proj.endPeriod)}
           </p>
         </div>
         <div className={styles.contSkill}>
