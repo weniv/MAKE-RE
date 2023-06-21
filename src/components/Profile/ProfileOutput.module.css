@@ -32,6 +32,10 @@
   border-bottom: 1px solid var(--main-color);
 }
 
+.notProfileImg {
+  width: 810px;
+}
+
 .profileTitle strong {
   font-weight: 900;
   font-size: 24px;
