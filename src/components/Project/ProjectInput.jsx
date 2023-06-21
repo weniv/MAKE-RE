@@ -47,17 +47,18 @@ export default function ProjectInput({ setResumeData, resumeData }) {
 
   function handleUpdate(idx, e) {
     let { name, value } = e.target
-
-    if (name === 'progress') {
-      value = e.target.checked
-    }
-
     setProject(
       project.map((pro, i) => (i === idx ? { ...pro, [name]: value } : pro))
     )
+  }
+
+  const progressUpdate = (idx, e) => {
+    let { name, checked } = e.target
 
     setProject(
-      project.map((pro, i) => (i === idx ? { ...pro, [name]: value } : pro))
+      project.map((pro, i) =>
+        i === idx ? { ...pro, [name]: checked, endPeriod: '' } : pro
+      )
     )
   }
 
@@ -118,6 +119,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
                 handleUpdate={handleUpdate}
                 handleDelete={handleDelete}
                 handleAddArr={handleAddArr}
+                progressUpdate={progressUpdate}
                 handleUpdateArr={handleUpdateArr}
                 handleDeleteArr={handleDeleteArr}
               />
@@ -138,11 +140,11 @@ function ProjectContent({
   handleUpdate,
   handleDelete,
   handleAddArr,
+  progressUpdate,
   handleUpdateArr,
   handleDeleteArr,
 }) {
   const [isDrop, setIsDrop] = useState(false)
-  const [proceeding, setProceeding] = useState()
 
   const handleInputDrop = () => {
     if (true) {
@@ -160,7 +162,7 @@ function ProjectContent({
     transition,
   }
 
-  console.log('proceeding', proceeding)
+  // console.log('proceeding', proceeding)
 
   return (
     <div className={styles.contProject} style={style}>
@@ -247,10 +249,7 @@ function ProjectContent({
                   name="progress"
                   value={pro.progress}
                   checked={pro.progress}
-                  onChange={(e) => {
-                    setProceeding(e.target.checked)
-                    handleUpdate(idx, e)
-                  }}
+                  onChange={(e) => progressUpdate(idx, e)}
                   id={`prog-${idx}`}
                 />
                 진행 중
