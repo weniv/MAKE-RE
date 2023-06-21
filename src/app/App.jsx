@@ -13,6 +13,7 @@ function App() {
     fullEmail: 'weniv@email.com',
     github: 'https://github.com/Iam-Ujin',
     blog: 'https://github.com/Iam-Ujin',
+    newcomer: true,
     intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
     skills: ['', ''],
     career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],

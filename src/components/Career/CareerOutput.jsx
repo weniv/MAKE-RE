@@ -20,6 +20,7 @@ const Work = ({ work }) => {
 }
 
 export default function CareerOutput({ career }) {
+  console.log('career', career)
   const [empty, setEmpty] = useState(0)
 
   /** career 객체가 모두 채워졌는지 확인, true이면 빈 객체 */

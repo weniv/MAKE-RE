@@ -8,11 +8,12 @@ import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
 import styles from './preview.module.css'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
 
 function Preview({ resumeData }) {
   const data = JSON.parse(localStorage.getItem('data'))
+  const isNewcomer = data.newcomer
 
   const componentRef = useRef(null)
   function handleClick() {
@@ -30,8 +31,17 @@ function Preview({ resumeData }) {
           <Profile profile={data} className={styles.test} />
           <Intro intro={data.intro} className={styles.pagebreak} />
           <Skills skills={data.skills} className={styles.pagebreak} />
-          <Career career={data.career} />
-          <Project project={data.project} />
+          {isNewcomer ? (
+            <>
+              <Project project={data.project} />
+              <Career career={data.career} />
+            </>
+          ) : (
+            <>
+              <Career career={data.career} />
+              <Project project={data.project} />
+            </>
+          )}
           <Experience
             experience={data.experience}
             className={styles.pagebreak}
