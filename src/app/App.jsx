@@ -6,7 +6,7 @@ import styles from './style.module.css'
 
 function App() {
   const dummyData = {
-    profileImg: 'https://api.mandarin.weniv.co.kr/1686804643848.gif',
+    profileImg: 'https://api.mandarin.weniv.co.kr/1687337079735.png',
     name: '전유진',
     enName: 'YouJin Jeon',
     phoneNumber: '010-6878-0493',
