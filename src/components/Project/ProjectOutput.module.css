@@ -10,7 +10,10 @@
 
 .projectItem + .projectItem {
   border-top: 1px dashed var(--border-color);
+  page-break-inside: avoid;
+  page-break-after: auto;
 }
+
 .contDetail {
   display: flex;
   flex-direction: column;

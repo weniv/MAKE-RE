@@ -11,7 +11,15 @@ import { CSS } from '@dnd-kit/utilities'
 
 export default function ProjectInput({ setResumeData, resumeData }) {
   const [project, setProject] = useState(resumeData.project)
-  const nextId = useRef(1)
+
+  const maxId = project.reduce(
+    (acc, cur) => {
+      return acc.id > cur.id ? acc : cur
+    },
+    { id: 0 }
+  ).id
+
+  const nextId = useRef(maxId)
 
   useEffect(() => {
     setResumeData({ ...resumeData, project: project })
@@ -38,9 +46,19 @@ export default function ProjectInput({ setResumeData, resumeData }) {
   }
 
   function handleUpdate(idx, e) {
-    const { name, value } = e.target
+    let { name, value } = e.target
     setProject(
       project.map((pro, i) => (i === idx ? { ...pro, [name]: value } : pro))
+    )
+  }
+
+  const progressUpdate = (idx, e) => {
+    let { name, checked } = e.target
+
+    setProject(
+      project.map((pro, i) =>
+        i === idx ? { ...pro, [name]: checked, endPeriod: '' } : pro
+      )
     )
   }
 
@@ -81,7 +99,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
     })
   }
 
-  // console.log('project', project)
+  console.log('project', project)
 
   return (
     <>
@@ -101,6 +119,7 @@ export default function ProjectInput({ setResumeData, resumeData }) {
                 handleUpdate={handleUpdate}
                 handleDelete={handleDelete}
                 handleAddArr={handleAddArr}
+                progressUpdate={progressUpdate}
                 handleUpdateArr={handleUpdateArr}
                 handleDeleteArr={handleDeleteArr}
               />
@@ -121,6 +140,7 @@ function ProjectContent({
   handleUpdate,
   handleDelete,
   handleAddArr,
+  progressUpdate,
   handleUpdateArr,
   handleDeleteArr,
 }) {
@@ -141,6 +161,8 @@ function ProjectContent({
     transform: CSS.Transform.toString(transform),
     transition,
   }
+
+  // console.log('proceeding', proceeding)
 
   return (
     <div className={styles.contProject} style={style}>
@@ -210,20 +232,25 @@ function ProjectContent({
                 onChange={(e) => handleUpdate(idx, e)}
               />
               ~
-              <input
-                type="month"
-                max="9999-12"
-                name="endPeriod"
-                value={pro.endPeriod}
-                onChange={(e) => handleUpdate(idx, e)}
-              />
+              {pro.progress ? (
+                ' 진행중'
+              ) : (
+                <input
+                  type="month"
+                  max="9999-12"
+                  name="endPeriod"
+                  value={pro.endPeriod}
+                  onChange={(e) => handleUpdate(idx, e)}
+                />
+              )}
               <label htmlFor={`prog-${idx}`} className={styles.progress}>
                 <input
                   type="checkbox"
                   name="progress"
-                  id={`prog-${idx}`}
                   value={pro.progress}
-                  onChange={(e) => handleUpdate(idx, e)}
+                  checked={pro.progress}
+                  onChange={(e) => progressUpdate(idx, e)}
+                  id={`prog-${idx}`}
                 />
                 진행 중
               </label>
