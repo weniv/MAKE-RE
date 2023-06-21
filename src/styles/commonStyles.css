@@ -166,6 +166,10 @@ input {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   padding-left: 12px;
+
+  &:focus::placeholder {
+    color: transparent;
+  }
 }
 
 /* 포커싱시 아웃라인 색상 변경 */
@@ -181,6 +185,10 @@ textarea {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   padding: 12px;
+
+  &:focus::placeholder {
+    color: transparent;
+  }
 }
 
 /* 플레이스홀더 색상 */
