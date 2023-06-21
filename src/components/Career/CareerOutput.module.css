@@ -29,3 +29,9 @@
   font-size: 14px;
   line-height: 20px;
 }
+
+.noContent {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--placeholder-color);
+}

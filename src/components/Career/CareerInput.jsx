@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './CareerInput.module.css'
 
-export default function CareerInput({ setResumeData, resumeData }) {
+export default function CareerInput({ setResumeData, resumeData, setFormNum }) {
   const [career, setCareer] = useState(resumeData.career)
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function CareerInput({ setResumeData, resumeData }) {
     setCareer(career.filter((data, i) => i !== idx))
   }
 
-  // console.log('career', career)
+  console.log('career', career)
 
   return (
     <main>
@@ -46,6 +46,7 @@ export default function CareerInput({ setResumeData, resumeData }) {
               careerData={careerData}
               handleUpdate={handleUpdate}
               handleDelete={handleDelete}
+              setFormNum={setFormNum}
             />
           ))}
       </div>
@@ -56,17 +57,32 @@ export default function CareerInput({ setResumeData, resumeData }) {
   )
 }
 
-const Input = ({ idx, careerData, handleUpdate, handleDelete }) => {
+const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
   return (
-    <div className={styles.cont}>
+    <form
+      id={`career-form-${idx}`}
+      name={idx}
+      className={styles.cont}
+      onSubmit={(e) => e.preventDefault()}
+      onClick={(e) => {
+        setFormNum(e.currentTarget.name)
+      }}
+    >
       <div className={styles.company}>
         <label className="inputDescription">회사명</label>
         <input
+          id={idx}
           type="text"
           name="companyName"
           placeholder="예) 네이버 (NAVER)"
           value={careerData.companyName}
           onChange={(e) => handleUpdate(idx, e)}
+          autoComplete="off"
+          onInvalid={(e) =>
+            e.target.setCustomValidity('회사명은 반드시 입력되어야합니다')
+          }
+          onInput={(e) => setFormNum(parseInt(e.target.id) + 1)}
+          required={!careerData.companyName ? true : false}
         />
         <button className={styles.delBtn}>
           <img
@@ -101,11 +117,12 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete }) => {
         </div>
       </div>
       <textarea
+        id={idx}
         placeholder="담당 업무"
         name="works"
         value={careerData.works}
         onChange={(e) => handleUpdate(idx, e)}
       ></textarea>
-    </div>
+    </form>
   )
 }

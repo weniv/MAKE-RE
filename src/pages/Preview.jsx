@@ -33,8 +33,8 @@ function Preview({ resumeData }) {
           <Skills skills={data.skills} className={styles.pagebreak} />
           {isNewcomer === 'true' ? (
             <>
-              <Project project={data.project} />
               <Career career={data.career} />
+              <Project project={data.project} />
             </>
           ) : (
             <>
