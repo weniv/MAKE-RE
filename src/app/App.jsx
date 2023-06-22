@@ -68,6 +68,8 @@ function App() {
     documentTitle: '이력서',
   })
 
+  console.log('formName', formName)
+
   return isWrite ? (
     <>
       <header className={styles.headerWrap}>
@@ -90,6 +92,7 @@ function App() {
               <button
                 className={styles.prevBtn}
                 onClick={(e) => {
+                  console.log('fff', e.target.form)
                   setIsWrite(false)
                   handleDataUpdate()
                 }}
@@ -112,12 +115,19 @@ function App() {
         <ul className={styles.footerCont}>
           <li>
             <p>위니브</p>
-            <a href="https://paullab.co.kr/about.html">회사 소개</a>
-            <a href="https://paullab.co.kr/index.html">제주코딩베이스캠프</a>
+            <a href="https://paullab.co.kr/about.html" target="_blank">
+              회사 소개
+            </a>
+            <a href="https://paullab.co.kr/index.html" target="_blank">
+              제주코딩베이스캠프
+            </a>
           </li>
           <li>
             <p>메이커리</p>
-            <a href="https://www.notion.so/b3258bc3a2a94151b9bf4d6e6f7b5071">
+            <a
+              href="https://paullabworkspace.notion.site/b3258bc3a2a94151b9bf4d6e6f7b5071"
+              target="_blank"
+            >
               메이커리 서비스 소개
             </a>
           </li>
