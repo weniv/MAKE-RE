@@ -63,11 +63,11 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     documentTitle: '이력서',
   })
-  console.log('formNum', formNum)
 
   return isWrite ? (
     <>

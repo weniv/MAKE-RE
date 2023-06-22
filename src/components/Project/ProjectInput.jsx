@@ -162,8 +162,6 @@ function ProjectContent({
     transition,
   }
 
-  // console.log('proceeding', proceeding)
-
   return (
     <div className={styles.contProject} style={style}>
       <div className={styles.contHeader}>
@@ -176,7 +174,10 @@ function ProjectContent({
           <img src="/images/drag-icon.svg" alt="드래그" />
         </button>
         <h3>{pro.title ? pro.title : '새로운 프로젝트'}</h3>
-        <button className={styles.btnToggle} onClick={() => handleInputDrop()}>
+        <button
+          className={(styles.toggleBtn, isDrop ? styles.open : null)}
+          onClick={() => handleInputDrop()}
+        >
           <img src="/images/polygon-down.svg" alt="내용 열기" />
         </button>
         <button className={styles.btnDel}>

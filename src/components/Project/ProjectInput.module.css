@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+.toggleBtn {
+  width: 20px;
+  height: 20px;
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
 .project {
   margin-top: 40px;
 }
@@ -38,12 +47,14 @@
   font-size: 14px;
   line-height: 20px;
 }
+
 .btnDel {
   border: none;
-  background-color: var(--background-color);
   border-radius: 5px;
-  padding: 9px;
+  padding: 7px;
+  background-color: var(--background-color);
 }
+
 .btnDel img {
   display: block;
   cursor: pointer;
@@ -70,6 +81,7 @@
   border: 1px solid var(--border-color);
   margin-top: 36px;
 }
+
 .contTit label {
   white-space: nowrap;
   padding: 10px 42px 10px 12px;
@@ -91,6 +103,7 @@
   border-radius: 5px;
   resize: none;
   outline: none;
+  line-height: 20px;
 }
 
 .contPerson,
@@ -150,6 +163,7 @@
   position: relative;
   margin-bottom: 12px;
 }
+
 .inpContribute input {
   display: block;
   width: 100%;
@@ -163,9 +177,8 @@
 .inpContribute .btnDel,
 .inpSkills .btnDel {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: transparent;
+  top: 3px;
+  right: 1px;
 }
 
 .inpSkills {

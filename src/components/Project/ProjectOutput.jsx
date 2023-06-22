@@ -19,6 +19,7 @@ export default function Project({ project }) {
 }
 
 function ProjectContent({ proj }) {
+  console.log('proj.outline', proj.outline)
   return (
     <li className={`${styles.projectItem}`}>
       <div className={styles.contDetail}>
