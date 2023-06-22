@@ -120,7 +120,9 @@ function App() {
           </li>
           <li>
             <p>메이커리</p>
-            <a href="#">메이커리 서비스 소개</a>
+            <a href="https://www.notion.so/b3258bc3a2a94151b9bf4d6e6f7b5071">
+              메이커리 서비스 소개
+            </a>
           </li>
           <li>
             <p>자료</p>
