@@ -32,7 +32,7 @@ export default function CareerInput({ setResumeData, resumeData, setFormNum }) {
     setCareer(career.filter((data, i) => i !== idx))
   }
 
-  console.log('career', career)
+  // console.log('career', career)
 
   return (
     <main>

@@ -38,13 +38,25 @@ function ProfileOutput({ profile }) {
               {profile.github && (
                 <li>
                   <strong>깃허브</strong>
-                  {profile.github}
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {profile.github}
+                  </a>
                 </li>
               )}
               {profile.blog && (
                 <li>
                   <strong>기술 블로그</strong>
-                  {profile.blog}
+                  <a
+                    href={profile.blog}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {profile.blog}
+                  </a>
                 </li>
               )}
               {profile.newcomer && (

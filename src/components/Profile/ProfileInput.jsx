@@ -45,32 +45,40 @@ function ProfileInput({ setResumeData, resumeData }) {
   }
 
   // ----------------------------------
-  // 이메일 설정 코드
+  // 드롭박스 외부 클릭했을 시
   const [isOpen, setIsOpen] = useState(false)
-  const [email, setEmail] = useState('직접 입력')
-  const [emailHost, setEmailHost] = useState(null)
-  const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
   const dropBoxRef = useRef()
 
-  // 외부 클릭했을 시
   useEffect(() => {
-    const clickOutsideHandler = (e) => {
+    const handleClickOutside = (e) => {
       if (dropBoxRef.current && !dropBoxRef.current.contains(e.target)) {
         setIsOpen(false)
       }
     }
-    document.addEventListener('mousedown', clickOutsideHandler)
+    document.addEventListener('mousedown', handleClickOutside)
   }, [dropBoxRef])
 
-  // 이메일 선택했을 때 input 내용 변경
-  function selectBoxHandler(item) {
-    setEmail(item)
-    setIsOpen(false)
-  }
+  // 이메일 설정
+  const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
+  const [id, setId] = useState(profileData.fullEmail.split("@")[0])
+  const [domain, setDomain] = useState(profileData.fullEmail.split("@")[1])
 
-  // 직접입력일 때 value 변경
-  function emailHostHandler(e) {
-    setEmailHost(e.target.value)
+  useEffect(()=> {
+    const fullEmail = [id, domain].join("@")
+    setResumeData({ ...resumeData, "fullEmail": fullEmail })
+  }, [id, domain])
+
+  const [email, setEmail] = useState("직접 입력")
+
+  // 이메일 선택했을 때 input 내용 변경
+  function handleSelectBox(item) {
+    if(item !== "직접 입력") {
+      setDomain(item)
+    } else {
+      setEmail("직접 입력")
+      setDomain("")
+    }
+    setIsOpen(false)
   }
 
   return (
@@ -148,8 +156,8 @@ function ProfileInput({ setResumeData, resumeData }) {
               <input
                 type="text"
                 id="id"
-                value={profileData.fullEmail.split('@')[0]}
-                onChange={(e) => {}}
+                value={id}
+                onChange={(e) => {setId(e.target.value)}}
               />
             </div>
             @
@@ -159,19 +167,19 @@ function ProfileInput({ setResumeData, resumeData }) {
                 <input
                   type="text"
                   id="domain"
-                  readOnly
-                  value={profileData.fullEmail.split('@')[1]}
-                  onChange={(e) => {}}
+                  value={domain}
+                  onChange={(e) => setDomain(e.target.value)}
                 />
               </div>
             ) : (
+              // 직접입력일 경우
               <div className={`${styles.inputBox} ${styles.mailInput}`}>
                 <label htmlFor="domain" className="ir"></label>
                 <input
                   type="text"
                   id="domain"
-                  value={profileData.fullEmail.split('@')[1]}
-                  onChange={emailHostHandler}
+                  value={domain}
+                  onChange={(e) => setDomain(e.target.value)}
                 />
               </div>
             )}
@@ -193,7 +201,7 @@ function ProfileInput({ setResumeData, resumeData }) {
 
                   <ul className={styles.emailList}>
                     {FrequencyEmails.map((item, idx) => (
-                      <li key={idx} onClick={() => selectBoxHandler(item)}>
+                      <li key={idx} onClick={() => handleSelectBox(item)}>
                         {item}
                       </li>
                     ))}
