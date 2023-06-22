@@ -73,9 +73,8 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/logo.svg" alt="" />
-          메이커리
-          <span> Make A Career</span>
+          <img src="/images/makere-logo.svg" alt="" />
+          {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
           <ul>
@@ -98,6 +97,20 @@ function App() {
                 미리보기
               </button>
             </li>
+            <li>
+              <a
+                href="https://paullabworkspace.notion.site/Figma-bfa32213fc244db9b31bb8486a479ee6?pvs=4"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Figma 이력서
+              </a>
+            </li>
+            <li>
+              <a href="/files/제코베_포트폴리오_템플릿_배포용.pptx" download>
+                PPT 포트폴리오
+              </a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -113,9 +126,8 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/logo.svg" alt="" />
-          메이커리
-          <span> Make A Career</span>
+          <img src="/images/makere-logo.svg" alt="" />
+          {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
           <ul>
