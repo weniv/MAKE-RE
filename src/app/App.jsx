@@ -1,8 +1,9 @@
 import Write from '../pages/Write'
 import Preview from '../pages/Preview'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import styles from './style.module.css'
+import { useReactToPrint } from 'react-to-print'
 
 function App() {
   const dummyData = {
@@ -47,6 +48,7 @@ function App() {
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
   const [formNum, setFormNum] = useState(0)
+  const componentRef = useRef(null)
 
   function initValue() {
     if (localStorage.getItem('data')) {
@@ -61,6 +63,10 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: '이력서',
+  })
   console.log('formNum', formNum)
 
   return isWrite ? (
@@ -127,13 +133,15 @@ function App() {
               </button>
             </li>
             <li>
-              <button className={styles.exportBtn}>PDF로 내보내기</button>
+              <button className={styles.exportBtn} onClick={handlePrint}>
+                PDF로 내보내기
+              </button>
             </li>
           </ul>
         </nav>
       </header>
       <div className={styles.prevWrap}>
-        <Preview resumeData={resumeData} />
+        <Preview resumeData={resumeData} componentRef={componentRef} />
       </div>
     </>
   )
