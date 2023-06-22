@@ -1,11 +1,11 @@
 import styles from './ProfileOutput.module.css'
 
 function ProfileOutput({ profile }) {
-  const defaultImg = "https://api.mandarin.weniv.co.kr/1687337079735.png"
+  const defaultImg = 'https://api.mandarin.weniv.co.kr/1687337079735.png'
 
   return (
     <section className={styles.profileSection}>
-      {profile.profileImg & profile.profileImg !== defaultImg ? (
+      {profile.profileImg && profile.profileImg !== defaultImg ? (
         <>
           <div className={styles.profileImg}>
             <img src={profile.profileImg} alt="" />
@@ -104,13 +104,25 @@ function ProfileOutput({ profile }) {
               {profile.github && (
                 <li>
                   <strong>깃허브</strong>
-                  {profile.github}
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {profile.github}
+                  </a>
                 </li>
               )}
               {profile.blog && (
                 <li>
                   <strong>기술 블로그</strong>
-                  {profile.blog}
+                  <a
+                    href={profile.blog}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {profile.blog}
+                  </a>
                 </li>
               )}
               {profile.newcomer && (
