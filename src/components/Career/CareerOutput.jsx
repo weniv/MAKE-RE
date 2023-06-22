@@ -42,7 +42,10 @@ export default function CareerOutput({ career }) {
           <h2>Career</h2>
           {career &&
             career.map((el, idx) => (
-              <div key={idx} className={styles.cont}>
+              <div
+                key={idx}
+                className={el.companyName ? styles.cont : styles.hidden}
+              >
                 {el.start || el.end ? (
                   <p
                     className={

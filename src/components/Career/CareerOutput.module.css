@@ -39,3 +39,7 @@
   font-weight: bold;
   color: var(--placeholder-color);
 }
+
+.hidden {
+  display: none;
+}
