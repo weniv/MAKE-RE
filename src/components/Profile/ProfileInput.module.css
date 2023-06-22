@@ -35,6 +35,19 @@
 .profileInput {
   display: none;
 }
+.profileImgBox {
+  position: relative;
+}
+
+.profileDelete {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+}
 
 .profileBox {
   padding: 20px 0 16px 0;
