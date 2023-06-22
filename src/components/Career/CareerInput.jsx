@@ -69,9 +69,11 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
       }}
     >
       <div className={styles.company}>
-        <label className="inputDescription">회사명</label>
+        <label className="inputDescription" htmlFor={`companyName-${idx}`}>
+          회사명
+        </label>
         <input
-          id={idx}
+          id={`companyName-${idx}`}
           type="text"
           name="companyName"
           placeholder="예) 네이버 (NAVER)"
@@ -81,7 +83,7 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
           onInvalid={(e) =>
             e.target.setCustomValidity('회사명은 반드시 입력되어야합니다')
           }
-          onInput={(e) => setFormNum(parseInt(e.target.id) + 1)}
+          onInput={(e) => setFormNum(parseInt(idx) + 1)}
           required={!careerData.companyName ? true : false}
         />
         <button className={styles.delBtn}>
@@ -94,8 +96,11 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
       </div>
       <div className={styles.period}>
         <div className={styles.start}>
-          <label className="inputDescription">시작일</label>
+          <label className="inputDescription" htmlFor={`start-form-${idx}`}>
+            시작일
+          </label>
           <input
+            id={`start-form-${idx}`}
             type="month"
             max="9999-12"
             name="start"
@@ -104,10 +109,11 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
           />
         </div>
         <div className={styles.end}>
-          <label htmlFor="" className="inputDescription">
+          <label htmlFor={`end-form-${idx}`} className="inputDescription">
             종료일
           </label>
           <input
+            id={`end-form-${idx}`}
             type="month"
             name="end"
             max="9999-12"
