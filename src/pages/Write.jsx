@@ -26,11 +26,12 @@ function Write(props) {
       <Career
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
-        setFormNum={props.setFormNum}
+        setFormName={props.setFormName}
       />
       <Project
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
+        setFormName={props.setFormName}
       />
       <Experience
         setResumeData={props.setResumeData}

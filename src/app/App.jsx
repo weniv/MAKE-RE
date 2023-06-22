@@ -47,7 +47,7 @@ function App() {
 
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
-  const [formNum, setFormNum] = useState(0)
+  const [formName, setFormName] = useState('')
   const componentRef = useRef(null)
 
   function initValue() {
@@ -62,7 +62,6 @@ function App() {
   const dataUpdateHandler = () => {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
-
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -80,7 +79,7 @@ function App() {
           <ul>
             <li>
               <button
-                form={`career-form-${formNum}`}
+                form={`form-${formName}`}
                 className={`${styles.header} ${styles.saveBtn}`}
                 onClick={dataUpdateHandler}
               >
@@ -104,7 +103,7 @@ function App() {
         <Write
           setResumeData={setResumeData}
           resumeData={resumeData}
-          setFormNum={setFormNum}
+          setFormName={setFormName}
         />
       </div>
       <footer>
