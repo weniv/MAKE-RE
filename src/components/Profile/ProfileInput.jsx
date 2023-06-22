@@ -106,9 +106,10 @@ function ProfileInput({ setResumeData, resumeData }) {
         <div>
           <div className={styles.profileBox}>
             <div className={`${styles.inputBox} ${styles.firstInput}`}>
-              <label>이름</label>
+              <label htmlFor="name">이름</label>
               <input
                 type="text"
+                id="name"
                 value={profileData.name}
                 onChange={(e) => {
                   setProfileData({ ...profileData, name: e.target.value })
@@ -117,9 +118,10 @@ function ProfileInput({ setResumeData, resumeData }) {
               ></input>
             </div>
             <div className={`${styles.inputBox} ${styles.enInput}`}>
-              <label>영문 이름</label>
+              <label htmlFor="enName">영문 이름</label>
               <input
                 type="text"
+                id="enName"
                 placeholder="예) Kildong Hong"
                 value={profileData.enName}
                 onChange={(e) => {
@@ -129,9 +131,10 @@ function ProfileInput({ setResumeData, resumeData }) {
             </div>
           </div>
           <div className={`${styles.inputBox} ${styles.firstInput}`}>
-            <label>전화번호</label>
+            <label htmlFor="phoneNumber">전화번호</label>
             <input
               type="tel"
+              id="phoneNumber"
               placeholder="예) 010-0000-0000"
               value={profileData.phoneNumber}
               onChange={(e) => {
@@ -141,9 +144,10 @@ function ProfileInput({ setResumeData, resumeData }) {
           </div>
           <div className={styles.emailWrap}>
             <div className={`${styles.inputBox} ${styles.firstInput}`}>
-              <label>이메일</label>
+              <label htmlFor="id">이메일</label>
               <input
                 type="text"
+                id="id"
                 value={profileData.fullEmail.split('@')[0]}
                 onChange={(e) => {}}
               />
@@ -151,8 +155,10 @@ function ProfileInput({ setResumeData, resumeData }) {
             @
             {email !== '직접 입력' ? (
               <div className={`${styles.inputBox} ${styles.mailInput}`}>
+                <label htmlFor="domain" className="ir"></label>
                 <input
                   type="text"
+                  id="domain"
                   readOnly
                   value={profileData.fullEmail.split('@')[1]}
                   onChange={(e) => {}}
@@ -160,8 +166,10 @@ function ProfileInput({ setResumeData, resumeData }) {
               </div>
             ) : (
               <div className={`${styles.inputBox} ${styles.mailInput}`}>
+                <label htmlFor="domain" className="ir"></label>
                 <input
                   type="text"
+                  id="domain"
                   value={profileData.fullEmail.split('@')[1]}
                   onChange={emailHostHandler}
                 />
@@ -170,8 +178,12 @@ function ProfileInput({ setResumeData, resumeData }) {
             <div ref={dropBoxRef}>
               {isOpen ? (
                 <>
+                  <label htmlFor="selectDomain" className="ir">
+                    이메일 주소 선택
+                  </label>
                   <input
                     type="button"
+                    id="selectDomain"
                     className={`${styles.emailBtn} ${styles.open}`}
                     value={email}
                     onClick={() => {
@@ -188,23 +200,30 @@ function ProfileInput({ setResumeData, resumeData }) {
                   </ul>
                 </>
               ) : (
-                <input
-                  type="button"
-                  className={`${styles.emailBtn} ${styles.close}`}
-                  value={email}
-                  onClick={() => {
-                    isOpen ? setIsOpen(false) : setIsOpen(true)
-                  }}
-                />
+                <>
+                  <label htmlFor="selectDomain" className="ir">
+                    이메일 주소 선택
+                  </label>
+                  <input
+                    type="button"
+                    id="selectDomain"
+                    className={`${styles.emailBtn} ${styles.close}`}
+                    value={email}
+                    onClick={() => {
+                      isOpen ? setIsOpen(false) : setIsOpen(true)
+                    }}
+                  />
+                </>
               )}
             </div>
           </div>
         </div>
       </div>
       <div className={styles.linkInput}>
-        <label htmlFor="">GitHub 링크</label>
+        <label htmlFor="gitHub">GitHub 링크</label>
         <input
           type="url"
+          id="github"
           value={profileData.github}
           onChange={(e) => {
             setProfileData({ ...profileData, github: e.target.value })
@@ -212,9 +231,10 @@ function ProfileInput({ setResumeData, resumeData }) {
         />
       </div>
       <div className={styles.linkInput}>
-        <label htmlFor="">기술 블로그 링크</label>
+        <label htmlFor="blog">기술 블로그 링크</label>
         <input
           type="url"
+          id="blog"
           value={profileData.blog}
           onChange={(e) => {
             setProfileData({ ...profileData, blog: e.target.value })
@@ -223,7 +243,7 @@ function ProfileInput({ setResumeData, resumeData }) {
       </div>
       <div className={styles.careerBox}>
         <span>경력사항</span>
-        {profileData.newcomer ? (
+        {profileData.newcomer === 'true' ? (
           <>
             <div>
               <input
@@ -232,7 +252,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 name="radio"
                 checked
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: true })
+                  setProfileData({ ...profileData, newcomer: 'true' })
                 }}
               />
               <label htmlFor="r1">신입</label>
@@ -243,7 +263,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 type="radio"
                 name="radio"
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: false })
+                  setProfileData({ ...profileData, newcomer: 'false' })
                 }}
               />
               <label htmlFor="r2">경력</label>
@@ -257,7 +277,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 type="radio"
                 name="radio"
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: true })
+                  setProfileData({ ...profileData, newcomer: 'true' })
                 }}
               />
               <label htmlFor="r1">신입</label>
@@ -269,7 +289,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 name="radio"
                 checked
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: false })
+                  setProfileData({ ...profileData, newcomer: 'false' })
                 }}
               />
               <label htmlFor="r2">경력</label>

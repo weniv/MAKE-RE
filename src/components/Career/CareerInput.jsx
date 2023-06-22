@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './CareerInput.module.css'
 
-export default function CareerInput({ setResumeData, resumeData, setFormNum }) {
+export default function CareerInput({
+  setResumeData,
+  resumeData,
+  setFormName,
+}) {
   const [career, setCareer] = useState(resumeData.career)
 
   useEffect(() => {
@@ -32,7 +36,7 @@ export default function CareerInput({ setResumeData, resumeData, setFormNum }) {
     setCareer(career.filter((data, i) => i !== idx))
   }
 
-  console.log('career', career)
+  // console.log('career', career)
 
   return (
     <main>
@@ -46,7 +50,7 @@ export default function CareerInput({ setResumeData, resumeData, setFormNum }) {
               careerData={careerData}
               handleUpdate={handleUpdate}
               handleDelete={handleDelete}
-              setFormNum={setFormNum}
+              setFormName={setFormName}
             />
           ))}
       </div>
@@ -57,15 +61,21 @@ export default function CareerInput({ setResumeData, resumeData, setFormNum }) {
   )
 }
 
-const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
+const Input = ({
+  idx,
+  careerData,
+  handleUpdate,
+  handleDelete,
+  setFormName,
+}) => {
   return (
     <form
-      id={`career-form-${idx}`}
-      name={idx}
+      id={`form-career-${idx}`}
+      name={`career-${idx}`}
       className={styles.cont}
       onSubmit={(e) => e.preventDefault()}
       onClick={(e) => {
-        setFormNum(e.currentTarget.name)
+        setFormName(e.currentTarget.name)
       }}
     >
       <div className={styles.company}>
@@ -83,7 +93,7 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete, setFormNum }) => {
           onInvalid={(e) =>
             e.target.setCustomValidity('회사명은 반드시 입력되어야합니다')
           }
-          onInput={(e) => setFormNum(parseInt(idx) + 1)}
+          onInput={(e) => setFormName(`career-${parseInt(idx) + 1}`)}
           required={!careerData.companyName ? true : false}
         />
         <button className={styles.delBtn}>

@@ -6,14 +6,14 @@ import styles from './style.module.css'
 
 function App() {
   const dummyData = {
-    profileImg: 'https://api.mandarin.weniv.co.kr/1686804643848.gif',
+    profileImg: 'https://api.mandarin.weniv.co.kr/1687337079735.png',
     name: '전유진',
     enName: 'YouJin Jeon',
     phoneNumber: '010-6878-0493',
     fullEmail: 'weniv@email.com',
     github: 'https://github.com/Iam-Ujin',
     blog: 'https://github.com/Iam-Ujin',
-    newcomer: true,
+    newcomer: 'true',
     intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
     skills: ['', ''],
     career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
@@ -46,7 +46,7 @@ function App() {
 
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
-  const [formNum, setFormNum] = useState(0)
+  const [formName, setFormName] = useState('')
 
   function initValue() {
     if (localStorage.getItem('data')) {
@@ -61,7 +61,7 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
-  console.log('formNum', formNum)
+  console.log('formName', formName)
 
   return isWrite ? (
     <>
@@ -75,7 +75,7 @@ function App() {
           <ul>
             <li>
               <button
-                form={`career-form-${formNum}`}
+                form={`form-${formName}`}
                 className={`${styles.header} ${styles.saveBtn}`}
                 onClick={dataUpdateHandler}
               >
@@ -102,7 +102,7 @@ function App() {
         <Write
           setResumeData={setResumeData}
           resumeData={resumeData}
-          setFormNum={setFormNum}
+          setFormName={setFormName}
         />
       </div>
     </>

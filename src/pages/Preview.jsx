@@ -31,7 +31,7 @@ function Preview({ resumeData }) {
           <Profile profile={data} className={styles.test} />
           <Intro intro={data.intro} className={styles.pagebreak} />
           <Skills skills={data.skills} className={styles.pagebreak} />
-          {isNewcomer ? (
+          {isNewcomer === 'true' ? (
             <>
               <Career career={data.career} />
               <Project project={data.project} />
