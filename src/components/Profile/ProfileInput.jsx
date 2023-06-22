@@ -60,23 +60,23 @@ function ProfileInput({ setResumeData, resumeData }) {
 
   // 이메일 설정
   const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
-  const [id, setId] = useState(profileData.fullEmail.split("@")[0])
-  const [domain, setDomain] = useState(profileData.fullEmail.split("@")[1])
+  const [id, setId] = useState(profileData.fullEmail.split('@')[0])
+  const [domain, setDomain] = useState(profileData.fullEmail.split('@')[1])
 
-  useEffect(()=> {
-    const fullEmail = [id, domain].join("@")
-    setResumeData({ ...resumeData, "fullEmail": fullEmail })
+  useEffect(() => {
+    const fullEmail = [id, domain].join('@')
+    setResumeData({ ...resumeData, fullEmail: fullEmail })
   }, [id, domain])
 
-  const [email, setEmail] = useState("직접 입력")
+  const [email, setEmail] = useState('직접 입력')
 
   // 이메일 선택했을 때 input 내용 변경
   function handleSelectBox(item) {
-    if(item !== "직접 입력") {
+    if (item !== '직접 입력') {
       setDomain(item)
     } else {
-      setEmail("직접 입력")
-      setDomain("")
+      setEmail('직접 입력')
+      setDomain('')
     }
     setIsOpen(false)
   }
@@ -157,7 +157,9 @@ function ProfileInput({ setResumeData, resumeData }) {
                 type="text"
                 id="id"
                 value={id}
-                onChange={(e) => {setId(e.target.value)}}
+                onChange={(e) => {
+                  setId(e.target.value)
+                }}
               />
             </div>
             @
@@ -231,7 +233,7 @@ function ProfileInput({ setResumeData, resumeData }) {
         <label htmlFor="gitHub">GitHub 링크</label>
         <input
           type="url"
-          id="github"
+          id="gitHub"
           value={profileData.github}
           onChange={(e) => {
             setProfileData({ ...profileData, github: e.target.value })

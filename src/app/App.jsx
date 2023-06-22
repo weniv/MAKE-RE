@@ -59,7 +59,7 @@ function App() {
     }
   }
 
-  const dataUpdateHandler = () => {
+  function handleDataUpdate() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
@@ -83,7 +83,7 @@ function App() {
               <button
                 form={`form-${formName}`}
                 className={`${styles.header} ${styles.saveBtn}`}
-                onClick={dataUpdateHandler}
+                onClick={handleDataUpdate}
               >
                 임시저장
               </button>
@@ -94,6 +94,7 @@ function App() {
                 onClick={(e) => {
                   console.log('fff', e.target.form)
                   setIsWrite(false)
+                  handleDataUpdate()
                 }}
                 form={`form-${formName}`}
               >
@@ -110,7 +111,7 @@ function App() {
           setFormName={setFormName}
         />
       </div>
-      <footer>
+      <footer className={styles.writeFooter}>
         <ul className={styles.footerCont}>
           <li>
             <p>위니브</p>
