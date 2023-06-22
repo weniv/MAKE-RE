@@ -3,6 +3,7 @@ import styles from './ProfileInput.module.css'
 import axios from 'axios'
 
 function ProfileInput({ setResumeData, resumeData }) {
+  const defaultImg = 'https://api.mandarin.weniv.co.kr/1687337079735.png'
   // ----------------------------------
   // 프로필 데이터 업데이트
   const [profileData, setProfileData] = useState({
@@ -84,7 +85,7 @@ function ProfileInput({ setResumeData, resumeData }) {
   return (
     <section>
       <div className={styles.flexBox}>
-        <div>
+        <div className={styles.profileImgBox}>
           <label htmlFor="profile-upload" className={styles.profileWrap}>
             {profileData.profileImg ? (
               <div className={styles.profile}>
@@ -110,7 +111,20 @@ function ProfileInput({ setResumeData, resumeData }) {
             id="profile-upload"
             onChange={handleImageChange}
           />
+          {profileData.profileImg !== defaultImg ? (
+            <button
+              className={styles.profileDelete}
+              onClick={(e) => {
+                setProfileData({ ...profileData, profileImg: defaultImg })
+              }}
+            >
+              <img src="/images/delete-icon.svg" alt="프로필 삭제" />
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
+
         <div>
           <div className={styles.profileBox}>
             <div className={`${styles.inputBox} ${styles.firstInput}`}>
