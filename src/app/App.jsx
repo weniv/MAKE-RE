@@ -16,7 +16,7 @@ function App() {
     blog: 'https://github.com/Iam-Ujin',
     newcomer: 'true',
     intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
-    skills: ['', ''],
+    skills: [''],
     career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
     project: [
       {
@@ -73,9 +73,8 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/logo.svg" alt="" />
-          메이커리
-          <span> Make A Career</span>
+          <img src="/images/makere-logo.svg" alt="" />
+          {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
           <ul>
@@ -98,9 +97,6 @@ function App() {
                 미리보기
               </button>
             </li>
-            <li>
-              <button className={styles.exportBtn}>PDF로 내보내기</button>
-            </li>
           </ul>
         </nav>
       </header>
@@ -111,14 +107,40 @@ function App() {
           setFormNum={setFormNum}
         />
       </div>
+      <footer>
+        <ul className={styles.footerCont}>
+          <li>
+            <p>위니브</p>
+            <a href="https://paullab.co.kr/about.html">회사 소개</a>
+            <a href="https://paullab.co.kr/index.html">제주코딩베이스캠프</a>
+          </li>
+          <li>
+            <p>메이커리</p>
+            <a href="#">메이커리 서비스 소개</a>
+          </li>
+          <li>
+            <p>자료</p>
+            <a
+              href="https://paullabworkspace.notion.site/Figma-bfa32213fc244db9b31bb8486a479ee6?pvs=4"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Figma 이력서 바로가기
+            </a>
+            <a href="/files/제코베_포트폴리오_템플릿_배포용.pptx" download>
+              PPT 포트폴리오 다운로드
+            </a>
+          </li>
+        </ul>
+        <address className={styles.writeCopy}>© Weniv Corp.</address>
+      </footer>
     </>
   ) : (
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/logo.svg" alt="" />
-          메이커리
-          <span> Make A Career</span>
+          <img src="/images/makere-logo.svg" alt="" />
+          {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
           <ul>
@@ -143,6 +165,9 @@ function App() {
       <div className={styles.prevWrap}>
         <Preview resumeData={resumeData} componentRef={componentRef} />
       </div>
+      <footer className={styles.prevFooter}>
+        <address>© Weniv Corp.</address>
+      </footer>
     </>
   )
 }
