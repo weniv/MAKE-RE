@@ -68,8 +68,6 @@ function App() {
     documentTitle: '이력서',
   })
 
-  console.log('formName', formName)
-
   return isWrite ? (
     <>
       <header className={styles.headerWrap}>
@@ -92,7 +90,6 @@ function App() {
               <button
                 className={styles.prevBtn}
                 onClick={(e) => {
-                  console.log('fff', e.target.form)
                   setIsWrite(false)
                   handleDataUpdate()
                 }}
