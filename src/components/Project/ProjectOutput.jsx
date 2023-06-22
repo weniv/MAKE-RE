@@ -20,7 +20,7 @@ export default function Project({ project }) {
 
 function ProjectContent({ proj, idx }) {
   return (
-    <li className={`${styles.projectItem}`}>
+    <li className={proj.title ? styles.projectItem : styles.hidden}>
       <div className={styles.contDetail}>
         <h3 className={styles.title}>{proj.title}</h3>
         <p className={proj.outline ? styles.outline : styles.hidden}>

@@ -68,6 +68,8 @@ function App() {
     documentTitle: '이력서',
   })
 
+  console.log('formName', formName)
+
   return isWrite ? (
     <>
       <header className={styles.headerWrap}>
@@ -89,9 +91,11 @@ function App() {
             <li>
               <button
                 className={styles.prevBtn}
-                onClick={() => {
+                onClick={(e) => {
+                  console.log('fff', e.target.form)
                   setIsWrite(false)
                 }}
+                form={`form-${formName}`}
               >
                 미리보기
               </button>

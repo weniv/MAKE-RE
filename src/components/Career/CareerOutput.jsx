@@ -41,31 +41,26 @@ export default function CareerOutput({ career }) {
         <section>
           <h2>Career</h2>
           {career &&
-            career.map(
-              (el, idx) => (
-                console.log('start', !!el.start || !!el.end),
-                (
-                  <div key={idx} className={styles.cont}>
-                    {el.start || el.end ? (
-                      <p
-                        className={
-                          el.start && el.end ? styles.period : styles.noContent
-                        }
-                      >
-                        {el.start ? el.start : '시작일'} ~{' '}
-                        {el.end ? el.end : '종료일'}
-                      </p>
-                    ) : (
-                      <p className={styles.noContent}>시작일 ~ 종료일</p>
-                    )}
-                    {el.companyName ? (
-                      <p className={styles.companyName}>{el.companyName}</p>
-                    ) : null}
-                    <Work work={el.works} />
-                  </div>
-                )
-              )
-            )}
+            career.map((el, idx) => (
+              <div key={idx} className={styles.cont}>
+                {el.start || el.end ? (
+                  <p
+                    className={
+                      el.start && el.end ? styles.period : styles.noContent
+                    }
+                  >
+                    {el.start ? el.start : '시작일'} ~{' '}
+                    {el.end ? el.end : '종료일'}
+                  </p>
+                ) : el.companyName ? (
+                  <p className={styles.noContent}>시작일 ~ 종료일</p>
+                ) : null}
+                {el.companyName ? (
+                  <p className={styles.companyName}>{el.companyName}</p>
+                ) : null}
+                <Work work={el.works} />
+              </div>
+            ))}
         </section>
       )}
     </>

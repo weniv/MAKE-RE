@@ -51,16 +51,13 @@ export default function ProjectInput({
 
   function handleUpdate(idx, e) {
     let { name, value } = e.target
+
+    if (name === 'progress') {
+      value = e.target.checked
+    }
+
     setProject(
       project.map((pro, i) => (i === idx ? { ...pro, [name]: value } : pro))
-    )
-  }
-
-  const progressUpdate = (idx, e) => {
-    let { name, checked } = e.target
-
-    setProject(
-      project.map((pro, i) => (i === idx ? { ...pro, [name]: checked } : pro))
     )
   }
 
@@ -122,7 +119,6 @@ export default function ProjectInput({
                 handleUpdate={handleUpdate}
                 handleDelete={handleDelete}
                 handleAddArr={handleAddArr}
-                progressUpdate={progressUpdate}
                 handleUpdateArr={handleUpdateArr}
                 handleDeleteArr={handleDeleteArr}
               />
@@ -144,7 +140,6 @@ function ProjectContent({
   handleUpdate,
   handleDelete,
   handleAddArr,
-  progressUpdate,
   handleUpdateArr,
   handleDeleteArr,
 }) {
@@ -270,7 +265,7 @@ function ProjectContent({
                     name="progress"
                     value={pro.progress}
                     checked={pro.progress}
-                    onChange={(e) => progressUpdate(idx, e)}
+                    onChange={(e) => handleUpdate(idx, e)}
                     id={`prog-${idx}`}
                   />
                   진행 중
