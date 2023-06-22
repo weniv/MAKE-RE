@@ -110,7 +110,7 @@ function App() {
           setFormName={setFormName}
         />
       </div>
-      <footer>
+      <footer className={styles.writeFooter}>
         <ul className={styles.footerCont}>
           <li>
             <p>위니브</p>
