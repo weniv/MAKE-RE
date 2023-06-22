@@ -60,9 +60,7 @@ export default function ProjectInput({
     let { name, checked } = e.target
 
     setProject(
-      project.map((pro, i) =>
-        i === idx ? { ...pro, [name]: checked, endPeriod: '' } : pro
-      )
+      project.map((pro, i) => (i === idx ? { ...pro, [name]: checked } : pro))
     )
   }
 
