@@ -53,6 +53,7 @@
 
 .headerNav ul {
   display: flex;
+  align-items: center;
 }
 
 .headerNav button {
@@ -61,7 +62,8 @@
 }
 
 .prevWrap {
-  margin: 150px auto;
+  margin: 150px auto 0;
+  min-height: Calc(100vh - 300px);
 }
 
 .prevFooter {
@@ -69,12 +71,8 @@
   font-size: 14px;
   font-weight: 400;
   color: #4f4f4f;
-  margin: 0 auto 100px;
-}
-
-.writeFooter {
-  border-top: 1px solid var(--border-color);
-  margin: 0 20px;
+  width: 100%;
+  margin: 100px auto 50px;
 }
 
 .footerCont {
@@ -99,6 +97,7 @@
 .footerCont li a:hover {
   text-decoration: underline;
 }
+
 .writeCopy {
   text-align: right;
   margin: 0 50px 50px;
@@ -106,4 +105,22 @@
   font-size: 14px;
   font-weight: 400;
   color: #4f4f4f;
+}
+
+.writeFooter {
+  border-top: 1px solid var(--border-color);
+  margin: 0 20px;
+}
+
+.exportBtn {
+  background-color: #fff;
+  color: var(--main-color) !important;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.exportBtn:hover {
+  color: var(--addButton-color) !important;
+  outline: 2px solid var(--addButton-color);
+  box-sizing: border-box;
 }
