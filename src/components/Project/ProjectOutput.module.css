@@ -1,6 +1,7 @@
 .mainTit {
   margin-bottom: 0;
 }
+
 .projectItem {
   display: flex;
   flex-direction: column;
@@ -41,7 +42,8 @@
 .outline {
   font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 23px;
+  word-wrap: break-word;
 }
 .contCategory {
   display: flex;

@@ -61,7 +61,7 @@ function App() {
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
-  console.log('formNum', formNum)
+  // console.log('formNum', formNum)
 
   return isWrite ? (
     <>
