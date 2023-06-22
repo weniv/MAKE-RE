@@ -38,6 +38,9 @@
   font-size: 32px;
   font-weight: 700;
 }
+.title img {
+  width: 50%;
+}
 
 .title span {
   font-size: 16px;
@@ -45,6 +48,7 @@
   margin-left: 5px;
   align-self: flex-end;
   padding-bottom: 8px;
+  color: black;
 }
 
 .headerNav ul {
@@ -57,5 +61,36 @@
 }
 
 .prevWrap {
-  margin: 80px auto;
+  margin: 110px auto;
+}
+
+.prevFooter {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--placeholder-color);
+  margin: 0 auto 100px;
+}
+
+.footerCont {
+  border-top: 1px solid var(--border-color);
+  margin: 20px;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerCont li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.writeCopy {
+  text-align: center;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4f4f4f;
 }

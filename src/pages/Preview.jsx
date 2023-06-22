@@ -8,24 +8,13 @@ import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
 import styles from './preview.module.css'
-import { useRef } from 'react'
-import { useReactToPrint } from 'react-to-print'
 
-function Preview({ resumeData }) {
+function Preview({ resumeData, componentRef }) {
   const data = JSON.parse(localStorage.getItem('data'))
   const isNewcomer = data.newcomer
 
-  const componentRef = useRef(null)
-  function handleClick() {
-    handlePrint()
-  }
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: '파일명',
-  })
   return (
     <>
-      <button onClick={handleClick}>프린트</button>
       <div ref={componentRef} className={styles.printPage}>
         <main>
           <Profile profile={data} className={styles.test} />
