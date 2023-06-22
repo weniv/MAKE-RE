@@ -16,7 +16,7 @@ function App() {
     blog: 'https://github.com/Iam-Ujin',
     newcomer: 'true',
     intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
-    skills: ['', ''],
+    skills: [''],
     career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
     project: [
       {
@@ -97,9 +97,6 @@ function App() {
               >
                 미리보기
               </button>
-            </li>
-            <li>
-              <button className={styles.exportBtn}>PDF로 내보내기</button>
             </li>
           </ul>
         </nav>
