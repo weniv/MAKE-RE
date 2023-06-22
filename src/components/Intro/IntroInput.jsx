@@ -17,9 +17,11 @@ function IntroInput({ resumeData, setResumeData }) {
   return (
     <section>
       <h2>Introduction</h2>
+      <label htmlFor="intro"></label>
       <textarea
         className={styles.introInput}
         type="text"
+        id="intro"
         placeholder="예) 웹 풀스텍을 꿈꾸는 개발자 OOO입니다."
         value={resumeData.intro}
         onChange={textChangeHandler}

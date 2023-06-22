@@ -33,9 +33,11 @@ function SkillsInput({ resumeData, setResumeData }) {
         {skill.map((item, idx) => {
           return (
             <div key={idx} className={styles.SkillsInputBox}>
+              <label htmlFor={'skill' + idx}></label>
               <input
                 className={styles.skillInput}
                 type="text"
+                id={'skill' + idx}
                 key={idx}
                 placeholder="예) JavaScript"
                 value={item}
