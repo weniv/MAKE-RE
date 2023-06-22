@@ -1,9 +1,11 @@
 import styles from './ProfileOutput.module.css'
 
 function ProfileOutput({ profile }) {
+  const defaultImg = "https://api.mandarin.weniv.co.kr/1687337079735.png"
+
   return (
     <section className={styles.profileSection}>
-      {profile.profileImg ? (
+      {profile.profileImg & profile.profileImg !== defaultImg ? (
         <>
           <div className={styles.profileImg}>
             <img src={profile.profileImg} alt="" />
