@@ -64,6 +64,15 @@
   border: none;
   height: 40px;
   width: 100%;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.linkInput input {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.mailInput input {
+  border-radius: 5px;
 }
 
 .firstInput {
@@ -122,6 +131,7 @@
   border: 1px solid #c4c4c4;
   border-radius: 5px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .emailList li {
