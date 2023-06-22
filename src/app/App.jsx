@@ -8,20 +8,20 @@ import { useReactToPrint } from 'react-to-print'
 function App() {
   const dummyData = {
     profileImg: 'https://api.mandarin.weniv.co.kr/1687337079735.png',
-    name: '전유진',
-    enName: 'YouJin Jeon',
-    phoneNumber: '010-6878-0493',
-    fullEmail: 'weniv@email.com',
-    github: 'https://github.com/Iam-Ujin',
-    blog: 'https://github.com/Iam-Ujin',
+    name: '',
+    enName: '',
+    phoneNumber: '',
+    fullEmail: '',
+    github: '',
+    blog: '',
     newcomer: 'true',
-    intro: '웹 풀스택을 꿈꾸는 개발자 전유진입니다.',
+    intro: '',
     skills: [''],
     career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
     project: [
       {
         id: 1,
-        title: '111111',
+        title: '',
         outline: '',
         people: '',
         startPeriod: '',
@@ -34,14 +34,14 @@ function App() {
       },
     ],
     experience: [
-      { date: '2023-02', contents: '테스트1 입니다' },
-      { date: '2023-06', contents: '테스트2 입니다' },
+      { date: '', contents: '' },
+      { date: '', contents: '' },
     ],
-    certificate: [{ date: '2023-03', contents: '컴퓨터 활용능력 1급' }],
-    education: [{ date: '2023-04', contents: '정보처리기사' }],
+    certificate: [{ date: '', contents: '' }],
+    education: [{ date: '', contents: '' }],
     url: [
-      { contents: '제주도 캐글 밋업', link: 'www.github.com' },
-      { contents: '네이버로 이동', link: 'www.naver.com' },
+      { contents: '', link: '' },
+      { contents: '', link: '' },
     ],
   }
 
@@ -68,6 +68,8 @@ function App() {
     documentTitle: '이력서',
   })
 
+  console.log('formName', formName)
+
   return isWrite ? (
     <>
       <header className={styles.headerWrap}>
@@ -90,6 +92,7 @@ function App() {
               <button
                 className={styles.prevBtn}
                 onClick={(e) => {
+                  console.log('fff', e.target.form)
                   setIsWrite(false)
                   handleDataUpdate()
                 }}
@@ -112,12 +115,21 @@ function App() {
         <ul className={styles.footerCont}>
           <li>
             <p>위니브</p>
-            <a href="https://paullab.co.kr/about.html">회사 소개</a>
-            <a href="https://paullab.co.kr/index.html">제주코딩베이스캠프</a>
+            <a href="https://paullab.co.kr/about.html" target="_blank">
+              회사 소개
+            </a>
+            <a href="https://paullab.co.kr/index.html" target="_blank">
+              제주코딩베이스캠프
+            </a>
           </li>
           <li>
             <p>메이커리</p>
-            <a href="#">메이커리 서비스 소개</a>
+            <a
+              href="https://paullabworkspace.notion.site/b3258bc3a2a94151b9bf4d6e6f7b5071"
+              target="_blank"
+            >
+              메이커리 서비스 소개
+            </a>
           </li>
           <li>
             <p>자료</p>

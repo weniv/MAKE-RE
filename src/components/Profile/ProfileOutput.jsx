@@ -41,7 +41,7 @@ function ProfileOutput({ profile }) {
                 <li>
                   <strong>깃허브</strong>
                   <a
-                    href={profile.github}
+                    href={urlValidation(profile.github)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -53,7 +53,7 @@ function ProfileOutput({ profile }) {
                 <li>
                   <strong>기술 블로그</strong>
                   <a
-                    href={profile.blog}
+                    href={urlValidation(profile.blog)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -105,7 +105,7 @@ function ProfileOutput({ profile }) {
                 <li>
                   <strong>깃허브</strong>
                   <a
-                    href={profile.github}
+                    href={urlValidation(profile.github)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -117,7 +117,7 @@ function ProfileOutput({ profile }) {
                 <li>
                   <strong>기술 블로그</strong>
                   <a
-                    href={profile.blog}
+                    href={urlValidation(profile.blog)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -137,6 +137,14 @@ function ProfileOutput({ profile }) {
       )}
     </section>
   )
+}
+
+function urlValidation(url) {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url
+  } else {
+    return 'http://' + url
+  }
 }
 
 export default ProfileOutput
