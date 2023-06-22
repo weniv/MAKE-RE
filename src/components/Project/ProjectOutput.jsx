@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../Project/ProjectOutput.module.css'
 
 export default function Project({ project }) {
+  const [empty, setEmpty] = useState(0)
+
+  const isEmpty = (project) => {
+    setEmpty(project.filter((pro) => pro.title !== '').length)
+  }
+
+  useEffect(() => {
+    isEmpty(project)
+  }, [])
+
   return (
     <>
       {!!project.length && (
-        <section className={styles.project}>
+        <section className={!empty ? styles.hidden : styles.project}>
           <h2 className={styles.mainTit}>Project</h2>
           <ul>
             {project.map((proj, i) => (
