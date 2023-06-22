@@ -22,8 +22,8 @@ function Preview({ resumeData, componentRef }) {
           <Skills skills={data.skills} className={styles.pagebreak} />
           {isNewcomer === 'true' ? (
             <>
-              <Career career={data.career} />
               <Project project={data.project} />
+              <Career career={data.career} />
             </>
           ) : (
             <>
