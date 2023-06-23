@@ -199,10 +199,10 @@ function ProjectContent({
         {isDrop ? (
           <>
             <div className={styles.contTit}>
-              <label htmlFor={`project-${idx}`}>프로젝트 명</label>
+              <label htmlFor={`project-title-${idx}`}>프로젝트 명</label>
               <input
                 type="text"
-                id={`project-${idx}`}
+                id={`project-title-${idx}`}
                 name="title"
                 value={pro.title}
                 onInvalid={(e) =>
@@ -229,8 +229,9 @@ function ProjectContent({
             <div className={styles.contInput}>
               <h4 className={styles.subTit}>개발 인원 및 기간</h4>
               <div className={styles.contPerson}>
-                <label htmlFor="">인원</label>
+                <label htmlFor={`project-size-${idx}`}>인원</label>
                 <input
+                  id={`project-size-${idx}`}
                   type="text"
                   placeholder="예) Front-End 4명, Back-End 2명"
                   name="people"
@@ -239,8 +240,9 @@ function ProjectContent({
                 />
               </div>
               <div className={styles.contDate}>
-                <label htmlFor="">기간</label>
+                <label htmlFor={`project-period-${idx}`}>기간</label>
                 <input
+                  id={`project-period-${idx}`}
                   type="month"
                   max="9999-12"
                   name="startPeriod"
