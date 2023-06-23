@@ -75,6 +75,7 @@ function ProfileInput({ setResumeData, resumeData }) {
   function handleSelectBox(item) {
     if (item !== '직접 입력') {
       setDomain(item)
+      setEmail(item)
     } else {
       setEmail('직접 입력')
       setDomain('')
@@ -199,7 +200,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 />
               </div>
             )}
-            <div ref={dropBoxRef}>
+            <div ref={dropBoxRef} className={styles.dropEmail}>
               {isOpen ? (
                 <>
                   <label htmlFor="selectDomain" className="ir">
