@@ -12,7 +12,7 @@
   background-color: var(--main-color);
   box-sizing: border-box;
   width: 100%;
-  min-width: 1030px;
+  min-width: 640px;
   height: 80px;
   padding: 18px 28px;
   position: fixed;
@@ -62,8 +62,9 @@
 }
 
 .prevWrap {
-  margin: 150px auto 0;
+  margin: 130px auto 0;
   min-height: Calc(100vh - 300px);
+  width: 990px;
 }
 
 .prevFooter {
