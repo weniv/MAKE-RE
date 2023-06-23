@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Layout } from '../organisms'
 import {
   ProfileInput,
@@ -13,14 +13,24 @@ import {
 } from '../index'
 
 export default function WriteTemplate({ resumeData, setResumeData }) {
+  const [formName, setFormName] = useState('')
+
   return (
-    <Layout>
+    <Layout resumeData={resumeData} formName={formName}>
       <main className="main">
         <ProfileInput setResumeData={setResumeData} resumeData={resumeData} />
         <IntroInput setResumeData={setResumeData} resumeData={resumeData} />
         <SkillInput setResumeData={setResumeData} resumeData={resumeData} />
-        <CareerInput setResumeData={setResumeData} resumeData={resumeData} />
-        <ProjectInput setResumeData={setResumeData} resumeData={resumeData} />
+        <CareerInput
+          setResumeData={setResumeData}
+          resumeData={resumeData}
+          setFormName={setFormName}
+        />
+        <ProjectInput
+          setResumeData={setResumeData}
+          resumeData={resumeData}
+          setFormName={setFormName}
+        />
         <ExperienceInput
           setResumeData={setResumeData}
           resumeData={resumeData}

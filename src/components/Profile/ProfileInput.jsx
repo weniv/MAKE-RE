@@ -3,7 +3,6 @@ import styles from './ProfileInput.module.css'
 import axios from 'axios'
 
 function ProfileInput({ resumeData, setResumeData }) {
-  console.log('profile', resumeData)
   const defaultImg = 'https://api.mandarin.weniv.co.kr/1687337079735.png'
   // ----------------------------------
   // 프로필 데이터 업데이트

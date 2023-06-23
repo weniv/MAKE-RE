@@ -1,9 +1,5 @@
-import Write from '../pages/Write'
-import Preview from '../pages/Preview'
 import { useEffect, useRef, useState } from 'react'
-import styles from './style.module.css'
-import { useReactToPrint } from 'react-to-print'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Routers from '../routes/Routers'
 
 function App() {
@@ -40,9 +36,7 @@ function App() {
     url: [{ contents: '', link: '' }],
   }
 
-  const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
-  const [formName, setFormName] = useState('')
   const componentRef = useRef(null)
 
   function initValue() {
@@ -53,17 +47,6 @@ function App() {
       return dummyData
     }
   }
-
-  function handleDataUpdate() {
-    localStorage.setItem('data', JSON.stringify(resumeData))
-  }
-
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: '이력서',
-  })
-
-  // console.log('formName', formName)
 
   return (
     <BrowserRouter>

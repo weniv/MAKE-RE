@@ -36,7 +36,7 @@ export default function CareerInput({
     setCareer(career.filter((data, i) => i !== idx))
   }
 
-  // console.log('career', career)
+  console.log('career', career)
 
   return (
     <main>

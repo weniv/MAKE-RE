@@ -2,9 +2,8 @@ import React, { useState, useRef } from 'react'
 import styles from './header.module.css'
 import { useReactToPrint } from 'react-to-print'
 
-export default function Header({ resumeData }) {
+export default function Header({ resumeData, formName }) {
   const [isWrite, setIsWrite] = useState(true)
-  const [formName, setFormName] = useState('')
   const componentRef = useRef(null)
 
   const dataUpdateHandler = () => {
@@ -12,6 +11,7 @@ export default function Header({ resumeData }) {
   }
 
   function handleDataUpdate() {
+    console.log('resumeData', resumeData)
     localStorage.setItem('data', JSON.stringify(resumeData))
   }
 
@@ -24,7 +24,7 @@ export default function Header({ resumeData }) {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/makere-logo.svg" alt="" />
+          <img src="MAKE-RE/images/makere-logo.svg" alt="" />
         </h1>
         <nav className={styles.headerNav}>
           <ul>
