@@ -66,7 +66,7 @@ function App() {
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
           <img
-            src="images/makere-logo.svg"
+            src={process.env.PUBLIC_URL + '/images/makere-logo.svg'}
             alt="이력서 생성 서비스, 메이커리"
           />
         </h1>
@@ -85,7 +85,6 @@ function App() {
               <button
                 className={styles.prevBtn}
                 onClick={(e) => {
-                  console.log('fff', e.target.form)
                   setIsWrite(false)
                   handleDataUpdate()
                 }}
@@ -108,10 +107,18 @@ function App() {
         <ul className={styles.footerCont}>
           <li>
             <p>위니브</p>
-            <a href="https://paullab.co.kr/about.html" target="_blank">
+            <a
+              href="https://paullab.co.kr/about.html"
+              target="_blank"
+              rel="noreferrer"
+            >
               회사 소개
             </a>
-            <a href="https://paullab.co.kr/index.html" target="_blank">
+            <a
+              href="https://paullab.co.kr/index.html"
+              target="_blank"
+              rel="noreferrer"
+            >
               제주코딩베이스캠프
             </a>
           </li>
@@ -120,6 +127,7 @@ function App() {
             <a
               href="https://paullabworkspace.notion.site/b3258bc3a2a94151b9bf4d6e6f7b5071"
               target="_blank"
+              rel="noreferrer"
             >
               메이커리 서비스 소개
             </a>
@@ -153,7 +161,7 @@ function App() {
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
           <img
-            src="images/makere-logo.svg"
+            src={process.env.PUBLIC_URL + '/images/makere-logo.svg'}
             alt="이력서 생성 서비스, 메이커리"
           />
         </h1>

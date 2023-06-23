@@ -63,7 +63,7 @@ function EduContent({ edu, idx, handleDelete, handleUpdate }) {
       />
       <button className={styles.deleteBtn}>
         <img
-          src="images/delete-icon.svg"
+          src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
           alt="삭제"
           onClick={() => handleDelete(idx)}
         />

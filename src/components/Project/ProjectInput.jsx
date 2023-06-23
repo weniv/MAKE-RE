@@ -170,18 +170,24 @@ function ProjectContent({
           {...attributes}
           {...listeners}
         >
-          <img src="images/drag-icon.svg" alt="드래그" />
+          <img
+            src={process.env.PUBLIC_URL + '/images/drag-icon.svg'}
+            alt="드래그"
+          />
         </button>
         <h3>{pro.title ? pro.title : '새로운 프로젝트'}</h3>
         <button
           className={(styles.toggleBtn, isDrop ? styles.open : null)}
           onClick={() => handleInputDrop()}
         >
-          <img src="images/polygon-down.svg" alt="내용 열기" />
+          <img
+            src={process.env.PUBLIC_URL + '/images/polygon-down.svg'}
+            alt="내용 열기"
+          />
         </button>
         <button className={styles.btnDel}>
           <img
-            src="images/delete-icon.svg"
+            src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
             alt="삭제"
             onClick={() => handleDelete(idx)}
           />
@@ -295,7 +301,7 @@ function ProjectContent({
                     />
                     <button className={styles.btnDel}>
                       <img
-                        src="images/delete-icon.svg"
+                        src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
                         alt="삭제"
                         onClick={(e) =>
                           handleDeleteArr(
@@ -339,7 +345,7 @@ function ProjectContent({
                     />
                     <button className={styles.btnDel}>
                       <img
-                        src="images/delete-icon.svg"
+                        src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
                         alt="삭제"
                         onClick={(e) =>
                           handleDeleteArr(idx, 'skills', pro.skills, i)
@@ -360,7 +366,10 @@ function ProjectContent({
               <h4 className={styles.subTit}>깃허브 링크</h4>
               <div className={styles.contLink}>
                 <label htmlFor={`ghLink-${idx}`} className={styles.lbLink}>
-                  <img src="images/link-icon.svg" alt="URL 주소" />
+                  <img
+                    src={process.env.PUBLIC_URL + '/images/link-icon.svg'}
+                    alt="URL 주소"
+                  />
                 </label>
                 <input
                   className={styles.inpItem}
@@ -376,7 +385,10 @@ function ProjectContent({
               <h4 className={styles.subTit}>프로젝트 링크</h4>
               <div className={styles.contLink}>
                 <label htmlFor={`dmLink-${idx}`} className={styles.lbLink}>
-                  <img src="images/link-icon.svg" alt="URL 주소" />
+                  <img
+                    src={process.env.PUBLIC_URL + '/images/link-icon.svg'}
+                    alt="URL 주소"
+                  />
                 </label>
                 <input
                   className={styles.inpItem}

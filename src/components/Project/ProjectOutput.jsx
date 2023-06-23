@@ -95,7 +95,10 @@ function ProjectContent({ proj, idx }) {
         <div className={proj.github ? styles.github : styles.hidden}>
           <p className={styles.subtit}>깃허브 링크</p>
           <div className={styles.urlLink}>
-            <img src="images/link-icon-blue.svg" alt="" />
+            <img
+              src={process.env.PUBLIC_URL + '/images/link-icon-blue.svg'}
+              alt=""
+            />
             <a
               href={urlValidation(proj.github.trim())}
               target="_blank"
@@ -108,7 +111,10 @@ function ProjectContent({ proj, idx }) {
         <div className={proj.demo ? styles.demo : styles.hidden}>
           <p className={styles.subtit}>프로젝트 링크</p>
           <div className={styles.urlLink}>
-            <img src="images/link-icon-blue.svg" alt="" />
+            <img
+              src={process.env.PUBLIC_URL + '/images/link-icon-blue.svg'}
+              alt=""
+            />
             <a
               href={urlValidation(proj.demo && proj.demo.trim())}
               target="_blank"

@@ -101,7 +101,7 @@ function ProfileInput({ setResumeData, resumeData }) {
             )}
             <img
               className={styles.profileBtn}
-              src="images/camera-icon.svg"
+              src={process.env.PUBLIC_URL + '/images/camera-icon.svg'}
               alt="프로필 사진 업로드하기"
             />
           </label>
@@ -119,7 +119,10 @@ function ProfileInput({ setResumeData, resumeData }) {
                 setProfileData({ ...profileData, profileImg: defaultImg })
               }}
             >
-              <img src="images/delete-icon.svg" alt="프로필 삭제" />
+              <img
+                src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
+                alt="프로필 삭제"
+              />
             </button>
           ) : (
             <></>
