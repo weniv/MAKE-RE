@@ -18,7 +18,7 @@ export default function PreviewTemplate({ componentRef }) {
   const isNewcomer = data.newcomer
 
   return (
-    <Layout>
+    <Layout preview componentRef={componentRef}>
       <div ref={componentRef} className={styles.printPage}>
         <main className="main">
           <ProfileOutput profile={data} className={styles.test} />

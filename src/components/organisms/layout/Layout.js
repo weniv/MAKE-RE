@@ -1,10 +1,15 @@
 import React from 'react'
-import Header from './Header'
+import { PreviewHeader, WriteHeader } from '../index'
 
-function Layout({ children, resumeData, formName }) {
-  return (
+function Layout({ children, preview, resumeData, formName, componentRef }) {
+  return preview ? (
     <>
-      <Header resumeData={resumeData} formName={formName} />
+      <PreviewHeader componentRef={componentRef} />
+      {children}
+    </>
+  ) : (
+    <>
+      <WriteHeader resumeData={resumeData} formName={formName} />
       {children}
     </>
   )

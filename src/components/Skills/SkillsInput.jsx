@@ -51,7 +51,7 @@ function SkillsInput({ resumeData, setResumeData }) {
                 className={styles.btnDel}
                 onClick={() => handleDelete(idx)}
               >
-                <img src="MAKE-RE/images/delete-icon.svg" alt="삭제" />
+                <img src="images/delete-icon.svg" alt="삭제" />
               </button>
             </div>
           )

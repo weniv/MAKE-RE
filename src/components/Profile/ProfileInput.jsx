@@ -88,7 +88,7 @@ function ProfileInput({ resumeData, setResumeData }) {
             )}
             <img
               className={styles.profileBtn}
-              src="MAKE-RE/images/camera-icon.svg"
+              src="images/camera-icon.svg"
               alt="프로필 사진 업로드하기"
             />
           </label>
