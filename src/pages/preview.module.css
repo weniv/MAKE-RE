@@ -1,5 +1,14 @@
 .printPage {
-  padding: 100px;
-  margin: auto;
+  margin: 20px auto;
   width: fit-content;
+}
+
+.printPage main > * {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+
+@page {
+  size: A4;
+  margin: 20mm;
 }

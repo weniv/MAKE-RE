@@ -2,7 +2,15 @@ import { useState, useEffect } from 'react'
 import styles from './SkillsInput.module.css'
 
 function SkillsInput({ resumeData, setResumeData }) {
-  const [skill, setSkill] = useState(resumeData.skills)
+  const [skill, setSkill] = useState(initValue())
+
+  function initValue() {
+    if (resumeData.skills) {
+      return resumeData.skills
+    } else {
+      return ['', '']
+    }
+  }
 
   // 스킬 추가
   const HandleAdd = () => {
@@ -25,9 +33,11 @@ function SkillsInput({ resumeData, setResumeData }) {
         {skill.map((item, idx) => {
           return (
             <div key={idx} className={styles.SkillsInputBox}>
+              <label htmlFor={'skill' + idx}></label>
               <input
                 className={styles.skillInput}
                 type="text"
+                id={'skill' + idx}
                 key={idx}
                 placeholder="예) JavaScript"
                 value={item}
@@ -41,7 +51,7 @@ function SkillsInput({ resumeData, setResumeData }) {
                 className={styles.btnDel}
                 onClick={() => handleDelete(idx)}
               >
-                <img src="/images/delete-icon.svg" alt="삭제" />
+                <img src="images/delete-icon.svg" alt="삭제" />
               </button>
             </div>
           )

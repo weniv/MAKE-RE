@@ -10,6 +10,7 @@ import Url from '../components/Url/UrlInput'
 import { WriteTemplate } from '../components/templates'
 
 function Write(props) {
+<<<<<<< HEAD
   return <WriteTemplate />
   // return (
   //   <main>
@@ -48,6 +49,47 @@ function Write(props) {
   //     <Url setResumeData={props.setResumeData} resumeData={props.resumeData} />
   //   </main>
   // )
+=======
+  return (
+    <main>
+      <Profile
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Intro
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Skills
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Career
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+        setFormName={props.setFormName}
+      />
+      <Project
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+        setFormName={props.setFormName}
+      />
+      <Experience
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Certificate
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Education
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
+      <Url setResumeData={props.setResumeData} resumeData={props.resumeData} />
+    </main>
+  )
+>>>>>>> 1699c442fd0410512599a7e6aca302de5e80348e
 }
 
 export default Write

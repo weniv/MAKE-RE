@@ -7,36 +7,40 @@ import Experience from '../components/Experience/ExperienceOutput'
 import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
-import { useReactToPrint } from 'react-to-print'
-import { useRef } from 'react'
 import styles from './preview.module.css'
 
-function Preview({ resumeData }) {
+function Preview({ resumeData, componentRef }) {
   const data = JSON.parse(localStorage.getItem('data'))
-
-  const componentRef = useRef(null)
-  function handleClick() {
-    handlePrint()
-  }
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: '파일명',
-  })
+  const isNewcomer = data.newcomer
 
   return (
     <>
-      <button onClick={handleClick}>프린트</button>
       <div ref={componentRef} className={styles.printPage}>
         <main>
-          <Profile profile={data} />
-          <Intro intro={data.intro} />
-          <Skills skills={data.skills} />
-          <Career data={data.career} />
-          <Project project={data.project} />
-          <Experience experience={data.experience} />
-          <Certificate certificate={data.certificate} />
+          <Profile profile={data} className={styles.test} />
+          <Intro intro={data.intro} className={styles.pagebreak} />
+          <Skills skills={data.skills} className={styles.pagebreak} />
+          {isNewcomer === 'true' ? (
+            <>
+              <Project project={data.project} />
+              <Career career={data.career} />
+            </>
+          ) : (
+            <>
+              <Career career={data.career} />
+              <Project project={data.project} />
+            </>
+          )}
+          <Experience
+            experience={data.experience}
+            className={styles.pagebreak}
+          />
+          <Certificate
+            certificate={data.certificate}
+            className={styles.pagebreak}
+          />
           <Education education={data.education} />
-          <Url url={data.url} />
+          <Url url={data.url} className={styles.pagebreak} />
         </main>
       </div>
     </>

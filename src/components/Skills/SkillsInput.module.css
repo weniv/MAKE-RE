@@ -6,7 +6,9 @@
 }
 
 .SkillsInputBox {
+  position: relative;
   display: flex;
+  align-items: center;
   width: 282px;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
@@ -18,11 +20,13 @@
   box-sizing: border-box;
   height: 40px;
   background: #ffffff;
-  padding: 9px 12px;
+  padding: 9px 40px 9px 12px;
   outline: none;
 }
 
 .btnDel {
+  position: absolute;
+  right: 0;
   margin: 8px;
 }
 .skillBtn {

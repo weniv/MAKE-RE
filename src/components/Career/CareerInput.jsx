@@ -1,16 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './CareerInput.module.css'
 
-export default function CareerInput({ setResumeData, resumeData }) {
+export default function CareerInput({
+  setResumeData,
+  resumeData,
+  setFormName,
+}) {
   const [career, setCareer] = useState(resumeData.career)
-  const nextId = useRef(1)
-
-  /** 객체가 모두 채워졌는지 확인, true면 덜 입력된 값이 존재 */
-  // const isEmpty = (obj) => {
-  //   return !Object.values(obj).every(
-  //     (x) => x !== null && x !== '' && x !== undefined
-  //   )
-  // }
 
   useEffect(() => {
     setResumeData({ ...resumeData, career: career })
@@ -18,11 +14,9 @@ export default function CareerInput({ setResumeData, resumeData }) {
 
   const handleAdd = (e) => {
     e.preventDefault()
-    nextId.current += 1
     setCareer([
       ...career,
       {
-        id: nextId.current,
         start: '',
         end: '',
         companyName: '',
@@ -56,6 +50,7 @@ export default function CareerInput({ setResumeData, resumeData }) {
               careerData={careerData}
               handleUpdate={handleUpdate}
               handleDelete={handleDelete}
+              setFormName={setFormName}
             />
           ))}
       </div>
@@ -66,21 +61,44 @@ export default function CareerInput({ setResumeData, resumeData }) {
   )
 }
 
-const Input = ({ idx, careerData, handleUpdate, handleDelete }) => {
+const Input = ({
+  idx,
+  careerData,
+  handleUpdate,
+  handleDelete,
+  setFormName,
+}) => {
   return (
-    <div className={styles.cont}>
+    <form
+      id={`form-career-${idx}`}
+      name={`career-${idx}`}
+      className={styles.cont}
+      onSubmit={(e) => e.preventDefault()}
+      onClick={(e) => {
+        setFormName(e.currentTarget.name)
+      }}
+    >
       <div className={styles.company}>
-        <label className="inputDescription">회사명</label>
+        <label className="inputDescription" htmlFor={`companyName-${idx}`}>
+          회사명
+        </label>
         <input
+          id={`companyName-${idx}`}
           type="text"
           name="companyName"
           placeholder="예) 네이버 (NAVER)"
           value={careerData.companyName}
           onChange={(e) => handleUpdate(idx, e)}
+          autoComplete="off"
+          onInvalid={(e) =>
+            e.target.setCustomValidity('회사명은 반드시 입력되어야합니다')
+          }
+          onInput={(e) => setFormName(`career-${parseInt(idx) + 1}`)}
+          required={!careerData.companyName ? true : false}
         />
         <button className={styles.delBtn}>
           <img
-            src="/images/delete-icon.svg"
+            src="images/delete-icon.svg"
             alt="삭제"
             onClick={() => handleDelete(idx)}
           />
@@ -88,8 +106,11 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete }) => {
       </div>
       <div className={styles.period}>
         <div className={styles.start}>
-          <label className="inputDescription">시작일</label>
+          <label className="inputDescription" htmlFor={`start-form-${idx}`}>
+            시작일
+          </label>
           <input
+            id={`start-form-${idx}`}
             type="month"
             max="9999-12"
             name="start"
@@ -98,10 +119,11 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete }) => {
           />
         </div>
         <div className={styles.end}>
-          <label htmlFor="" className="inputDescription">
+          <label htmlFor={`end-form-${idx}`} className="inputDescription">
             종료일
           </label>
           <input
+            id={`end-form-${idx}`}
             type="month"
             name="end"
             max="9999-12"
@@ -111,11 +133,12 @@ const Input = ({ idx, careerData, handleUpdate, handleDelete }) => {
         </div>
       </div>
       <textarea
+        id={idx}
         placeholder="담당 업무"
         name="works"
         value={careerData.works}
         onChange={(e) => handleUpdate(idx, e)}
       ></textarea>
-    </div>
+    </form>
   )
 }

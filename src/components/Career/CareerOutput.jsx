@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './CareerOutput.module.css'
 
 const Work = ({ work }) => {
@@ -19,25 +19,54 @@ const Work = ({ work }) => {
   )
 }
 
-export default function CareerOutput(props) {
-  const careerData = props.data
+export default function CareerOutput({ career }) {
+  const [empty, setEmpty] = useState(0)
+
+  /** career 객체가 모두 채워졌는지 확인, true이면 빈 객체 */
+  const isEmpty = (arr) => {
+    arr.forEach((obj) => {
+      let result = Object.values(obj)
+        .splice(1)
+        .filter((val) => val !== '').length
+      setEmpty((empty) => empty + result)
+    })
+  }
+
+  useEffect(() => {
+    isEmpty(career)
+  }, [])
+
   return (
-    <section>
-      <h2>Career</h2>
-      {careerData &&
-        careerData.map((career, idx) => (
-          <div key={idx} className={styles.cont}>
-            {career.start && career.end ? (
-              <p className={styles.period}>
-                {career.start} ~ {career.end}
-              </p>
-            ) : null}
-            {career.companyName ? (
-              <p className={styles.companyName}>{career.companyName}</p>
-            ) : null}
-            <Work work={career.works} />
-          </div>
-        ))}
-    </section>
+    <>
+      {!empty ? null : (
+        <section>
+          <h2>Career</h2>
+          {career &&
+            career.map((el, idx) => (
+              <div
+                key={idx}
+                className={el.companyName ? styles.cont : styles.hidden}
+              >
+                {el.start || el.end ? (
+                  <p
+                    className={
+                      el.start && el.end ? styles.period : styles.noContent
+                    }
+                  >
+                    {el.start ? el.start : '시작일'} ~{' '}
+                    {el.end ? el.end : '종료일'}
+                  </p>
+                ) : el.companyName ? (
+                  <p className={styles.noContent}>시작일 ~ 종료일</p>
+                ) : null}
+                {el.companyName ? (
+                  <p className={styles.companyName}>{el.companyName}</p>
+                ) : null}
+                <Work work={el.works} />
+              </div>
+            ))}
+        </section>
+      )}
+    </>
   )
 }

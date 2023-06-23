@@ -37,6 +37,11 @@
   font-size: 13px;
   line-height: 20px;
   position: relative;
+
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .urlLink a:hover {
   text-decoration: underline;
