@@ -67,7 +67,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routers resumeData={resumeData} setResumeData={setResumeData} />
+      <Routers
+        resumeData={resumeData}
+        setResumeData={setResumeData}
+        componentRef={componentRef}
+      />
     </BrowserRouter>
   )
 }

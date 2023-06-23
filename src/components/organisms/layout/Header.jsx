@@ -24,7 +24,7 @@ export default function Header({ resumeData }) {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="MAKE-RE/images/makere-logo.svg" alt="" />
+          <img src="/images/makere-logo.svg" alt="" />
         </h1>
         <nav className={styles.headerNav}>
           <ul>
@@ -41,6 +41,7 @@ export default function Header({ resumeData }) {
               <button
                 className={styles.prevBtn}
                 onClick={(e) => {
+                  console.log('fff', e.target.form)
                   setIsWrite(false)
                   handleDataUpdate()
                 }}

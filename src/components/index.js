@@ -7,3 +7,13 @@ export { default as ExperienceInput } from '../components/Experience/ExperienceI
 export { default as CertificateInput } from '../components/Certificate/CertificateInput'
 export { default as EducationInput } from '../components/Education/EducationInput'
 export { default as UrlInput } from '../components/Url/UrlInput'
+
+export { default as ProfileOutput } from '../components/Profile/ProfileOutput'
+export { default as IntroOutput } from '../components/Intro/IntroOutput'
+export { default as SkillOutput } from '../components/Skills/SkillsOutput'
+export { default as CareerOutput } from '../components/Career/CareerOutput'
+export { default as ProjectOutput } from '../components/Project/ProjectOutput'
+export { default as ExperienceOutput } from '../components/Experience/ExperienceOutput'
+export { default as CertificateOutput } from '../components/Certificate/CertificateOutput'
+export { default as EducationOutput } from '../components/Education/EducationOutput'
+export { default as UrlOutput } from '../components/Url/UrlOutput'
