@@ -33,16 +33,10 @@ function App() {
         demo: '',
       },
     ],
-    experience: [
-      { date: '', contents: '' },
-      { date: '', contents: '' },
-    ],
+    experience: [{ date: '', contents: '' }],
     certificate: [{ date: '', contents: '' }],
     education: [{ date: '', contents: '' }],
-    url: [
-      { contents: '', link: '' },
-      { contents: '', link: '' },
-    ],
+    url: [{ contents: '', link: '' }],
   }
 
   const [isWrite, setIsWrite] = useState(true)
