@@ -11,17 +11,10 @@ function ProfileOutput({ profile }) {
             <img src={profile.profileImg} alt="" />
           </div>
           <div>
-            {profile.enName ? (
-              <span className={styles.profileTitle}>
-                <strong>{profile.name}</strong>
-                {profile.enName}
-              </span>
-            ) : (
-              <span className={styles.profileTitle}>
-                <strong>{profile.name}</strong>
-                {profile.enName}
-              </span>
-            )}
+            <span className={styles.profileTitle}>
+              <strong>{profile.name}</strong>
+              {profile.enName}
+            </span>
 
             <ul className={styles.dataList}>
               {profile.phoneNumber && (
@@ -73,19 +66,10 @@ function ProfileOutput({ profile }) {
       ) : (
         <>
           <div>
-            {profile.enName ? (
-              <span
-                className={`${styles.profileTitle} ${styles.notProfileImg}`}
-              >
-                <strong>{profile.name}</strong>
-                {profile.enName}
-              </span>
-            ) : (
-              <span className={styles.profileTitle}>
-                <strong>{profile.name}</strong>
-                {profile.enName}
-              </span>
-            )}
+            <span className={`${styles.profileTitle} ${styles.notProfileImg}`}>
+              <strong>{profile.name}</strong>
+              {profile.enName}
+            </span>
 
             <ul className={styles.dataList}>
               {profile.phoneNumber && (

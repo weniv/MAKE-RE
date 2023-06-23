@@ -58,6 +58,7 @@
 
 .inputBox {
   display: flex;
+  height: fit-content;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
 }
@@ -71,6 +72,8 @@
   font-size: 14px;
   padding-left: 12px;
   border-right: 1px solid #c4c4c4;
+  white-space: nowrap;
+  padding: 0 12px;
 }
 
 .inputBox input {
@@ -102,6 +105,7 @@
 
 .emailWrap {
   display: flex;
+  align-items: center;
   gap: 5px;
   line-height: 40px;
   padding: 16px 0;
@@ -121,6 +125,12 @@
   color: var(--placeholder-color);
   background-repeat: no-repeat;
   background-position: 126px center;
+  position: absolute;
+}
+
+.dropEmail {
+  height: 42px;
+  position: relative;
 }
 
 .close {
@@ -138,6 +148,7 @@
 .emailList {
   box-sizing: border-box;
   position: absolute;
+  top: 40px;
   margin-top: 5px;
   width: 148px;
   background-color: #ffffff;

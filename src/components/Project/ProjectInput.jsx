@@ -170,18 +170,24 @@ function ProjectContent({
           {...attributes}
           {...listeners}
         >
-          <img src="images/drag-icon.svg" alt="드래그" />
+          <img
+            src={process.env.PUBLIC_URL + '/images/drag-icon.svg'}
+            alt="드래그"
+          />
         </button>
         <h3>{pro.title ? pro.title : '새로운 프로젝트'}</h3>
         <button
           className={(styles.toggleBtn, isDrop ? styles.open : null)}
           onClick={() => handleInputDrop()}
         >
-          <img src="images/polygon-down.svg" alt="내용 열기" />
+          <img
+            src={process.env.PUBLIC_URL + '/images/polygon-down.svg'}
+            alt="내용 열기"
+          />
         </button>
         <button className={styles.btnDel}>
           <img
-            src="images/delete-icon.svg"
+            src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
             alt="삭제"
             onClick={() => handleDelete(idx)}
           />
@@ -199,10 +205,10 @@ function ProjectContent({
         {isDrop ? (
           <>
             <div className={styles.contTit}>
-              <label htmlFor={`project-${idx}`}>프로젝트 명</label>
+              <label htmlFor={`project-title-${idx}`}>프로젝트 명</label>
               <input
                 type="text"
-                id={`project-${idx}`}
+                id={`project-title-${idx}`}
                 name="title"
                 value={pro.title}
                 onInvalid={(e) =>
@@ -229,8 +235,9 @@ function ProjectContent({
             <div className={styles.contInput}>
               <h4 className={styles.subTit}>개발 인원 및 기간</h4>
               <div className={styles.contPerson}>
-                <label htmlFor="">인원</label>
+                <label htmlFor={`project-size-${idx}`}>인원</label>
                 <input
+                  id={`project-size-${idx}`}
                   type="text"
                   placeholder="예) Front-End 4명, Back-End 2명"
                   name="people"
@@ -239,8 +246,9 @@ function ProjectContent({
                 />
               </div>
               <div className={styles.contDate}>
-                <label htmlFor="">기간</label>
+                <label htmlFor={`project-period-${idx}`}>기간</label>
                 <input
+                  id={`project-period-${idx}`}
                   type="month"
                   max="9999-12"
                   name="startPeriod"
@@ -293,7 +301,7 @@ function ProjectContent({
                     />
                     <button className={styles.btnDel}>
                       <img
-                        src="images/delete-icon.svg"
+                        src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
                         alt="삭제"
                         onClick={(e) =>
                           handleDeleteArr(
@@ -337,7 +345,7 @@ function ProjectContent({
                     />
                     <button className={styles.btnDel}>
                       <img
-                        src="images/delete-icon.svg"
+                        src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
                         alt="삭제"
                         onClick={(e) =>
                           handleDeleteArr(idx, 'skills', pro.skills, i)
@@ -358,7 +366,10 @@ function ProjectContent({
               <h4 className={styles.subTit}>깃허브 링크</h4>
               <div className={styles.contLink}>
                 <label htmlFor={`ghLink-${idx}`} className={styles.lbLink}>
-                  <img src="images/link-icon.svg" alt="URL 주소" />
+                  <img
+                    src={process.env.PUBLIC_URL + '/images/link-icon.svg'}
+                    alt="URL 주소"
+                  />
                 </label>
                 <input
                   className={styles.inpItem}
@@ -374,7 +385,10 @@ function ProjectContent({
               <h4 className={styles.subTit}>프로젝트 링크</h4>
               <div className={styles.contLink}>
                 <label htmlFor={`dmLink-${idx}`} className={styles.lbLink}>
-                  <img src="images/link-icon.svg" alt="URL 주소" />
+                  <img
+                    src={process.env.PUBLIC_URL + '/images/link-icon.svg'}
+                    alt="URL 주소"
+                  />
                 </label>
                 <input
                   className={styles.inpItem}

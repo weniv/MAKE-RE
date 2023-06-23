@@ -64,6 +64,7 @@ function ProfileInput({ resumeData, setResumeData }) {
   function handleSelectBox(item) {
     if (item !== '직접 입력') {
       setDomain(item)
+      setEmail(item)
     } else {
       setEmail('직접 입력')
       setDomain('')
@@ -88,7 +89,7 @@ function ProfileInput({ resumeData, setResumeData }) {
             )}
             <img
               className={styles.profileBtn}
-              src="images/camera-icon.svg"
+              src={process.env.PUBLIC_URL + '/images/camera-icon.svg'}
               alt="프로필 사진 업로드하기"
             />
           </label>
@@ -106,7 +107,10 @@ function ProfileInput({ resumeData, setResumeData }) {
                 setProfileData({ ...profileData, profileImg: defaultImg })
               }}
             >
-              <img src="images/delete-icon.svg" alt="프로필 삭제" />
+              <img
+                src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
+                alt="프로필 삭제"
+              />
             </button>
           ) : (
             <></>
@@ -186,7 +190,7 @@ function ProfileInput({ resumeData, setResumeData }) {
                 />
               </div>
             )}
-            <div ref={dropBoxRef}>
+            <div ref={dropBoxRef} className={styles.dropEmail}>
               {isOpen ? (
                 <>
                   <label htmlFor="selectDomain" className="ir">

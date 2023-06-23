@@ -57,7 +57,10 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
         onChange={(e) => handleUpdate(idx, e)}
       />
       <label htmlFor={`link-${idx}`} className={styles.lbLink}>
-        <img src="images/link-icon.svg" alt="URL 주소" />
+        <img
+          src={process.env.PUBLIC_URL + '/images/link-icon.svg'}
+          alt="URL 주소"
+        />
       </label>
       <input
         className={styles.inpLink}
