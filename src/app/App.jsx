@@ -1,9 +1,8 @@
 import Write from '../pages/Write'
 import Preview from '../pages/Preview'
-import { useEffect, useRef, useState } from 'react'
-
-import styles from './style.module.css'
+import { useRef, useState } from 'react'
 import { useReactToPrint } from 'react-to-print'
+import styles from './style.module.css'
 
 function App() {
   const dummyData = {
@@ -62,14 +61,14 @@ function App() {
     documentTitle: '이력서',
   })
 
-  console.log('formName', formName)
-
   return isWrite ? (
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="images/makere-logo.svg" alt="" />
-          {/* <span> Make A Career</span> */}
+          <img
+            src="images/makere-logo.svg"
+            alt="이력서 생성 서비스, 메이커리"
+          />
         </h1>
         <nav className={styles.headerNav}>
           <ul>
@@ -153,8 +152,10 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="images/makere-logo.svg" alt="" />
-          {/* <span> Make A Career</span> */}
+          <img
+            src="images/makere-logo.svg"
+            alt="이력서 생성 서비스, 메이커리"
+          />
         </h1>
         <nav className={styles.headerNav}>
           <ul>
