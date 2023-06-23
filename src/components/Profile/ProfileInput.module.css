@@ -64,7 +64,7 @@
 }
 
 .inputBox label {
-  width: 100px;
+  width: 80px;
   height: 40px;
   box-sizing: content-box;
   line-height: 40px;
@@ -72,6 +72,8 @@
   font-size: 14px;
   padding-left: 12px;
   border-right: 1px solid #c4c4c4;
+  white-space: nowrap;
+  padding: 0 12px;
 }
 
 .inputBox input {
