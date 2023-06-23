@@ -68,7 +68,7 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/makere-logo.svg" alt="" />
+          <img src="images/makere-logo.svg" alt="" />
           {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
@@ -134,7 +134,7 @@ function App() {
             >
               Figma 이력서 바로가기
             </a>
-            <a href="/files/제코베_포트폴리오_템플릿_배포용.pptx" download>
+            <a href="files/제코베_포트폴리오_템플릿_배포용.pptx" download>
               PPT 포트폴리오 다운로드
             </a>
           </li>
@@ -146,7 +146,7 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/makere-logo.svg" alt="" />
+          <img src="images/makere-logo.svg" alt="" />
           {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>

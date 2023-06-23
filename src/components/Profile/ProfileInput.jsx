@@ -118,7 +118,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 setProfileData({ ...profileData, profileImg: defaultImg })
               }}
             >
-              <img src="/images/delete-icon.svg" alt="프로필 삭제" />
+              <img src="images/delete-icon.svg" alt="프로필 삭제" />
             </button>
           ) : (
             <></>

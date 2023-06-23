@@ -13,7 +13,7 @@ export default function Url({ url }) {
               <li key={idx}>
                 <p className={styles.urlTitle}>{url.contents.trim()}</p>
                 <div className={styles.urlLink}>
-                  <img src="/images/link-icon-blue.svg" alt="" />
+                  <img src="images/link-icon-blue.svg" alt="" />
                   <a
                     href={urlValidation(url.link.trim())}
                     target="_blank"
