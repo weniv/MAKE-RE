@@ -57,7 +57,7 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
         onChange={(e) => handleUpdate(idx, e)}
       />
       <label htmlFor={`link-${idx}`} className={styles.lbLink}>
-        <img src="images/link-icon.svg" alt="URL 주소" />
+        <img src="MAKE-RE/images/link-icon.svg" alt="URL 주소" />
       </label>
       <input
         className={styles.inpLink}
@@ -70,7 +70,7 @@ function UrlContent({ url, idx, handleDelete, handleUpdate }) {
       />
       <button className={styles.btnDel}>
         <img
-          src="images/delete-icon.svg"
+          src="MAKE-RE/images/delete-icon.svg"
           alt="삭제"
           onClick={() => handleDelete(idx)}
         />

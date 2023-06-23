@@ -23,9 +23,10 @@ h2 {
 }
 
 /* prev 페이지와 write페이지 규격 */
-main {
+.main {
   width: 810px;
   margin: 0 auto;
+  margin-top: 150px;
 }
 
 /* 항목 추가 버튼 */

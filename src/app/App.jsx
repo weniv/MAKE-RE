@@ -63,47 +63,51 @@ function App() {
     documentTitle: '이력서',
   })
 
-  console.log('formName', formName)
+  // console.log('formName', formName)
 
-  return <Routers />
+  return (
+    <BrowserRouter>
+      <Routers resumeData={resumeData} setResumeData={setResumeData} />
+    </BrowserRouter>
+  )
 }
 
 export default App
 
 // return isWrite ? (
 //   <>
-//     <header className={styles.headerWrap}>
-//       <h1 className={`${styles.logoWrap} ${styles.title}`}>
-//         <img src="images/makere-logo.svg" alt="" />
-//         {/* <span> Make A Career</span> */}
-//       </h1>
-//       <nav className={styles.headerNav}>
-//         <ul>
-//           <li>
-//             <button
-//               form={`form-${formName}`}
-//               className={`${styles.header} ${styles.saveBtn}`}
-//               onClick={handleDataUpdate}
-//             >
-//               임시저장
-//             </button>
-//           </li>
-//           <li>
-//             <button
-//               className={styles.prevBtn}
-//               onClick={(e) => {
-//                 console.log('fff', e.target.form)
-//                 setIsWrite(false)
-//                 handleDataUpdate()
-//               }}
-//               form={`form-${formName}`}
-//             >
-//               미리보기
-//             </button>
-//           </li>
-//         </ul>
-//       </nav>
-//     </header>
+// <header className={styles.headerWrap}>
+//   <h1 className={`${styles.logoWrap} ${styles.title}`}>
+//     <img src="images/makere-logo.svg" alt="" />
+//     {/* <span> Make A Career</span> */}
+//   </h1>
+//   <nav className={styles.headerNav}>
+//     <ul>
+//       <li>
+//         <button
+//           form={`form-${formName}`}
+//           className={`${styles.header} ${styles.saveBtn}`}
+//           onClick={handleDataUpdate}
+//         >
+//           임시저장
+//         </button>
+//       </li>
+//       <li>
+//         <button
+//           className={styles.prevBtn}
+//           onClick={(e) => {
+//             console.log('fff', e.target.form)
+//             setIsWrite(false)
+//             handleDataUpdate()
+//           }}
+//           form={`form-${formName}`}
+//         >
+//           미리보기
+//         </button>
+//       </li>
+//     </ul>
+//   </nav>
+// </header>
 //     <div className={`${App} ${styles.pageWrap}`}>
 //       <Write
 //         setResumeData={setResumeData}

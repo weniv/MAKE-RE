@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './ProfileInput.module.css'
 import axios from 'axios'
 
-function ProfileInput({ setResumeData, resumeData }) {
+function ProfileInput({ resumeData, setResumeData }) {
+  console.log('profile', resumeData)
   const defaultImg = 'https://api.mandarin.weniv.co.kr/1687337079735.png'
   // ----------------------------------
   // 프로필 데이터 업데이트
@@ -16,40 +17,33 @@ function ProfileInput({ setResumeData, resumeData }) {
     blog: resumeData.blog,
     newcomer: resumeData.newcomer,
   })
-
   // 프로필 정보 변경될 때마다 resumeData 업데이트
   useEffect(() => {
     setResumeData({ ...resumeData, ...profileData })
   }, [profileData])
-
   // ----------------------------------
   // 프로필 이미지 설정
   const handleImageChange = async (e) => {
     const formData = new FormData()
     const imageFile = e.target.files[0]
     formData.append('image', imageFile)
-
     try {
       const response = await axios.post(
         'https://api.mandarin.weniv.co.kr/image/uploadfile',
         formData
       )
       await console.log(response)
-
       const imageUrl =
         'https://api.mandarin.weniv.co.kr/' + response.data.filename
-
       setProfileData({ ...resumeData, profileImg: imageUrl })
     } catch (error) {
       console.error(error)
     }
   }
-
   // ----------------------------------
   // 드롭박스 외부 클릭했을 시
   const [isOpen, setIsOpen] = useState(false)
   const dropBoxRef = useRef()
-
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropBoxRef.current && !dropBoxRef.current.contains(e.target)) {
@@ -58,19 +52,15 @@ function ProfileInput({ setResumeData, resumeData }) {
     }
     document.addEventListener('mousedown', handleClickOutside)
   }, [dropBoxRef])
-
   // 이메일 설정
   const FrequencyEmails = ['naver.com', 'gmail.com', 'daum.net', '직접 입력']
   const [id, setId] = useState(profileData.fullEmail.split('@')[0])
   const [domain, setDomain] = useState(profileData.fullEmail.split('@')[1])
-
   useEffect(() => {
     const fullEmail = [id, domain].join('@')
     setResumeData({ ...resumeData, fullEmail: fullEmail })
   }, [id, domain])
-
   const [email, setEmail] = useState('직접 입력')
-
   // 이메일 선택했을 때 input 내용 변경
   function handleSelectBox(item) {
     if (item !== '직접 입력') {
@@ -81,7 +71,6 @@ function ProfileInput({ setResumeData, resumeData }) {
     }
     setIsOpen(false)
   }
-
   return (
     <section>
       <div className={styles.flexBox}>
@@ -100,7 +89,7 @@ function ProfileInput({ setResumeData, resumeData }) {
             )}
             <img
               className={styles.profileBtn}
-              src="images/camera-icon.svg"
+              src="MAKE-RE/images/camera-icon.svg"
               alt="프로필 사진 업로드하기"
             />
           </label>
@@ -124,7 +113,6 @@ function ProfileInput({ setResumeData, resumeData }) {
             <></>
           )}
         </div>
-
         <div>
           <div className={styles.profileBox}>
             <div className={`${styles.inputBox} ${styles.firstInput}`}>
@@ -214,7 +202,6 @@ function ProfileInput({ setResumeData, resumeData }) {
                       isOpen ? setIsOpen(false) : setIsOpen(true)
                     }}
                   />
-
                   <ul className={styles.emailList}>
                     {FrequencyEmails.map((item, idx) => (
                       <li key={idx} onClick={() => handleSelectBox(item)}>
