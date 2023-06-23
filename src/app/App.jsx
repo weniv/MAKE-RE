@@ -128,6 +128,13 @@ function App() {
           <li>
             <p>자료</p>
             <a
+              href="https://ridibooks.com/books/2773000064?_s=search&_q=%EA%B0%9C%EB%B0%9C%EC%9E%90+%EC%9D%B4%EB%A0%A5%EC%84%9C&_rdt_sid=search&_rdt_idx=0"
+              target="_blank"
+              rel="noreferrer"
+            >
+              신입 개발자 이력서 작성 가이드
+            </a>
+            <a
               href="https://paullabworkspace.notion.site/Figma-bfa32213fc244db9b31bb8486a479ee6?pvs=4"
               target="_blank"
               rel="noreferrer"
