@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routers
         resumeData={resumeData}
         setResumeData={setResumeData}

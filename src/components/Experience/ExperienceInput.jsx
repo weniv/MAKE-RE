@@ -17,7 +17,6 @@ export default function Experience({ setResumeData, resumeData }) {
   }
 
   function handleUpdate(idx, name, value) {
-    // const { name, value } = event.target
     setExperience(
       experience.map((exp, i) => (i === idx ? { ...exp, [name]: value } : exp))
     )
@@ -62,7 +61,7 @@ function ExpContent({ exp, idx, handleDelete, handleUpdate }) {
       />
       <button className={styles.btnDel}>
         <img
-          src="images/delete-icon.svg"
+          src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
           alt="삭제"
           onClick={() => handleDelete(idx)}
         />

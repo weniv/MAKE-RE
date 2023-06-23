@@ -14,7 +14,10 @@ export default function WriteHeader({ resumeData, formName }) {
         className={`${styles.logoWrap} ${styles.title}`}
         onClick={() => navigate('/')}
       >
-        <img src="images/makere-logo.svg" alt="" />
+        <img
+          src={process.env.PUBLIC_URL + '/images/makere-logo.svg'}
+          alt="메이커리 로고 이미지"
+        />
       </h1>
       <nav className={styles.headerNav}>
         <ul>
