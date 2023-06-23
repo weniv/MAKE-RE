@@ -1,3 +1,5 @@
 export { default as Layout } from './layout/Layout'
 export { default as PreviewHeader } from './layout/PreviewHeader'
 export { default as WriteHeader } from './layout/WriteHeader'
+export { default as WriteFooter } from './layout/WriteFooter'
+export { default as PreviewFooter } from './layout/PreviewFooter'
