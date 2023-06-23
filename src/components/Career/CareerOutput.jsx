@@ -24,9 +24,10 @@ export default function CareerOutput({ career }) {
 
   /** career 객체가 모두 채워졌는지 확인, true이면 빈 객체 */
   const isEmpty = (arr) => {
-    // console.log(empty)
     arr.forEach((obj) => {
-      let result = Object.values(obj).filter((val) => val !== '').length
+      let result = Object.values(obj)
+        .splice(1)
+        .filter((val) => val !== '').length
       setEmpty((empty) => empty + result)
     })
   }

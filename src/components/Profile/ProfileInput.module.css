@@ -132,7 +132,7 @@
 }
 
 .emailBtn:focus {
-  outline: solid var(--main-color);
+  outline: 1px solid var(--main-color);
 }
 
 .emailList {
