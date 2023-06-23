@@ -143,7 +143,7 @@ function ProjectContent({
   handleUpdateArr,
   handleDeleteArr,
 }) {
-  const [isDrop, setIsDrop] = useState(false)
+  const [isDrop, setIsDrop] = useState(true)
 
   const handleInputDrop = () => {
     if (true) {
