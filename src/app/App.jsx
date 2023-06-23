@@ -68,7 +68,7 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/makere-logo.svg" alt="" />
+          <img src="images/makere-logo.svg" alt="" />
           {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
@@ -146,7 +146,7 @@ function App() {
     <>
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
-          <img src="/images/makere-logo.svg" alt="" />
+          <img src="images/makere-logo.svg" alt="" />
           {/* <span> Make A Career</span> */}
         </h1>
         <nav className={styles.headerNav}>
