@@ -15,7 +15,6 @@
 }
 
 .dateInput {
-  /* font-family: 'Noto Sans KR', sans-serif; */
   border-radius: 5px 0 0 5px;
   border: none;
   border-right: 1px solid var(--border-color);
