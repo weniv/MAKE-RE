@@ -23,11 +23,21 @@ export default function GithubApi() {
                 id
                 name
                 url
-                stargazerCount
+                openGraphImageUrl
+                description
+                languages(first: 6) {
+                  edges {
+                    node {
+                      name
+                      color
+                    }
+                  }
+                }
               }
             }
           }
         }
+        avatarUrl
       }
     }
   `
