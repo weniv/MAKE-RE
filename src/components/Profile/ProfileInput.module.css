@@ -187,7 +187,7 @@
 }
 
 .linkInput label {
-  width: 148px;
+  width: 135px;
   font-weight: 700;
   font-size: 14px;
   padding-left: 12px;
@@ -196,8 +196,9 @@
 }
 
 .linkInput input {
-  width: 100%;
   border: none;
+  flex-grow: 1;
+  padding-right: 12px;
 }
 
 .careerBox {
