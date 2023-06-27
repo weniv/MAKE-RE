@@ -13,7 +13,7 @@ function App() {
     fullEmail: '',
     github: '',
     blog: '',
-    newcomer: 'true',
+    newcomer: true,
     intro: '',
     skills: [''],
     career: [{ id: 1, start: '', end: '', companyName: '', works: '' }],
