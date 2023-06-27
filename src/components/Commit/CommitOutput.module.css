@@ -1,9 +1,9 @@
 .contCommit {
-  margin: 6px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: center;
 }
 
 .contCommit img {
-  /* width: 100%; */
+  width: 100%;
 }

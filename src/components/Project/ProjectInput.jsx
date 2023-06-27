@@ -177,11 +177,11 @@ function ProjectContent({
         </button>
         <h3>{pro.title ? pro.title : '새로운 프로젝트'}</h3>
         <button
-          className={(styles.toggleBtn, isDrop ? styles.open : null)}
+          className={`${styles.toggleBtn} ${isDrop ? styles.open : null}`}
           onClick={() => handleInputDrop()}
         >
           <img
-            src={process.env.PUBLIC_URL + '/images/polygon-down.svg'}
+            src={process.env.PUBLIC_URL + '/images/icon-Triangle-Down.svg'}
             alt="내용 열기"
           />
         </button>

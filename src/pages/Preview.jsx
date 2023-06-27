@@ -8,7 +8,6 @@ import Certificate from '../components/Certificate/CertificateOutput'
 import Education from '../components/Education/EducationOutput'
 import Url from '../components/Url/UrlOutput'
 import styles from './preview.module.css'
-import Commit from '../components/Commit/CommitOutput'
 
 function Preview({ resumeData, componentRef }) {
   const data = JSON.parse(localStorage.getItem('data'))
@@ -19,8 +18,6 @@ function Preview({ resumeData, componentRef }) {
       <div ref={componentRef} className={styles.printPage}>
         <main>
           <Profile profile={data} className={styles.test} />
-          <Commit github={data.github} />
-
           <Intro intro={data.intro} className={styles.pagebreak} />
           <Skills skills={data.skills} className={styles.pagebreak} />
           {isNewcomer ? (

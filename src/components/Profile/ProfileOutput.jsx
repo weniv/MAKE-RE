@@ -1,3 +1,4 @@
+import CommitOutput from '../Commit/CommitOutput'
 import styles from './ProfileOutput.module.css'
 
 function ProfileOutput({ profile }) {
@@ -60,6 +61,11 @@ function ProfileOutput({ profile }) {
                   {profile.newcomer ? '신입' : '경력'}
                 </li>
               }
+              {profile.github && (
+                <li>
+                  <CommitOutput github={profile.github} />
+                </li>
+              )}
             </ul>
           </div>
         </>
@@ -115,6 +121,11 @@ function ProfileOutput({ profile }) {
                   {profile.newcomer ? '신입' : '경력'}
                 </li>
               }
+              {profile.github && (
+                <li>
+                  <CommitOutput github={profile.github} />
+                </li>
+              )}
             </ul>
           </div>
         </>
