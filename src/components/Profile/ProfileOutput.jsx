@@ -38,7 +38,7 @@ function ProfileOutput({ profile }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {profile.github}
+                    www.github.com/{profile.github}
                   </a>
                 </li>
               )}

@@ -1,0 +1,9 @@
+.contCommit {
+  margin: 6px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.contCommit img {
+  /* width: 100%; */
+}

@@ -49,6 +49,10 @@
   border-radius: 50%;
 }
 
+.profileDelete img {
+  width: 20px;
+  height: 20px;
+}
 .profileBox {
   padding: 20px 0 16px 0;
   display: flex;

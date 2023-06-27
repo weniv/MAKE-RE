@@ -98,7 +98,7 @@ const Input = ({
         />
         <button className={styles.delBtn}>
           <img
-            src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
+            src={process.env.PUBLIC_URL + '/images/icon-X.svg'}
             alt="삭제"
             onClick={() => handleDelete(idx)}
           />
