@@ -54,12 +54,12 @@ function ProfileOutput({ profile }) {
                   </a>
                 </li>
               )}
-              {profile.newcomer && (
+              {
                 <li>
                   <strong>경력 사항</strong>
-                  {profile.newcomer === 'true' ? '신입' : '경력'}
+                  {profile.newcomer ? '신입' : '경력'}
                 </li>
-              )}
+              }
             </ul>
           </div>
         </>
@@ -109,12 +109,12 @@ function ProfileOutput({ profile }) {
                   </a>
                 </li>
               )}
-              {profile.newcomer && (
+              {
                 <li>
                   <strong>경력 사항</strong>
-                  {profile.newcomer === 'true' ? '신입' : '경력'}
+                  {profile.newcomer ? '신입' : '경력'}
                 </li>
-              )}
+              }
             </ul>
           </div>
         </>
