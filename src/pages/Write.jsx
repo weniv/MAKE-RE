@@ -7,10 +7,12 @@ import Experience from '../components/Experience/ExperienceInput'
 import Certificate from '../components/Certificate/CertificateInput'
 import Education from '../components/Education/EducationInput'
 import Url from '../components/Url/UrlInput'
+import GithubApi from '../components/GithubApi'
 
 function Write(props) {
   return (
     <main>
+      <GithubApi />
       <Profile
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
