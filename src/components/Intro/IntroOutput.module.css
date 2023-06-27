@@ -1,3 +1,7 @@
+.introTitle {
+  border-bottom: 1px solid var(--main-color) !important;
+}
+
 .introSection {
   margin-bottom: 40px;
 }
