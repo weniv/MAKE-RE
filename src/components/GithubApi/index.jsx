@@ -11,7 +11,9 @@ export default function GithubApi() {
     },
   })
 
-  // 뭐가져올지 정하기
+  console.log('process.env.REACT_APP_TOKEN')
+  console.log(process.env.REACT_APP_TOKEN)
+
   const query = gql`
     {
       user(login: "min-bok") {
@@ -25,7 +27,7 @@ export default function GithubApi() {
                 url
                 openGraphImageUrl
                 description
-                languages(first: 10) {
+                languages(first: 6) {
                   edges {
                     node {
                       name
@@ -52,6 +54,7 @@ export default function GithubApi() {
       }
     }
   `
+
   const getApi = async () => {
     const data = await graphQLClient.request(query)
     console.log(data)
