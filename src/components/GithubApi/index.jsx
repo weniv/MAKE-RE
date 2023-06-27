@@ -33,11 +33,22 @@ export default function GithubApi() {
                     }
                   }
                 }
+                createdAt
               }
             }
           }
         }
         avatarUrl
+        repositories(first: 100) {
+          nodes {
+            languages(first: 6) {
+              nodes {
+                name
+                color
+              }
+            }
+          }
+        }
       }
     }
   `
