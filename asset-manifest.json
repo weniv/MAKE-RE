@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MAKE-RE/static/css/main.978b766e.css",
-    "main.js": "/MAKE-RE/static/js/main.b3003eb1.js",
+    "main.css": "/MAKE-RE/static/css/main.e697b132.css",
+    "main.js": "/MAKE-RE/static/js/main.717dc0e3.js",
     "index.html": "/MAKE-RE/index.html",
-    "static/media/link-move-icon.svg": "/MAKE-RE/static/media/link-move-icon.e9da3cec6f0b5b99ce76.svg",
-    "static/media/polygon-up-icon.svg": "/MAKE-RE/static/media/polygon-up-icon.5b2cd8ecfca1f6f3c766.svg",
-    "static/media/polygon-down-icon.svg": "/MAKE-RE/static/media/polygon-down-icon.33f80d68cb2d459114a7.svg",
-    "main.978b766e.css.map": "/MAKE-RE/static/css/main.978b766e.css.map",
-    "main.b3003eb1.js.map": "/MAKE-RE/static/js/main.b3003eb1.js.map"
+    "static/media/link-move-icon.svg": "/MAKE-RE/static/media/link-move-icon.f06133d91d8878e61cd7.svg",
+    "static/media/polygon-up-icon.svg": "/MAKE-RE/static/media/polygon-up-icon.4f9308c4de0fc0ee6597.svg",
+    "static/media/polygon-down-icon.svg": "/MAKE-RE/static/media/polygon-down-icon.7352b9273adf51c9312a.svg",
+    "main.e697b132.css.map": "/MAKE-RE/static/css/main.e697b132.css.map",
+    "main.717dc0e3.js.map": "/MAKE-RE/static/js/main.717dc0e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.978b766e.css",
-    "static/js/main.b3003eb1.js"
+    "static/css/main.e697b132.css",
+    "static/js/main.717dc0e3.js"
   ]
 }
