@@ -120,7 +120,7 @@ function ProfileInput({ setResumeData, resumeData }) {
               }}
             >
               <img
-                src={process.env.PUBLIC_URL + '/images/delete-icon.svg'}
+                src={process.env.PUBLIC_URL + '/images/icon-X.svg'}
                 alt="프로필 삭제"
               />
             </button>
