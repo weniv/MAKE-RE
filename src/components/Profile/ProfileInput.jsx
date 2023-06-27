@@ -235,7 +235,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                   <input
                     type="button"
                     id="selectDomain"
-                    className={`${styles.emailBtn} ${styles.close}`}
+                    className={`${styles.emailBtn} ${styles.close} ${styles.noneOutline}`}
                     value={email}
                     onClick={() => {
                       isOpen ? setIsOpen(false) : setIsOpen(true)
