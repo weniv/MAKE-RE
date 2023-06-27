@@ -248,9 +248,9 @@ function ProfileInput({ setResumeData, resumeData }) {
         </div>
       </div>
       <div className={styles.linkInput}>
-        <label htmlFor="gitHub">GitHub 링크</label>
+        <label htmlFor="gitHub">GitHub 이름</label>
         <input
-          type="url"
+          type="text"
           id="gitHub"
           value={profileData.github}
           onChange={(e) => {
