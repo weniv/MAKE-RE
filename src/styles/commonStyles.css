@@ -9,12 +9,25 @@
 :root {
   /* Color */
   /* 타이틀, hover, line */
-  --main-color: #2f80ed;
+  --main-color: #2e6ff2;
+  
+  /* ---------------- */
+  /* 스터디인 색상 추가 */
+  --mainLight-color: #5c8ef2;
+  --point1-color: #ffc533;
+  --point1Light-color: #ffe187;
+  --point2-color: #ff254c;
+  --textGray-color: #47494d;
+  --textLightGray-color: #8d9299;
+  --bgGray-color: #d9dbe0;
+  --bgGrayLight-color: #f3f5fa;
+  /* ---------------- */
+
   --background-color: #ffffff;
   --input-fill-color: #f2f2f2;
   /* 요소 추가 버튼 */
   --addButton-color: #f96167;
-  --text-color: #000000;
+  --text-color: #121314;
   --border-color: #c4c4c4;
   --placeholder-color: #bdbdbd;
 }
