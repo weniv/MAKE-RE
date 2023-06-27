@@ -7,9 +7,10 @@
 }
 
 .intro {
-  margin: -6px 0 0 10px;
+  margin: -6px 0 0;
   word-wrap: break-word;
   width: 800px;
   font-size: 14px;
   line-height: 20px;
+  white-space: break-spaces;
 }
