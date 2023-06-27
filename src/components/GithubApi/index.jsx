@@ -11,12 +11,22 @@ export default function GithubApi() {
     },
   })
 
+  // 뭐가져올지 정하기
   const query = gql`
     {
-      repository(name: "material-ui", owner: "mui-org") {
-        issue1: issue(number: 2) {
-          title
-          createdAt
+      user(login: "min-bok") {
+        pinnedItems(first: 6) {
+          totalCount
+          edges {
+            node {
+              ... on Repository {
+                id
+                name
+                url
+                stargazerCount
+              }
+            }
+          }
         }
       }
     }
