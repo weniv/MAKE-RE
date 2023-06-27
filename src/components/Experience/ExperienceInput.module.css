@@ -6,16 +6,12 @@
   margin: 40px 0;
 }
 
-.btnAdd {
-  margin: 0 10px;
-}
-
 .contContents {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0 10px 10px;
+  margin: 10px 0;
   border: 1px solid var(--border-color);
   border-radius: 5px;
   gap: 1px;

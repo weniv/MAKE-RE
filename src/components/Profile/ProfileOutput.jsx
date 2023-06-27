@@ -34,7 +34,7 @@ function ProfileOutput({ profile }) {
                 <li>
                   <strong>깃허브</strong>
                   <a
-                    href={urlValidation(profile.github)}
+                    href={urlValidation(`www.github.com/${profile.github}`)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -89,7 +89,7 @@ function ProfileOutput({ profile }) {
                 <li>
                   <strong>깃허브</strong>
                   <a
-                    href={urlValidation(profile.github)}
+                    href={urlValidation(`www.github.com/${profile.github}`)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

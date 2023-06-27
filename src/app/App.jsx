@@ -83,7 +83,7 @@ function App() {
             </li>
             <li>
               <button
-                className={styles.prevBtn}
+                className={styles.exportBtn}
                 onClick={(e) => {
                   setIsWrite(false)
                   handleDataUpdate()

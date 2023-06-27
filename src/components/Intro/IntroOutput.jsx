@@ -4,7 +4,7 @@ function IntroOutput({ intro }) {
   return (
     <section className={styles.introSection}>
       <h2>Introduction</h2>
-      {intro && <div className={styles.intro}>{intro}</div>}
+      {intro && <pre className={styles.intro}>{intro}</pre>}
     </section>
   )
 }
