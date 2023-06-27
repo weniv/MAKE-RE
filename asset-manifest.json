@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/MAKE-RE/static/css/main.9f9cddf2.css",
-    "main.js": "/MAKE-RE/static/js/main.c864f9f9.js",
+    "main.js": "/MAKE-RE/static/js/main.d0eb1a51.js",
     "index.html": "/MAKE-RE/index.html",
     "static/media/link-move-icon.svg": "/MAKE-RE/static/media/link-move-icon.f06133d91d8878e61cd7.svg",
     "static/media/polygon-up-icon.svg": "/MAKE-RE/static/media/polygon-up-icon.4f9308c4de0fc0ee6597.svg",
     "static/media/polygon-down-icon.svg": "/MAKE-RE/static/media/polygon-down-icon.7352b9273adf51c9312a.svg",
     "main.9f9cddf2.css.map": "/MAKE-RE/static/css/main.9f9cddf2.css.map",
-    "main.c864f9f9.js.map": "/MAKE-RE/static/js/main.c864f9f9.js.map"
+    "main.d0eb1a51.js.map": "/MAKE-RE/static/js/main.d0eb1a51.js.map"
   },
   "entrypoints": [
     "static/css/main.9f9cddf2.css",
-    "static/js/main.c864f9f9.js"
+    "static/js/main.d0eb1a51.js"
   ]
 }
