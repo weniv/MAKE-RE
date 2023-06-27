@@ -271,7 +271,7 @@ function ProfileInput({ setResumeData, resumeData }) {
       </div>
       <div className={styles.careerBox}>
         <span>경력사항</span>
-        {profileData.newcomer === 'true' ? (
+        {profileData.newcomer ? (
           <>
             <div>
               <input
@@ -280,7 +280,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 name="radio"
                 checked
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: 'true' })
+                  setProfileData({ ...profileData, newcomer: true })
                 }}
               />
               <label htmlFor="r1">신입</label>
@@ -291,7 +291,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 type="radio"
                 name="radio"
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: 'false' })
+                  setProfileData({ ...profileData, newcomer: false })
                 }}
               />
               <label htmlFor="r2">경력</label>
@@ -305,7 +305,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 type="radio"
                 name="radio"
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: 'true' })
+                  setProfileData({ ...profileData, newcomer: true })
                 }}
               />
               <label htmlFor="r1">신입</label>
@@ -317,7 +317,7 @@ function ProfileInput({ setResumeData, resumeData }) {
                 name="radio"
                 checked
                 onClick={() => {
-                  setProfileData({ ...profileData, newcomer: 'false' })
+                  setProfileData({ ...profileData, newcomer: false })
                 }}
               />
               <label htmlFor="r2">경력</label>
