@@ -25,7 +25,7 @@ export default function GithubApi() {
                 url
                 openGraphImageUrl
                 description
-                languages(first: 6) {
+                languages(first: 10) {
                   edges {
                     node {
                       name
@@ -41,7 +41,7 @@ export default function GithubApi() {
         avatarUrl
         repositories(first: 100) {
           nodes {
-            languages(first: 6) {
+            languages(first: 10) {
               nodes {
                 name
                 color
