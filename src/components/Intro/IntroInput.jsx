@@ -9,6 +9,10 @@ function IntroInput({ resumeData, setResumeData }) {
     setResumeData({ ...resumeData, intro: intro })
   }, [intro])
 
+  useEffect(() => {
+    setTextCount(resumeData.intro.length)
+  }, [])
+
   const textChangeHandler = (e) => {
     setIntro(e.target.value)
     setTextCount(e.target.value.length)

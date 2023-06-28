@@ -1,11 +1,16 @@
+.introTitle {
+  border-bottom: 1px solid var(--main-color) !important;
+}
+
 .introSection {
   margin-bottom: 40px;
 }
 
 .intro {
-  margin: -6px 0 0 10px;
+  margin: -6px 0 0;
   word-wrap: break-word;
-  width: 800px;
+  width: 100%;
   font-size: 14px;
   line-height: 20px;
+  white-space: break-spaces;
 }

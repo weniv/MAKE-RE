@@ -1,3 +1,4 @@
+import CommitOutput from '../Commit/CommitOutput'
 import styles from './ProfileOutput.module.css'
 
 function ProfileOutput({ profile }) {
@@ -10,7 +11,7 @@ function ProfileOutput({ profile }) {
           <div className={styles.profileImg}>
             <img src={profile.profileImg} alt="" />
           </div>
-          <div>
+          <div className={styles.profileBox}>
             <span className={styles.profileTitle}>
               <strong>{profile.name}</strong>
               {profile.enName}
@@ -54,10 +55,15 @@ function ProfileOutput({ profile }) {
                   </a>
                 </li>
               )}
-              {profile.newcomer && (
+              {
                 <li>
                   <strong>경력 사항</strong>
-                  {profile.newcomer === 'true' ? '신입' : '경력'}
+                  {profile.newcomer ? '신입' : '경력'}
+                </li>
+              }
+              {profile.github && (
+                <li>
+                  <CommitOutput github={profile.github} />
                 </li>
               )}
             </ul>
@@ -93,7 +99,7 @@ function ProfileOutput({ profile }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {profile.github}
+                    www.github.com/{profile.github}
                   </a>
                 </li>
               )}
@@ -109,10 +115,15 @@ function ProfileOutput({ profile }) {
                   </a>
                 </li>
               )}
-              {profile.newcomer && (
+              {
                 <li>
                   <strong>경력 사항</strong>
-                  {profile.newcomer === 'true' ? '신입' : '경력'}
+                  {profile.newcomer ? '신입' : '경력'}
+                </li>
+              }
+              {profile.github && (
+                <li>
+                  <CommitOutput github={profile.github} />
                 </li>
               )}
             </ul>

@@ -26,10 +26,10 @@
 
 .profileBtn {
   position: absolute;
-  width: 55px;
-  height: 55px;
-  left: 95px;
-  top: 95px;
+  width: 46px;
+  height: 46px;
+  right: 0;
+  bottom: 0;
 }
 
 .profileInput {
@@ -47,6 +47,10 @@
   right: 0;
   top: 0;
   border-radius: 50%;
+}
+.profileDelete img {
+  width: 20px;
+  height: 20px;
 }
 
 .profileBox {
@@ -113,7 +117,7 @@
 
 .emailBtn {
   height: 42px;
-  width: 148px;
+  width: 150px;
   background: #ffffff;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
@@ -122,10 +126,14 @@
   padding-left: 12px;
   font-weight: 500;
   font-size: 14px;
-  color: var(--placeholder-color);
+  color: var(--text-color);
   background-repeat: no-repeat;
   background-position: 126px center;
   position: absolute;
+}
+
+.noneOutline {
+  outline: none !important;
 }
 
 .dropEmail {
@@ -134,11 +142,15 @@
 }
 
 .close {
-  background-image: url('../../../public/images/polygon-down-icon.svg');
+  background-image: url('../../../public/images/icon-Triangle-Down.svg');
+  background-size: 20px 20px;
+  background-position: center right 10px;
 }
 
 .open {
-  background-image: url('../../../public/images/polygon-up-icon.svg');
+  background-image: url('../../../public/images/icon-Triangle-Up.svg');
+  background-size: 20px 20px;
+  background-position: center right 10px;
 }
 
 .emailBtn:focus {
@@ -150,32 +162,34 @@
   position: absolute;
   top: 40px;
   margin-top: 5px;
-  width: 148px;
+  width: 150px;
+  padding: 8px;
   background-color: #ffffff;
-  border: 1px solid #c4c4c4;
-  border-radius: 5px;
+  border: 1px solid var(--bgGray-color);
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(71, 73, 77, 0.1);
 }
 
 .emailList li {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: var(--placeholder-color);
-  padding: 10px;
-  height: 40px;
+  color: var(--text-color);
+  padding: 5px 10px;
+  height: 30px;
   box-sizing: border-box;
-  border-bottom: 1px solid #c4c4c4;
+  margin-bottom: 5px;
+  border-radius: 8px;
 }
 
 .emailList li:hover {
-  background-color: var(--main-color);
-  color: #ffffff;
+  background-color: var(--bgGrayLight-color);
 }
 
 .emailList li:last-child {
-  border-bottom: none;
+  margin: 0;
 }
 
 .linkInput {

@@ -9,7 +9,7 @@ const Work = ({ work }) => {
         <ul className={styles.list}>
           {works &&
             works.map((work, idx) => (
-              <li key={idx} className={styles.list}>
+              <li key={idx} className={styles.work}>
                 {work}
               </li>
             ))}
