@@ -34,6 +34,10 @@
 .notProfileImg {
   width: 810px;
 }
+.profileBox {
+  max-width: 620px;
+  flex-basis: 620px;
+}
 
 .profileTitle strong {
   font-weight: 900;

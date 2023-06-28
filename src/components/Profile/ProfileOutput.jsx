@@ -11,7 +11,7 @@ function ProfileOutput({ profile }) {
           <div className={styles.profileImg}>
             <img src={profile.profileImg} alt="" />
           </div>
-          <div>
+          <div className={styles.profileBox}>
             <span className={styles.profileTitle}>
               <strong>{profile.name}</strong>
               {profile.enName}
