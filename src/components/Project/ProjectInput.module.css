@@ -126,6 +126,7 @@
 
 .contDate input[type='month'] {
   padding: 6px 12px;
+  width: 145px;
 }
 
 .contDate .progress {
