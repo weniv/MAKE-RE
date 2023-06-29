@@ -92,7 +92,7 @@ function ProfileInput({ setResumeData, resumeData }) {
               <div className={styles.profile}>
                 <img
                   className={styles.profileImg}
-                  src={profileData.profileImg}
+                  src={resumeData.profileImg}
                   alt=""
                 />
               </div>

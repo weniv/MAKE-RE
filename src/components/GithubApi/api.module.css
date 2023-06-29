@@ -1,0 +1,17 @@
+.cont {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.cont form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cont form button {
+  background-color: var(--main-color);
+  color: var(--background-color);
+  padding: 10px 5px;
+  border-radius: 10px;
+}

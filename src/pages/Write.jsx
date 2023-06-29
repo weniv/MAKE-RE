@@ -12,7 +12,10 @@ import GithubApi from '../components/GithubApi'
 function Write(props) {
   return (
     <main>
-      <GithubApi />
+      <GithubApi
+        setResumeData={props.setResumeData}
+        resumeData={props.resumeData}
+      />
       <Profile
         setResumeData={props.setResumeData}
         resumeData={props.resumeData}
