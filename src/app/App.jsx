@@ -66,7 +66,7 @@ function App() {
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
           <img
-            src={process.env.PUBLIC_URL + '/images/makere-logo.svg'}
+            src={process.env.PUBLIC_URL + '/images/logo.svg'}
             alt="이력서 생성 서비스, 메이커리"
           />
         </h1>
@@ -161,7 +161,7 @@ function App() {
       <header className={styles.headerWrap}>
         <h1 className={`${styles.logoWrap} ${styles.title}`}>
           <img
-            src={process.env.PUBLIC_URL + '/images/makere-logo.svg'}
+            src={process.env.PUBLIC_URL + '/images/logo.svg'}
             alt="이력서 생성 서비스, 메이커리"
           />
         </h1>
