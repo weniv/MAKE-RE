@@ -8,6 +8,7 @@ import {
   arrayMove,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import DragandDrop from '../../utils/DragandDrop'
 
 export default function ProjectInput({
   setResumeData,
@@ -101,35 +102,26 @@ export default function ProjectInput({
   // console.log('project', project)
 
   return (
-    <>
-      <DndContext
-        className={styles.project}
-        collisionDetection={closestCenter}
-        onDragEnd={handleDragEnd}
-      >
-        <h2>Project</h2>
-        <SortableContext items={project} strategy={verticalListSortingStrategy}>
-          {project &&
-            project.map((pro, idx) => (
-              <ProjectContent
-                key={idx}
-                pro={pro}
-                idx={idx}
-                setFormName={setFormName}
-                handleUpdate={handleUpdate}
-                handleDelete={handleDelete}
-                handleAddArr={handleAddArr}
-                handleUpdateArr={handleUpdateArr}
-                handleDeleteArr={handleDeleteArr}
-              />
-            ))}
-        </SortableContext>
-      </DndContext>
-
+    <DragandDrop handleDragEnd={handleDragEnd} items={project}>
+      <h2>Project</h2>
+      {project &&
+        project.map((pro, idx) => (
+          <ProjectContent
+            key={idx}
+            pro={pro}
+            idx={idx}
+            setFormName={setFormName}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+            handleAddArr={handleAddArr}
+            handleUpdateArr={handleUpdateArr}
+            handleDeleteArr={handleDeleteArr}
+          />
+        ))}
       <button className={`addBtn ${styles.btnAdd}`} onClick={handleAdd}>
         +) 추가 입력하기
       </button>
-    </>
+    </DragandDrop>
   )
 }
 
