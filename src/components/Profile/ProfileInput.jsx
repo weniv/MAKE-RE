@@ -88,11 +88,11 @@ function ProfileInput({ setResumeData, resumeData }) {
       <div className={styles.flexBox}>
         <div className={styles.profileImgBox}>
           <label htmlFor="profile-upload" className={styles.profileWrap}>
-            {profileData.profileImg ? (
+            {resumeData.profileImg ? (
               <div className={styles.profile}>
                 <img
                   className={styles.profileImg}
-                  src={profileData.profileImg}
+                  src={resumeData.profileImg}
                   alt=""
                 />
               </div>
