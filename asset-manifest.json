@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/MAKE-RE/static/css/main.4a7c421d.css",
-    "main.js": "/MAKE-RE/static/js/main.2cc776a4.js",
+    "main.css": "/MAKE-RE/static/css/main.bc1a6bf6.css",
+    "main.js": "/MAKE-RE/static/js/main.c5d5010b.js",
     "index.html": "/MAKE-RE/index.html",
     "static/media/icon-Calendar.svg": "/MAKE-RE/static/media/icon-Calendar.5624fd655249268e3bb1.svg",
     "static/media/link-move-icon.svg": "/MAKE-RE/static/media/link-move-icon.f06133d91d8878e61cd7.svg",
     "static/media/icon-Triangle-Up.svg": "/MAKE-RE/static/media/icon-Triangle-Up.9f61b3d4635c0ed798a3.svg",
     "static/media/icon-Triangle-Down.svg": "/MAKE-RE/static/media/icon-Triangle-Down.93f3ae6a2928973a9e57.svg",
-    "main.4a7c421d.css.map": "/MAKE-RE/static/css/main.4a7c421d.css.map",
-    "main.2cc776a4.js.map": "/MAKE-RE/static/js/main.2cc776a4.js.map"
+    "main.bc1a6bf6.css.map": "/MAKE-RE/static/css/main.bc1a6bf6.css.map",
+    "main.c5d5010b.js.map": "/MAKE-RE/static/js/main.c5d5010b.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a7c421d.css",
-    "static/js/main.2cc776a4.js"
+    "static/css/main.bc1a6bf6.css",
+    "static/js/main.c5d5010b.js"
   ]
 }
