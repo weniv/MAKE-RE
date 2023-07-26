@@ -14,7 +14,7 @@ export default function DeployLink({ id, project, setProject }) {
 
   return (
     <>
-      <h3 className={styles.subTitle}>프로젝트 링크</h3>
+      <h3 className={styles.subTitle}>배포 링크</h3>
       <div className={styles.deploy}>
         <img src="" alt="" />
         <input type="url" onChange={(e) => setLink(e.target.value)} />

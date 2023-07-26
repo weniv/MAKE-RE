@@ -109,7 +109,7 @@ function ProjectContent({ proj, idx }) {
           </div>
         </div>
         <div className={proj.demo ? styles.demo : styles.hidden}>
-          <p className={styles.subtit}>프로젝트 링크</p>
+          <p className={styles.subtit}>배포 링크</p>
           <div className={styles.urlLink}>
             <img
               src={process.env.PUBLIC_URL + '/images/link-icon-blue.svg'}
