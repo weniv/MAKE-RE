@@ -124,3 +124,27 @@
   outline: 2px solid var(--addButton-color);
   box-sizing: border-box;
 }
+
+.toastAlert {
+  transition: all 0.2s;
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  background-color: white;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  padding: 12px 24px;
+  border-radius: 5px;
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.toastAlert::before {
+  content: '💡 ';
+}
+.visible {
+  opacity: 1;
+}

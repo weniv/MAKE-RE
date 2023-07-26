@@ -41,6 +41,7 @@ function App() {
   const [isWrite, setIsWrite] = useState(true)
   const [resumeData, setResumeData] = useState(initValue())
   const [formName, setFormName] = useState('')
+  const [alert, setAlert] = useState(false)
   const componentRef = useRef(null)
 
   function initValue() {
@@ -54,6 +55,16 @@ function App() {
 
   function handleDataUpdate() {
     localStorage.setItem('data', JSON.stringify(resumeData))
+  }
+
+  function alertToast() {
+    setAlert(true)
+    const timer = setTimeout(() => {
+      setAlert(false)
+    }, 1000)
+    return () => {
+      clearTimeout(timer)
+    }
   }
 
   const handlePrint = useReactToPrint({
@@ -76,7 +87,10 @@ function App() {
               <button
                 form={`form-${formName}`}
                 className={`${styles.header} ${styles.saveBtn}`}
-                onClick={handleDataUpdate}
+                onClick={() => {
+                  handleDataUpdate()
+                  alertToast()
+                }}
               >
                 임시저장
               </button>
@@ -97,6 +111,9 @@ function App() {
         </nav>
       </header>
       <div className={`${App} ${styles.pageWrap}`}>
+        <div className={`${styles.toastAlert} ${alert ? styles.visible : ''}`}>
+          데이터가 로컬 스토리지에 저장되었습니다.
+        </div>
         <Write
           setResumeData={setResumeData}
           resumeData={resumeData}
