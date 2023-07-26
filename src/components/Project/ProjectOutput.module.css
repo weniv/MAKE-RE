@@ -101,13 +101,14 @@
 .demo {
   display: flex;
   align-items: center;
+  gap: 20px;
+}
+.github > *,
+.demo > * {
+  min-width: 76px;
 }
 .github {
-  gap: 34px;
   margin-bottom: 12px;
-}
-.demo {
-  gap: 20px;
 }
 
 .urlLink {

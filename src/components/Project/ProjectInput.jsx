@@ -382,7 +382,7 @@ function ProjectContent({
               </div>
             </div>
             <div>
-              <h4 className={styles.subTit}>프로젝트 링크</h4>
+              <h4 className={styles.subTit}>배포 링크</h4>
               <div className={styles.contLink}>
                 <label htmlFor={`dmLink-${idx}`} className={styles.lbLink}>
                   <img
